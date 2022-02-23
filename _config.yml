@@ -39,8 +39,8 @@ footer-links:
   #weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
   behance: # https://www.behance.net/<username>
   dribbble:
-  zhihu: ning-meng-cheng-31-94
-  email: zihuanling@foxmail.com
+  zhihu: ling-zi-huan-22
+  email: neil.ling@foxmail.com
   facebook:
   flickr:
   github: zihuanling 
@@ -55,7 +55,7 @@ footer-links:
   youtube:
 
 # Text under the icons in footer
-footer-text: Copyright (c) 2019 lemon
+footer-text: Copyright (c) 2022 LingZihuan
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
@@ -120,5 +120,8 @@ exclude:
   - CNAME
   - run.sh
 
+# Include _pages
+include:
+  - _pages
 
 theme: jekyll-theme-cayman

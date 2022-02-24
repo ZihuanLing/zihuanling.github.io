@@ -119,6 +119,7 @@ exclude:
   - README.md
   - CNAME
   - run.sh
+  - new.sh
 
 # Include _pages
 include:

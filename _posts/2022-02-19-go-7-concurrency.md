@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "5. go并发：同步原语，用sycn包控制并发"
+title: "7. go并发：同步原语，用sycn包控制并发"
 date: 2022-02-19
 tags: [go]
 comments: false

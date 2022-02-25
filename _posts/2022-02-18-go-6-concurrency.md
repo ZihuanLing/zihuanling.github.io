@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "4. go并发：Goroutines和Channels的声明和使用"
+title: "6. go并发：Goroutines和Channels的声明和使用"
 date: 2022-02-18
 tags: [go]
 comments: false

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>daily on Coding and Life</title>
-    <link>https://zihuanling.github.io/tags/daily/</link>
+    <link>https://zihuanling.github.io/categories/daily/</link>
     <description>Recent content in daily on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/daily/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/daily/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jinja2: 判断变量是否为空、存在等</title>
+      <link>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</link>
+      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</guid>
+      <description>在 Jinja2 模板中，我们经常需要判断一个变量是否存在，里面的值是否为空等等。
+检查变量是否存在，或者是否被定义 {% if variable is defined %}  variable is defined {% else %}  variable is not defined {% endif %} 检查数据的长度是否为空 对于列表类型的变量，我们可能需要知道这个列表是否为空的
+{% if variable | length %}  variable is not empty {% else %}  variable is empty {% endif %} 需要注意的是，如果这个变量为非列表类型，模板渲染的时候会报错
+检查变量值是否为True {% if variable is sameas true %}  variable is true {% else %}  variable is not true {% endif %} 同样，我们也可以用关键字and来实现多个判断 判断变量存在且不为空（列表型变量） {% if variable is defined and variable | length %}  variable is defined and is not empty {% else %}  variable is not defined or empty {% endif %} 判断变量存在且为true（布尔型变量） {% if variable is defined and is sameas true %}  variable is defined and is true {% else %}  variable is not defined or not true {% endif %} </description>
+    </item>
+    
     <item>
       <title>让github page支持mermaid语法</title>
       <link>https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/</link>

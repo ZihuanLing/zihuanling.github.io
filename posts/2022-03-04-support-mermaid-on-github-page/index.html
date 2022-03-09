@@ -3,14 +3,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>让github page支持mermaid语法 | B&M</title><meta name=keywords content="daily">
+<title>让github page支持mermaid语法 | Coding and Life</title><meta name=keywords content="daily">
 <meta name=description content="目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
 我们只需要在文章模板的末尾，添加如下转化代码即可：
 文件：_layouts/post.html {%- if content contains 'mermaid' -%} <script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;></script> <script> const config = {  startOnLoad:true,  theme: 'forest',  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid')); </script> {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。
 引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！
 --- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
 参考： Issue https://github.">
-<meta name=author content="ZihuanLing">
+<meta name=author content="LingZihuan">
 <link rel=canonical href=https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
@@ -18,16 +18,16 @@
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <link rel=preload href=/favicon.ico as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=16x16 href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
-<link rel=icon type=image/png sizes=32x32 href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
+<link rel=icon href=https://zihuanling.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://zihuanling.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=https://zihuanling.github.io/favicon.ico>
 <link rel=apple-touch-icon href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
 <link rel=mask-icon href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script>
-<script>const config={startOnLoad:!0,theme:"forest",flowchart:{useMaxWidth:!1,htmlLabels:!0}};mermaid.initialize(config),window.onload=()=>{window.mermaid.init(void 0,document.querySelectorAll(".language-mermaid"))}</script>
+<script>const config={startOnLoad:!0,theme:"forest",themeVariables:{lineColor:"#fafafa"},flowchart:{useMaxWidth:!1,htmlLabels:!0}};mermaid.initialize(config),window.onload=()=>{window.mermaid.init(void 0,document.querySelectorAll(".language-mermaid"))}</script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="让github page支持mermaid语法">
 <meta property="og:description" content="目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
 我们只需要在文章模板的末尾，添加如下转化代码即可：
@@ -36,11 +36,11 @@
 --- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
 参考： Issue https://github.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/"><meta property="og:image" content="https://zihuanling.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/"><meta property="og:image" content="https://zihuanling.github.io/avatar.jpeg"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-03-04T00:00:00+00:00">
 <meta property="article:modified_time" content="2022-03-04T00:00:00+00:00"><meta property="og:site_name" content="ExampleSite">
 <meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://zihuanling.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:image content="https://zihuanling.github.io/avatar.jpeg">
 <meta name=twitter:title content="让github page支持mermaid语法">
 <meta name=twitter:description content="目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
 我们只需要在文章模板的末尾，添加如下转化代码即可：
@@ -49,26 +49,26 @@
 --- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
 参考： Issue https://github.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://zihuanling.github.io/posts/"},{"@type":"ListItem","position":2,"name":"让github page支持mermaid语法","item":"https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"让github page支持mermaid语法","name":"让github page支持mermaid语法","description":"目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。\n我们只需要在文章模板的末尾，添加如下转化代码即可：\n文件：_layouts/post.html {%- if content contains \u0026#39;mermaid\u0026#39; -%} \u0026lt;script src=\u0026#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script\u0026gt; const config = {  startOnLoad:true,  theme: \u0026#39;forest\u0026#39;,  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll(\u0026#39;.language-mermaid\u0026#39;)); \u0026lt;/script\u0026gt; {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。\n引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！\n--- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。\n参考： Issue https://github.","keywords":["daily"],"articleBody":"目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。\n我们只需要在文章模板的末尾，添加如下转化代码即可：\n文件：_layouts/post.html {%- if content contains 'mermaid' -%} script src=\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\"script script const config = {  startOnLoad:true,  theme: 'forest',  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid')); script {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。\n引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！\n--- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。\n参考： Issue https://github.com/gettalong/kramdown/issues/637\n","wordCount":"65","inLanguage":"en","datePublished":"2022-03-04T00:00:00Z","dateModified":"2022-03-04T00:00:00Z","author":{"@type":"Person","name":"ZihuanLing"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/"},"publisher":{"@type":"Organization","name":"B\u0026M","logo":{"@type":"ImageObject","url":"https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"让github page支持mermaid语法","name":"让github page支持mermaid语法","description":"目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。\n我们只需要在文章模板的末尾，添加如下转化代码即可：\n文件：_layouts/post.html {%- if content contains \u0026#39;mermaid\u0026#39; -%} \u0026lt;script src=\u0026#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script\u0026gt; const config = {  startOnLoad:true,  theme: \u0026#39;forest\u0026#39;,  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll(\u0026#39;.language-mermaid\u0026#39;)); \u0026lt;/script\u0026gt; {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。\n引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！\n--- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。\n参考： Issue https://github.","keywords":["daily"],"articleBody":"目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。\n我们只需要在文章模板的末尾，添加如下转化代码即可：\n文件：_layouts/post.html {%- if content contains 'mermaid' -%} script src=\"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js\"script script const config = {  startOnLoad:true,  theme: 'forest',  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid')); script {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。\n引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！\n--- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。\n参考： Issue https://github.com/gettalong/kramdown/issues/637\n","wordCount":"65","inLanguage":"en","datePublished":"2022-03-04T00:00:00Z","dateModified":"2022-03-04T00:00:00Z","author":{"@type":"Person","name":"LingZihuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/"},"publisher":{"@type":"Organization","name":"Coding and Life","logo":{"@type":"ImageObject","url":"https://zihuanling.github.io/favicon.ico"}}}</script>
 </head><body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://zihuanling.github.io/ accesskey=h title="Home (Alt + H)">
-<img src=https://zihuanling.github.io/favicon.ico alt=logo aria-label=logo height=35>Home</a>
+<a href=https://zihuanling.github.io/ accesskey=h title="Coding and Life (Alt + H)">
+<img src=https://zihuanling.github.io/favicon.ico alt=logo aria-label=logo height=35>Coding and Life</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 </span>
 </div><ul id=menu>
 <li>
-<a href=https://zihuanling.github.io/categories/ title=categories>
-<span>categories</span>
+<a href=https://zihuanling.github.io/categories/ title=分类>
+<span>分类</span>
 </a>
 </li><li>
-<a href=https://zihuanling.github.io/tags/ title=tags>
-<span>tags</span>
+<a href=https://zihuanling.github.io/tags/ title=标签>
+<span>标签</span>
 </a>
 </li><li>
 <a href=https://zihuanling.github.io/ title=zihuanling.github.io>
@@ -79,7 +79,7 @@
 <header class=post-header>
 <div class=breadcrumbs><a href=https://zihuanling.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://zihuanling.github.io/posts/>Posts</a></div><h1 class=post-title>
 让github page支持mermaid语法
-</h1><div class=post-meta><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ZihuanLing&nbsp;|&nbsp;<a href=https://github.com/ZihuanLing/zihuanling.github.io/content/posts/2022-03-04-support-mermaid-on-github-page.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</h1><div class=post-meta><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan&nbsp;|&nbsp;<a href=https://github.com/ZihuanLing/zihuanling.github.io/content/posts/2022-03-04-support-mermaid-on-github-page.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div></header><div class=post-content><p>目前，github page 会将 markdown里面的 <code>mermaid</code> 块渲染成为一个 <code>div.language-mermaid</code> 的 html 代码块，但是，mermaid-js仅支持渲染 <code>div.mermaid</code> 的html代码块，因此，我们需要做一点处理。</p><p>我们只需要在文章模板的末尾，添加如下转化代码即可：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>文件：_layouts/post.html
 </span></span><span style=display:flex><span>{%- if content contains &#39;mermaid&#39; -%}
 </span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
@@ -126,7 +126,7 @@
 <a target=_blank rel="noopener noreferrer" aria-label="share 让github page支持mermaid语法 on telegram" href="https://telegram.me/share/url?text=%e8%ae%a9github%20page%e6%94%af%e6%8c%81mermaid%e8%af%ad%e6%b3%95&url=https%3a%2f%2fzihuanling.github.io%2fposts%2f2022-03-04-support-mermaid-on-github-page%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
 </a>
 </div></footer></article></main><footer class=footer>
-<span>&copy; 2022 <a href=https://zihuanling.github.io/>B&M</a></span>
+<span>&copy; 2022 <a href=https://zihuanling.github.io/>Coding and Life</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

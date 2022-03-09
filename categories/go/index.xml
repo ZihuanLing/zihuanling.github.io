@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Coding and Life</title>
-    <link>https://zihuanling.github.io/</link>
-    <description>Recent content on Coding and Life</description>
+    <title>go on Coding and Life</title>
+    <link>https://zihuanling.github.io/categories/go/</link>
+    <description>Recent content in go on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Jinja2: 判断变量是否为空、存在等</title>
-      <link>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</link>
-      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</guid>
-      <description>在 Jinja2 模板中，我们经常需要判断一个变量是否存在，里面的值是否为空等等。
-检查变量是否存在，或者是否被定义 {% if variable is defined %}  variable is defined {% else %}  variable is not defined {% endif %} 检查数据的长度是否为空 对于列表类型的变量，我们可能需要知道这个列表是否为空的
-{% if variable | length %}  variable is not empty {% else %}  variable is empty {% endif %} 需要注意的是，如果这个变量为非列表类型，模板渲染的时候会报错
-检查变量值是否为True {% if variable is sameas true %}  variable is true {% else %}  variable is not true {% endif %} 同样，我们也可以用关键字and来实现多个判断 判断变量存在且不为空（列表型变量） {% if variable is defined and variable | length %}  variable is defined and is not empty {% else %}  variable is not defined or empty {% endif %} 判断变量存在且为true（布尔型变量） {% if variable is defined and is sameas true %}  variable is defined and is true {% else %}  variable is not defined or not true {% endif %} </description>
-    </item>
-    
+    <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>10. go深入：Go 中的指针</title>
       <link>https://zihuanling.github.io/posts/2022-03-06-go-10-depth/</link>
@@ -54,20 +42,6 @@ for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终
     </item>
     
     <item>
-      <title>让github page支持mermaid语法</title>
-      <link>https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/</link>
-      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/</guid>
-      <description>目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
-我们只需要在文章模板的末尾，添加如下转化代码即可：
-文件：_layouts/post.html {%- if content contains &amp;#39;mermaid&amp;#39; -%} &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; const config = {  startOnLoad:true,  theme: &amp;#39;forest&amp;#39;,  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll(&amp;#39;.language-mermaid&amp;#39;)); &amp;lt;/script&amp;gt; {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。
-引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！
---- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
-参考： Issue https://github.</description>
-    </item>
-    
-    <item>
       <title>8. go并发：Context-多线程并发控制神器</title>
       <link>https://zihuanling.github.io/posts/2022-02-27-go-8-concurrency/</link>
       <pubDate>Sun, 27 Feb 2022 00:00:00 +0000</pubDate>
@@ -76,29 +50,6 @@ for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终
       <description>协程如何退出 一般来说，我们执行协程，需要等到协程执行完毕，才能够退出。但是，当我们想要让协程提前退出，就需要一种机制，去控制协程的退出。
 以下例子使用select + channel的方式，控制协程的退出
  func main() { 	ch := make(chan bool) 	var wg sync.WaitGroup 	go func() { 	defer wg.Done()  // 开启looper协程 	looper(ch) 	}() 	wg.Add(1)  // 5秒后发送中断信号 	time.Sleep(time.Second * 5) 	fmt.Println(&amp;#34;Signal to goroutine exit...&amp;#34;) 	ch &amp;lt;- true 	fmt.Println(&amp;#34;Signal sent.&amp;#34;) 	wg.Wait() // 等待协程完全退出 	fmt.Println(&amp;#34;Exit.&amp;#34;) }  func looper(ch &amp;lt;-chan bool){ 	for { 	select { 	case &amp;lt;-ch: 	fmt.</description>
-    </item>
-    
-    <item>
-      <title>使用 getopts 获取命令行中的参数</title>
-      <link>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</link>
-      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</guid>
-      <description>在某些场景中，我们写的bash脚本需要获取命令行中指定的某些参数，用以判断某些条件，或者设置某些变量等。
-getopts可以让我们通过指定 -a 1 的方式指定对应的参数名称和参数值。
-一个更详细的小教程，可以看这里： getopts_tutorial 使用 可以使用 while getopts &amp;quot;:a:p:&amp;quot; opt; do... 的方式，将参数名称读取到 opt 变量中，然后，在循环体中，使用 $OPTARG 获取到具体的参数值。
-一个小栗子，用于快捷创建新的 gihub pages 博客模板：
-#!/usr/bin/env bash  # 用于快捷创建新博客 # 命令： ./new.sh -t 标签1,标签2 -n 文章标题 -l layout -c 1  layout=&amp;#34;post&amp;#34; title=&amp;#34;new-post&amp;#34; now=$(date +%Y-%m-%d) can_comment=&amp;#34;false&amp;#34; author=&amp;#34;ZihuanLing&amp;#34;  while getopts &amp;#34;:l:t:c:n:&amp;#34; opt; do  case $opt in  l)  layout=&amp;#34;$OPTARG&amp;#34;  ;;  t)  tags=&amp;#34;[$OPTARG]&amp;#34;  ;;  c)  can_comment=&amp;#34;true&amp;#34;  ;;  n)  title=$(echo &amp;#34;$OPTARG&amp;#34; | sed &amp;#34;s/ /\-/g&amp;#34;)  ;;  \?</description>
-    </item>
-    
-    <item>
-      <title>第一篇GitHub Page博客</title>
-      <link>https://zihuanling.github.io/posts/2022-02-23-first-github-page-blog/</link>
-      <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/2022-02-23-first-github-page-blog/</guid>
-      <description>从 lemonchan.github.io fork了这个博客项目，感觉太棒了，设计很简洁，我需要的功能基本上都有。
-感谢！</description>
     </item>
     
     <item>

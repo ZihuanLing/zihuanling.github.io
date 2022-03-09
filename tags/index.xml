@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on B&amp;M</title>
+    <link>https://zihuanling.github.io/tags/</link>
+    <description>Recent content in Tags on B&amp;M</description>
+    <image>
+      <url>https://zihuanling.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://zihuanling.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jinja2</title>
+      <link>https://zihuanling.github.io/tags/jinja2/</link>
+      <pubDate>Wed, 09 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/jinja2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://zihuanling.github.io/tags/go/</link>
+      <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>daily</title>
+      <link>https://zihuanling.github.io/tags/daily/</link>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/daily/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://zihuanling.github.io/tags/bash/</link>
+      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://zihuanling.github.io/tags/linux/</link>
+      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

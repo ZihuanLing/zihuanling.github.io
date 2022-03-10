@@ -11,6 +11,12 @@ buildExpired: false
 
 googleAnalytics: G-L8RQZ143RR
 
+outputs:
+  home: 
+    - HTML
+    - RSS
+    - JSON
+
 minify:
   disableXML: true
   minifyOutput: true

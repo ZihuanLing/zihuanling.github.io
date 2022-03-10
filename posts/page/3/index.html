@@ -64,6 +64,18 @@
 </li></ul></nav></header><main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://zihuanling.github.io/>Home</a></div><h1>Posts</h1></header><article class=post-entry>
 <header class=entry-header>
+<h2>6. go并发：Goroutines和Channels的声明和使用
+</h2></header><section class=entry-content>
+<p>并发，就是让程序在同一时刻做多件事情。
+go语言天生自带并发属性，使得并发编程十！分！方！便！，我们只需要 go 函数名() 即可！\(^o^)/
+进程和线程 进程 程序启动时，系统会为其创建一个进程
+线程 是进程的执行空间，一个进程可以包含多个线程，线程被操作系统调度执行 一个程序启动，对应的进程会被创建，同时也会创建一个线程（主线程），主线程结束，整个程序也就退出了。 我们可以从主线程创建其他的子线程，这就是多线程并发
+协程 Goroutine goroutine比线程更加轻盈，被Go runtime调度。 启动协程： go function()
+// 这里启动了两个goroutine， 一个是用go关键字触发的，另一个是 main goroutine（主线程） func main(){ go fmt.Println("Hello goroutine.") fmt.Println("Main goroutine.") time.Sleep(time.Second) } Channel 多个goroutine之间，使用 channel进行通信
+声明一个channel // 直接使用 make 创建一个channel，接受的数据类型是string ch := make(chan string) // 一个channel的操作只有两种： // - 发送，向chan中发送值： chan&lt;- // - 接受，从chan中获取值： &lt;-chan demo
+func main(){ ch := make(chan string) go func(){ fmt....</p></section><footer class=entry-footer><span title="2022-02-18 00:00:00 +0000 UTC">February 18, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 6. go并发：Goroutines和Channels的声明和使用" href=https://zihuanling.github.io/posts/2022-02-18-go-6-concurrency/></a>
+</article><article class=post-entry>
+<header class=entry-header>
 <h2>5. go基础：通过 error/deffer/panic 处理错误
 </h2></header><section class=entry-content>
 <p>正确处理错误，可以让程序更加稳定。error是一个错误接口，一般来说，error是不会影响到整个程序运行的，我们可以自行处理。 而panic是会导致程序直接崩溃退出的，我们也可以用 go自带的recover()来恢复panic，在程序崩溃前进行资源的释放工作。
@@ -107,18 +119,10 @@ arr := []string{"a", "b", "c", "d", "e"} 这里会自动生成长度为5的字�
 arr := [5]string{1: "a", 3: "c"} 上述表示数组初始化索引为1的值为a，索引为3的值为c，其他未初始化的为空值（字符串的空值为""）
 如果我们不指定 [5]string，那么go就会根据我们定义的最大索引值3 来确定数组的长度为4
 数组循环 使用传统的数组循环： for i := 0; i &lt; len(arr); i++ { fmt.Println(arr[i]) } 使用 for range 数组遍历，写法更加简洁 for index, value := range arr { fmt.Printf("index = %v, value = %v\n", index, value) } 切片 Slice 切片的区间是左闭右开，如arr[2:5]，选取的索引取数是[2,3,4] 切片的底层是（原）数组，将切片内容修改之后，原数组也会改变...</p></section><footer class=entry-footer><span title="2022-02-10 00:00:00 +0000 UTC">February 10, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 2. go基础：使用array/slice/map" href=https://zihuanling.github.io/posts/2022-02-10-go-2-basic/></a>
-</article><article class=post-entry>
-<header class=entry-header>
-<h2>1. go基础：数据类型，以及控制结构
-</h2></header><section class=entry-content>
-<p>go最近很火啊，自带高并发，内置网络模块强大，作为后端工程师一枚，自然也要学起来！
-go 的基础部分跟我们之前学过的大部分语言是都是十分相似的，上手十分简单。
-第一个go程序 第一个程序大都是hello嘛，向新世界打个招呼 :)
-import fmt func main(){ fmt.Println("hello golang!") } 数据类型以及变量声明的方式 变量声明的方式 // var 变量名 类型 = 表达式 var num int = 1 // 也可以声明变量，但是不赋值 var num int // 这样的默认值就是int的默认值 0 // 可以直接赋值并且声明类型 num := 1 // 可以实现多值定义 a, b, c := 1, 2, "hello" var ( a = 1 b = 2 c = "hello" ) 常量声明 常量声明，我们可以直接使用 const 关键字，不需要指定数据的类型，通常，常量我们用大写进行命名
-我们指定变量的值，会自定将变量转为对应的类型...</p></section><footer class=entry-footer><span title="2022-01-07 00:00:00 +0000 UTC">January 7, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 1. go基础：数据类型，以及控制结构" href=https://zihuanling.github.io/posts/2022-01-07-go-1-basic/></a>
 </article><footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://zihuanling.github.io/posts/page/2/>« Prev Page</a>
+<a class=next href=https://zihuanling.github.io/posts/page/4/>Next Page »</a>
 </nav></footer></main><footer class=footer>
 <span>&copy; 2022 <a href=https://zihuanling.github.io/>Coding and Life</a></span>
 <span>

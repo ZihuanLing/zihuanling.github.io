@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zihuanling.github.io/posts/go-11-depth/</loc>
+    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/</loc>
+    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+  </url><url>
     <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-03-10T09:40:06+08:00</lastmod>
+    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/go/</loc>
+    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2022-03-10T09:40:06+08:00</lastmod>
+    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/hugo-papermod-mermaid/</loc>
     <lastmod>2022-03-10T09:40:06+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/daily/</loc>
     <lastmod>2022-03-09T00:00:00+00:00</lastmod>
@@ -30,9 +36,6 @@
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/go/</loc>
-    <lastmod>2022-03-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/go/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/2022-03-04-go-9-concurrency/</loc>

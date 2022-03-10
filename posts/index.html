@@ -64,6 +64,16 @@
 </li></ul></nav></header><main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://zihuanling.github.io/>Home</a></div><h1>Posts</h1></header><article class=post-entry>
 <header class=entry-header>
+<h2>11. go深入：值、指针以及引用类型
+</h2></header><section class=entry-content>
+<p>值类型 假设我们有一个这样的结构体：
+type person struct { name string age uint } 然后我们试图定义一个函数，修改这个结构体实例的值：
+func modify(argP person){ argP.name = "Nobody" argP.age = 10 } // 我们实际运行一下这个函数 func main(){ p := person{name: "mike", age: 19} fmt.Println(p) modify(p) fmt.Println(p) } 上述的例子中，我们期望在经过了modify函数修改后，打印出来的结果是 {Nobody, 10}，然而实际上，输出的仍然是初始化的值： {mike, 19}
+为啥会这样呢，因为上面定义的变量 p 是值类型，而通过modify函数传入的变量值argP只是原始值变量p的一份值拷贝，而不是原来的数据本身。
+其实，我们只要在modify函数内部和外部打印出变量p和argP的地址，就可以发现他们的不同之处。
+func modify(argP person){ fmt.Printf("address of arg p: %p\n", &argP) // ... } func main(){ // ....</p></section><footer class=entry-footer><span title="2022-03-10 14:44:08 +0800 +0800">March 10, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 11. go深入：值、指针以及引用类型" href=https://zihuanling.github.io/posts/go-11-depth/></a>
+</article><article class=post-entry>
+<header class=entry-header>
 <h2>让Hugo Papermod主题支持 Mermaid
 </h2></header><section class=entry-content>
 <p>由于我的博客文章里面用到了mermaid绘制流程图，从Jekyll迁移到Hugo之后，使用的PaperMod主题是默认不支持mermaid渲染的，搜了很多帖子，看到有很多解决办法。
@@ -102,16 +112,6 @@ var sp *string = new(string)...</p></section><footer class=entry-footer><span ti
 <p>for select 模式 这是一种常见的并发模式，我们一般使用 for {} 死循环，然后里面加select配合channel，获取协程的终止信号，来控制协程的退出
 for { select { case &lt;- done: // received stop signal, stopping. return default: // processing ... } } 类似的还有 for range select模式，主要就是使用 for ... range 遍历某个数据数组，将数据发送到channel里面：
 for _, value := range []int{} { select { case &lt;- done: // 接受到终止信号 return case resultCh &lt;- value: // do nothing but put value to rsult channel } } select timeout 模式 select timeout模式，核心在于使用 time....</p></section><footer class=entry-footer><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 9. go并发：Go 中的并发模式" href=https://zihuanling.github.io/posts/2022-03-04-go-9-concurrency/></a>
-</article><article class=post-entry>
-<header class=entry-header>
-<h2>让github page支持mermaid语法
-</h2></header><section class=entry-content>
-<p>目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
-我们只需要在文章模板的末尾，添加如下转化代码即可：
-文件：_layouts/post.html {%- if content contains 'mermaid' -%} &lt;script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js">&lt;/script> &lt;script> const config = { startOnLoad:true, theme: 'forest', flowchart: { useMaxWidth:false, htmlLabels:true } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid')); &lt;/script> {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。
-引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！
---- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
-参考： Issue https://github....</p></section><footer class=entry-footer><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to 让github page支持mermaid语法" href=https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/></a>
 </article><footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://zihuanling.github.io/posts/page/2/>Next Page »</a>

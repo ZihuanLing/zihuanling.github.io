@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 10 Mar 2022 09:40:06 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 14:44:08 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11. go深入：值、指针以及引用类型</title>
+      <link>https://zihuanling.github.io/posts/go-11-depth/</link>
+      <pubDate>Thu, 10 Mar 2022 14:44:08 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-11-depth/</guid>
+      <description>值类型 假设我们有一个这样的结构体：
+type person struct {  name string  age uint } 然后我们试图定义一个函数，修改这个结构体实例的值：
+func modify(argP person){  argP.name = &amp;#34;Nobody&amp;#34;  argP.age = 10 }  // 我们实际运行一下这个函数 func main(){  p := person{name: &amp;#34;mike&amp;#34;, age: 19}  fmt.Println(p)  modify(p)  fmt.Println(p) } 上述的例子中，我们期望在经过了modify函数修改后，打印出来的结果是 {Nobody, 10}，然而实际上，输出的仍然是初始化的值： {mike, 19}
+为啥会这样呢，因为上面定义的变量 p 是值类型，而通过modify函数传入的变量值argP只是原始值变量p的一份值拷贝，而不是原来的数据本身。
+其实，我们只要在modify函数内部和外部打印出变量p和argP的地址，就可以发现他们的不同之处。
+func modify(argP person){  fmt.Printf(&amp;#34;address of arg p: %p\n&amp;#34;, &amp;amp;argP)  // ... }  func main(){  // .</description>
+    </item>
+    
     <item>
       <title>让Hugo Papermod主题支持 Mermaid</title>
       <link>https://zihuanling.github.io/posts/hugo-papermod-mermaid/</link>

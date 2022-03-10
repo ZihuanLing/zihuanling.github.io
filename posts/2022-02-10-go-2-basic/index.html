@@ -19,7 +19,7 @@ arr := [5]string{1: &#34;a&#34;, 3: &#34;c&#34;} 上述表示数组初始化索�
 数组循环  使用传统的数组循环：  for i := 0; i < len(arr); i++ { 	fmt.Println(arr[i]) }  使用 for range 数组遍历，写法更加简洁  for index, value := range arr { 	fmt.Printf(&#34;index = %v, value = %v\n&#34;, index, value) } 切片 Slice 切片的区间是左闭右开，如arr[2:5]，选取的索引取数是[2,3,4] 切片的底层是（原）数组，将切片内容修改之后，原数组也会改变">
 <meta name=author content="LingZihuan">
 <link rel=canonical href=https://zihuanling.github.io/posts/2022-02-10-go-2-basic/>
-<meta name=google-site-verification content="googleAnalytics">
+<meta name=google-site-verification content="G-FEL07ZZK1M">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <link rel=preload href=/favicon.ico as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI=" onload=hljs.initHighlightingOnLoad()></script>
@@ -33,8 +33,8 @@ arr := [5]string{1: &#34;a&#34;, 3: &#34;c&#34;} 上述表示数组初始化索�
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script>
 <script>const config={startOnLoad:!0,theme:"forest",themeVariables:{lineColor:"#fafafa"},flowchart:{useMaxWidth:!1,htmlLabels:!0}};mermaid.initialize(config),window.onload=()=>{window.mermaid.init(void 0,document.querySelectorAll(".language-mermaid"))}</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8RQZ143RR"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-L8RQZ143RR",{anonymize_ip:!1})}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEL07ZZK1M"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-FEL07ZZK1M",{anonymize_ip:!1})}</script>
 <meta property="og:title" content="2. go基础：使用array/slice/map">
 <meta property="og:description" content="数组，大概是每个变成语言都有基础数据结构。
 Go的切片类型（slice）提供了一种方便和有效的方法来处理类型化数据序列（数组）。slice类似于其他语言中的数组，但有一些不同寻常的属性。

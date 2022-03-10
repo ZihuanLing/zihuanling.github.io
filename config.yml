@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: G-L8RQZ143RR
+googleAnalytics: G-FEL07ZZK1M
 
 outputs:
   home: 
@@ -87,7 +87,7 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "googleAnalytics"
+      SiteVerificationTag: "G-FEL07ZZK1M"
 
   cover:
     hidden: true # hide everywhere but not in structured data

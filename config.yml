@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+googleAnalytics: G-L8RQZ143RR
 
 minify:
   disableXML: true
@@ -45,8 +45,6 @@ params:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon.ico"
     favicon32x32: "/favicon.ico"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
 
   label:
     text: "Coding and Life"
@@ -63,9 +61,9 @@ params:
     imageHeight: 120
     imageTitle: "my avatar"
     buttons:
-      - name: 文章
+      - name: Posts
         url: posts
-      - name: 标签
+      - name: Tags
         url: tags
 
   # home-info mode
@@ -76,28 +74,24 @@ params:
   socialIcons:
     - name: twitter
       url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
+    - name: email
+      url: "mailto:neil.ling@foxmail.com"
     - name: github
       url: "https://github.com/ZihuanLing"
 
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "googleAnalytics"
 
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/ZihuanLing/zihuanling.github.io/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  # editPost:
+  #   URL: "https://github.com/ZihuanLing/zihuanling.github.io/content"
+  #   Text: "Suggest Changes" # edit text
+  #   appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -111,18 +105,22 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 8
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 9
     - identifier: categories
-      name: 分类
+      name: Categories
       url: /categories/
       weight: 10
     - identifier: tags
-      name: 标签
+      name: Tags
       url: /tags/
       weight: 20
-    - identifier: homepage
-      name: zihuanling.github.io
-      url: 'https://zihuanling.github.io/'
-      weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:

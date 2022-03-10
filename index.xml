@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 09:40:06 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>让Hugo Papermod主题支持 Mermaid</title>
+      <link>https://zihuanling.github.io/posts/hugo-papermod-mermaid/</link>
+      <pubDate>Thu, 10 Mar 2022 09:40:06 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/hugo-papermod-mermaid/</guid>
+      <description>由于我的博客文章里面用到了mermaid绘制流程图，从Jekyll迁移到Hugo之后，使用的PaperMod主题是默认不支持mermaid渲染的，搜了很多帖子，看到有很多解决办法。
+比如有定义 /layouts/shortcodes/mermaid.html 的，然后在代码里面，需要用到mermaid的地方（文章里面）这样写：
+{{ &amp;lt;mermaid&amp;gt; }} ... 这里写mermaid内容 {{ &amp;lt;/mermaid&amp;gt; }} 但是这样的写法不是我想要的，我想要的是保留原来的写法，能够在渲染成html的时候，动态渲染 .language-mermaid 这个类的元素为 mermaid代码块。
+查了一下PaperMod这个主题的代码，发现预留了 extend_head.html 这个扩展html头，太棒了！我们就可以在不改变原有主题代码的情况下，增添自己的head内容！
+首先，我们新建一个文件： layouts/partials/extend_head.html，然后在里面写上mermaid的初始化代码：
+&amp;lt;!-- 使用cdn加载文件 --&amp;gt; &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; // 自定义mermaid配置 const config = {  startOnLoad:true,  theme: &amp;#39;forest&amp;#39;,  themeVariables: {  lineColor: &amp;#34;#fafafa&amp;#34; // 由于paperMod的代码块背景是黑色的，这里将线条设置为白色  },  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); // 需要注意的是，要将初始化代码放到 window.onload 回调函数里面才有用 // 否则会因为在html元素加载前进行初始化，找不到元素而失效 window.onload = () =&amp;gt; {  window.</description>
+    </item>
+    
     <item>
       <title>Jinja2: 判断变量是否为空、存在等</title>
       <link>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</link>
@@ -205,6 +219,8 @@ go 的基础部分跟我们之前学过的大部分语言是都是十分相似�
 import fmt  func main(){  fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类型以及变量声明的方式 变量声明的方式 // var 变量名 类型 = 表达式 var num int = 1 // 也可以声明变量，但是不赋值 var num int	// 这样的默认值就是int的默认值 0 // 可以直接赋值并且声明类型 num := 1 // 可以实现多值定义 a, b, c := 1, 2, &amp;#34;hello&amp;#34; var (  a = 1  b = 2  c = &amp;#34;hello&amp;#34; ) 常量声明 常量声明，我们可以直接使用 const 关键字，不需要指定数据的类型，通常，常量我们用大写进行命名
 我们指定变量的值，会自定将变量转为对应的类型</description>
     </item>
+    
+    
     
   </channel>
 </rss>

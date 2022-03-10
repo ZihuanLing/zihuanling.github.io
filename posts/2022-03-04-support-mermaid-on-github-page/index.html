@@ -12,23 +12,23 @@
 参考： Issue https://github.">
 <meta name=author content="LingZihuan">
 <link rel=canonical href=https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/>
-<meta name=google-site-verification content="XYZabc">
-<meta name=yandex-verification content="XYZabc">
-<meta name=msvalidate.01 content="XYZabc">
+<meta name=google-site-verification content="googleAnalytics">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
 <link rel=preload href=/favicon.ico as=image>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://zihuanling.github.io/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://zihuanling.github.io/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=https://zihuanling.github.io/favicon.ico>
-<link rel=apple-touch-icon href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
-<link rel=mask-icon href=https://zihuanling.github.io/%3Clink%20/%20abs%20url%3E>
+<link rel=apple-touch-icon href=https://zihuanling.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://zihuanling.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script>
 <script>const config={startOnLoad:!0,theme:"forest",themeVariables:{lineColor:"#fafafa"},flowchart:{useMaxWidth:!1,htmlLabels:!0}};mermaid.initialize(config),window.onload=()=>{window.mermaid.init(void 0,document.querySelectorAll(".language-mermaid"))}</script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="让github page支持mermaid语法">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8RQZ143RR"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-L8RQZ143RR",{anonymize_ip:!1})}</script>
+<meta property="og:title" content="让github page支持mermaid语法">
 <meta property="og:description" content="目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
 我们只需要在文章模板的末尾，添加如下转化代码即可：
 文件：_layouts/post.html {%- if content contains 'mermaid' -%} <script src=&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;></script> <script> const config = {  startOnLoad:true,  theme: 'forest',  flowchart: {  useMaxWidth:false,  htmlLabels:true  } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid')); </script> {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。
@@ -63,23 +63,27 @@
 </span>
 </div><ul id=menu>
 <li>
-<a href=https://zihuanling.github.io/categories/ title=分类>
-<span>分类</span>
+<a href=https://zihuanling.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
 </a>
 </li><li>
-<a href=https://zihuanling.github.io/tags/ title=标签>
-<span>标签</span>
+<a href=https://zihuanling.github.io/archives/ title=Archives>
+<span>Archives</span>
 </a>
 </li><li>
-<a href=https://zihuanling.github.io/ title=zihuanling.github.io>
-<span>zihuanling.github.io</span>
+<a href=https://zihuanling.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li><li>
+<a href=https://zihuanling.github.io/tags/ title=Tags>
+<span>Tags</span>
 </a>
 </li></ul></nav></header><main class=main>
 <article class=post-single>
 <header class=post-header>
 <div class=breadcrumbs><a href=https://zihuanling.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://zihuanling.github.io/posts/>Posts</a></div><h1 class=post-title>
 让github page支持mermaid语法
-</h1><div class=post-meta><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan&nbsp;|&nbsp;<a href=https://github.com/ZihuanLing/zihuanling.github.io/content/posts/2022-03-04-support-mermaid-on-github-page.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</h1><div class=post-meta><span title="2022-03-04 00:00:00 +0000 UTC">March 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan
 </div></header><div class=post-content><p>目前，github page 会将 markdown里面的 <code>mermaid</code> 块渲染成为一个 <code>div.language-mermaid</code> 的 html 代码块，但是，mermaid-js仅支持渲染 <code>div.mermaid</code> 的html代码块，因此，我们需要做一点处理。</p><p>我们只需要在文章模板的末尾，添加如下转化代码即可：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>文件：_layouts/post.html
 </span></span><span style=display:flex><span>{%- if content contains &#39;mermaid&#39; -%}
 </span></span><span style=display:flex><span>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;

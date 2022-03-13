@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zihuanling.github.io/posts/go-11-depth/</loc>
-    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+    <loc>https://zihuanling.github.io/posts/go-12-depth-new-and-make/</loc>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/go/</loc>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/go/</loc>
-    <lastmod>2022-03-10T14:44:08+08:00</lastmod>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/</loc>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/</loc>
+    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/go-11-depth/</loc>
     <lastmod>2022-03-10T14:44:08+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/hugo-papermod-mermaid/</loc>
@@ -29,13 +38,7 @@
     <loc>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</loc>
     <lastmod>2022-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://zihuanling.github.io/tags/</loc>
-    <lastmod>2022-03-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/posts/2022-03-06-go-10-depth/</loc>
-    <lastmod>2022-03-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/tags/go/</loc>
     <lastmod>2022-03-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/2022-03-04-go-9-concurrency/</loc>

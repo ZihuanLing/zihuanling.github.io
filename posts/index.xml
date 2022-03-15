@@ -10,7 +10,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 13 Mar 2022 23:35:38 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Mar 2022 00:33:13 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>13.go深入：reflect 运行时反射</title>
+      <link>https://zihuanling.github.io/posts/go-13-depth-reflect/</link>
+      <pubDate>Mon, 14 Mar 2022 00:33:13 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-13-depth-reflect/</guid>
+      <description>啥是反射 go语言中，反射为我们提供了一种可以在运行时操作任意类型对象的能力，比如，查看一个接口变量的具体类型、看一个结构体有多少字段、修改某个字段的值等。
+比如 fmt.Println：
+func Println(a ...interface{}) (n int, err error) {  return Fprintln(os.Stdout, a...) } 函数定义中有一个可变参数 a ...interface{}，我们在调用的时候，可以传1个到多个参数进去。
+reflect.Value 和 reflect.Type go语言的反射定义中，任何接口都有两个部分组成：接口的具体类型，以及具体类型对应的值。如 var i in = 3，由于 interface{}可以表示任何类型，因此i可以转化为 interface{}，将其当做一个接口，此时它在go反射中就表示成 &amp;lt;Value, Type&amp;gt;，其中Value为3，Type为int。
+go反射中，标准库为我们提供了两种类型 reflect.Value和 reflect.Type分别表示变量的值和类型，并且可以用函数 reflect.ValueOf和 reflect.TypeOf分别获取任意对象 Value和Type。
+func main(){  var i int = 3  iv := reflect.ValueOf(i)  it := reflect.TypeOf(i)  fmt.Println(iv, it) } reflect.Value 结构体定义 reflect.Value 可以通过 reflect.ValueOf获得，其结构体定义如下
+type Value struct {  typ *rtype  ptr unsafe.</description>
+    </item>
+    
     <item>
       <title>12.go深入：new、make和内存分配</title>
       <link>https://zihuanling.github.io/posts/go-12-depth-new-and-make/</link>

@@ -2,22 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zihuanling.github.io/posts/go-13-depth-reflect/</loc>
+    <lastmod>2022-03-14T00:33:13+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/</loc>
+    <lastmod>2022-03-14T00:33:13+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/</loc>
+    <lastmod>2022-03-14T00:33:13+08:00</lastmod>
+  </url><url>
     <loc>https://zihuanling.github.io/posts/go-12-depth-new-and-make/</loc>
     <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/</loc>
     <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
-    <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/tags/go/</loc>
     <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/go/</loc>
-    <lastmod>2022-03-13T23:35:38+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/posts/</loc>
     <lastmod>2022-03-13T23:35:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/</loc>

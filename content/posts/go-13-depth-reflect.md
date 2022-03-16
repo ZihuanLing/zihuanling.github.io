@@ -336,7 +336,52 @@ func main(){
 }
 ```
 
+#### 通过反射调用方法
 
+```go
+type person struct {
+	Name string `json:"name"`
+	Age uint	`json:"age"`
+}
+
+func (p person) Greet(who string) {
+	fmt.Printf("Hello! %s is greeting to %s.\n", who, p.Name)
+}
+
+func main() {
+    p := person{Name: "Mike", Age: 10}
+    pv := reflect.ValueOf(p)
+    method := pv.MethodByName("Greet")
+	// call method
+	args := []reflect.Value{
+		reflect.ValueOf("Amy"),
+	}
+    // 相当于  p.Greet("Amy")
+	method.Call(args)
+    /*
+    // 同样可以这样写
+    pt := reflect.TypeOf(p)
+    method, ok := pt.MethodByName("Greet")
+    if !ok {
+    	fmt.Println("Method [Greet] not exist")
+	} else {
+		// call method
+		args := []reflect.Value{
+			reflect.ValueOf(p),
+			reflect.ValueOf("Amy"),
+		}
+        // 相当于 Greet(p, "Amy")
+		method.Func.Call(args)
+	}
+    */
+}
+```
+
+输出：
+
+ ```
+ Hello! Amy is greeting to Mike.
+ ```
 
 ## 字符串和结构体互换
 

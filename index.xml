@@ -10,7 +10,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 14 Mar 2022 00:33:13 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 22:26:20 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>14.go深入：非类型安全unsafe</title>
+      <link>https://zihuanling.github.io/posts/go-14-depth-unsafe/</link>
+      <pubDate>Tue, 15 Mar 2022 22:26:20 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-14-depth-unsafe/</guid>
+      <description>unsafe是不安全的，可以绕过go的安全检查机制，直接对内存进行读写，非必要不使用。
+指针类型转换 go是一门强类型的静态语言，意味着一旦定义了，类型就不能改变，且类型检查在运行前已经完成。
+出于安全考虑，go不允许两个指针类型进行转换，比如 *int 不能转换成 *float。
+i := 10 ip := &amp;amp;i var fp *float64 = (*float64)(ip)	// 尝试将 *int 转换成 *float64 在编译的时候，会报错： cannot convert ip (type * int) to type * float64，提示不可转换
+unsafe.Pointer unsafe.Pointer表示任意类型的指针，上述例子中，我们使用 unsafe.Pointer进行中转，实现指针类型转换
+i := 10 ip := &amp;amp;i var fp *float64 = (*float64)(unsafe.Pointer(ip))	// 尝试将 *int 转换成 *float64 *fp = *fp * 3 fmt.Println(i,*fp, ip, fp) 输出：
+30 1.5e-322 0xc0000aa058 0xc0000aa058 可以看到，通过转化后的指针修改指向内存的值，原始值i也变成了30，ip和fp指向的是同一块内存地址。需要注意的是，试图通过 *fp 打印出原来内存的数据时，却出现了一个异常值，说明指针可以通过 unsafe.Pointer 进行转化，但转化后的指针不一定可以访问到原始内存的值。</description>
+    </item>
+    
     <item>
       <title>13.go深入：reflect 运行时反射</title>
       <link>https://zihuanling.github.io/posts/go-13-depth-reflect/</link>

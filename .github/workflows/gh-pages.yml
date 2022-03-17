@@ -22,7 +22,7 @@ jobs:
           # extended: true
 
       - name: Build For Private Server
-        run: hugo --minify
+        run: hugo --minify --baseURL ${{ secrets.SSH_HOST }}
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2

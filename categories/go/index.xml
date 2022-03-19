@@ -10,7 +10,25 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 13 Mar 2022 23:35:38 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 14:34:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>14.go深入：SliceHeader，高效的slice</title>
+      <link>https://zihuanling.github.io/posts/go-15-slice-header/</link>
+      <pubDate>Fri, 18 Mar 2022 14:34:12 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-15-slice-header/</guid>
+      <description>数组 数组由两部分组成：数组的大小和数组内部的元素类型。
+// 伪代码表示 array {  len  item type } 看以下两个数组的定义：
+a1 := [1]string{&amp;#34;mike&amp;#34;} a2 := [2]string{&amp;#34;mike&amp;#34;} 上述定义的两个变量，a1的类型为 [1]string，a2的类型为 [2]string，所以说，数组的大小也属于数组类型的一部分。
+数组的两个限制   **一旦一个数组被声明，它的大小和内部的类型就不能改变，**我们将不能随意向其中追加任意多的元素。
+  另外，当我们使用数组存储大量数据，然后将数组作为函数的参数进行传值时，由于函数之间是值传递的，因此，数组的拷贝将会耗费巨大的内存。
+  slice 切片 我们可以将切片理解为动态的数组。
+切片是对数组的封装，它的底层是一个数组存储了所有的元素，但是它可以动态地添加元素，容量不足时可以自动扩容。
+动态扩容 使用内置的append方法，向切片中追加元素，返回一个新的切片。
+同时，当容量不足的时候，append会自动对切片进行扩容。
+func main(){  ss := []string{&amp;#34;mike&amp;#34;} // 定义切片ss  fmt.Printf(&amp;#34;slice before append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss))  ss = append(ss, &amp;#34;lucy&amp;#34;, &amp;#34;john&amp;#34;) // append 追加元素  fmt.Printf(&amp;#34;slice after append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss)) } 输出：</description>
+    </item>
+    
     <item>
       <title>12.go深入：new、make和内存分配</title>
       <link>https://zihuanling.github.io/posts/go-12-depth-new-and-make/</link>

@@ -10,7 +10,24 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Mar 2022 22:23:25 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 20:01:10 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>17.go: 代码检查和性能优化</title>
+      <link>https://zihuanling.github.io/posts/go-17-quarlity-and-optimization/</link>
+      <pubDate>Sat, 26 Mar 2022 20:01:10 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-17-quarlity-and-optimization/</guid>
+      <description>对我们的代码进行检查，有助于提高代码质量，确保代码更加符合规范。
+使用 golangci-lint 进行代码检查 go语言代码分析的工具有很多，如 golint、gofmt、misspell等，我们一般使用 集成工具 golangci-lint，而不是单独使用他们。
+安装 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.32.2 查看版本 golangci-lint version 输出：
+golangci-lint has version v1.32.2 ... 运行检查： golangci-lint run quality/ 这里的 quality是一个包，里面有一个 main.go 文件，内容如下：
+quality/main.go
+package main  import &amp;#34;os&amp;#34;  func main(){ 	os.Mkdir(&amp;#34;/tmp&amp;#34;, 0666) } 运行检查后，输出如下：
+quality\main.go:6:10: Error return value of `os.Mkdir` is not checked (errcheck) os.Mkdir(&amp;#34;/tmp&amp;#34;, 0666) 因为 os.Mkdir 返回一个 error，但是我们没有处理这个 error，因此提示了这个错误。
+golangci-lint 配置 golangci-lint是一个集成工具，里面有很多linters，我们可以用 golangci-lint linters 查看有哪些linters，以及他们的作用、启用情况，默认启用的linters如下：
+deadcode - 死代码检查 errcheck - 返回错误是否使用检查 gosimple - 检查代码是否可以简化 govet - 代码可疑检查，比如格式化字符串和类型不一致 ineffassign - 检查是否有未使用的代码 staticcheck - 静态分析检查 structcheck - 查找未使用的结构体字段 typecheck - 类型检查 unused - 未使用代码检查 varcheck - 未使用的全局变量和常量检查 我们可以通过一个 .</description>
+    </item>
+    
     <item>
       <title>16.go: 单元测试和基准测试</title>
       <link>https://zihuanling.github.io/posts/go-16-test-1/</link>
@@ -102,7 +119,7 @@ for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终
     </item>
     
     <item>
-      <title>7. go并发：同步原语，用sycn包控制并发</title>
+      <title>7. go并发：同步原语，用sync包控制并发</title>
       <link>https://zihuanling.github.io/posts/2022-02-19-go-7-concurrency/</link>
       <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
       

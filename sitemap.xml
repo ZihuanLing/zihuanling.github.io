@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zihuanling.github.io/posts/go-17-quarlity-and-optimization/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/go/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/go/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/go-http-server/</loc>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2022-03-26T20:01:10+08:00</lastmod>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/</loc>
+    <lastmod>2022-03-27T15:27:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/go-17-quarlity-and-optimization/</loc>
     <lastmod>2022-03-26T20:01:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/go-16-test-1/</loc>

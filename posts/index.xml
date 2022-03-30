@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Mar 2022 15:27:00 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 10:52:00 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go：简单的跨平台rpc服务</title>
+      <link>https://zihuanling.github.io/posts/go-rpc-server/</link>
+      <pubDate>Wed, 30 Mar 2022 10:52:00 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-rpc-server/</guid>
+      <description>RPC RPC - Remote Procedure Call 称为远程过程调用，是分布式系统中，不同节点调用的方式（进程间通信），属于 C/S 模式。由客户端发起，调用服务端的方法进行通信，服务端将结果返回给客户端。
+RPC的两个核心：
+ 通信协议 序列化  序列化和反序列化是一种把传输内容编码和解码的方式，常见的编解码方式有 JSON、Protobuf 等。
+大多数 RPC 架构中，都有 Client、Client Stub、Server、Server Stub这四个组件，Client 和 Server 通过 Socket 进行通信。
+flowchart LR subgraph 服务端进程 s(Server) ss(Server Stub) s --调用--&amp;gt; ss ss --返回--&amp;gt; s end subgraph 客户端进程 c(Client) cs(Client Stub) c --调用--&amp;gt; cs cs --返回--&amp;gt; c end 客户端进程 ==网络消息==&amp;gt; 服务端进程 服务端进程 ==&amp;gt; 客户端进程 调用流程：
+ client 调用 client stub，同时把参数传给 client stub client stub将参数打包编码，然后通过系统调用发送到服务端进程 客户端本地系统发送信息到服务器 服务器系统将信息发送到 server stub server stub 将信息解码 server stub 调用真正的服务端程序 server server 处理后，通过同样的方式，将结果返回到 client  go 实现简单的RPC服务 go内置了 net/rpc 包帮助我们实现rpc服务。</description>
+    </item>
+    
     <item>
       <title>Go：简单的http服务以及Restful Api</title>
       <link>https://zihuanling.github.io/posts/go-http-server/</link>

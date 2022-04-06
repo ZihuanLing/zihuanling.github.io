@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 30 Mar 2022 10:52:00 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2022 20:45:19 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go：简简单单的并发网络连接</title>
+      <link>https://zihuanling.github.io/posts/go-concurrent-server/</link>
+      <pubDate>Wed, 06 Apr 2022 20:45:19 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-concurrent-server/</guid>
+      <description>go 是天生支持并发的，我们只要 使用 go func() 就可以快速实现并发。在网络服务的处理中，实现并发可以大大提高服务的吞吐量，我们来研究一下。
+简单的TCP服务器 我们先来实现一个简单的tcp服务，监听8989端口，从连接中读取一段数据，这段数据表示的是当前请求的id，然后返回一段话。
+服务器 server/main.go
+package main  import ( 	&amp;#34;fmt&amp;#34; 	&amp;#34;log&amp;#34; 	&amp;#34;net&amp;#34; )  func main() { 	// 启动tcp连接，监听8989端口 	l, err := net.Listen(&amp;#34;tcp&amp;#34;, &amp;#34;:8989&amp;#34;) 	if err != nil { 	log.Fatalf(&amp;#34;Server listening error: %s\n&amp;#34;, err) 	} 	for { 	conn, err := l.Accept() 	if err != nil { 	log.Printf(&amp;#34;Accept error: %s\n&amp;#34;, err) 	continue 	} 	// 接收连接,调用handleConn处理当前连接 	handleConn(conn) 	} }  func handleConn(conn net.</description>
+    </item>
+    
     <item>
       <title>Go：简单的跨平台rpc服务</title>
       <link>https://zihuanling.github.io/posts/go-rpc-server/</link>

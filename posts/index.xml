@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Apr 2022 20:45:19 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 16:06:40 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 使用mongodb</title>
+      <link>https://zihuanling.github.io/posts/go-mongo/</link>
+      <pubDate>Sun, 10 Apr 2022 16:06:40 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-mongo/</guid>
+      <description>安装 mkdir go-mongo go mod init go-mongo go get go.mongodb.org/mongo-driver/mongo 使用 数据库里面有一条这样的数据：
+{  &amp;#34;_id&amp;#34;: {  &amp;#34;$oid&amp;#34;: &amp;#34;6252912ec4495f97bccf41aa&amp;#34;  },  &amp;#34;title&amp;#34;: &amp;#34;My Mongo Post&amp;#34;,  &amp;#34;create_time&amp;#34;: {  &amp;#34;$date&amp;#34;: &amp;#34;2022-04-10T10:33:45.149Z&amp;#34;  },  &amp;#34;viewer&amp;#34;: 201 } 连接数据库 // 关键代码 const MONGO_URI = &amp;#34;mongodb://localhost:27017/test&amp;#34; client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(MONGO_URI))  // 优雅关闭连接 defer client.Disconnect(context.TODO()) 数据查询 首先获取到对应的database以及collection
+coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34;) 然后查询：
+coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34;) var result bson.M	// 需要一个bson.M 对象，用于存储查询回来的数据 // FindOne 接受2个参数，一个context，一个filter，filter 为 bson.</description>
+    </item>
+    
     <item>
       <title>go：简简单单的并发网络连接</title>
       <link>https://zihuanling.github.io/posts/go-concurrent-server/</link>

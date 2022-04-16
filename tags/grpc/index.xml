@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>protobuf on Coding and Life</title>
-    <link>https://zihuanling.github.io/tags/protobuf/</link>
-    <description>Recent content in protobuf on Coding and Life</description>
+    <title>grpc on Coding and Life</title>
+    <link>https://zihuanling.github.io/tags/grpc/</link>
+    <description>Recent content in grpc on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 16 Apr 2022 22:34:33 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/protobuf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Apr 2022 22:34:33 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go: grpc和protobuf</title>
       <link>https://zihuanling.github.io/posts/go-grpc-protobuf/</link>
@@ -22,17 +22,6 @@ gPPC是一个现代的开源高性能的远程过程调用框架，并且可以�
  gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
  github 地址： https://github.com/grpc/grpc
 原来是用 C++ 写的，后来也有了go语言版本：https://github.</description>
-    </item>
-    
-    <item>
-      <title>go 和 protobuf</title>
-      <link>https://zihuanling.github.io/posts/go-proto/</link>
-      <pubDate>Thu, 14 Apr 2022 21:14:52 +0800</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/go-proto/</guid>
-      <description>Google protocol buffers 简称protobuf，它是谷歌提供的跨语言，跨平台的，可扩展的用来将结构化的数据进行序列化的一种机制。就像XML，但是更加精简、快速和简单。我们可以先预先定义我们的协议（写到一个 .proto 文件里面），里面声明了我们需要怎么去将数据结构化，然后，我们可以使用这份proto，去生成我们指定的语言源代码文件，我们就能够很方便地从各种数据流中读取结构化数据，或者是写入结构化数据。并且是跨语言的。
- Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
- 安装protoc编译器 .</description>
     </item>
     
   </channel>

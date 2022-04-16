@@ -10,7 +10,20 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 14 Apr 2022 21:14:52 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Apr 2022 22:34:33 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go: grpc和protobuf</title>
+      <link>https://zihuanling.github.io/posts/go-grpc-protobuf/</link>
+      <pubDate>Sat, 16 Apr 2022 22:34:33 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-grpc-protobuf/</guid>
+      <description>gRPC 一个高性能、开源的通用RPC框架。
+gPPC是一个现代的开源高性能的远程过程调用框架，并且可以运行在任何环境中。它可以有效地连接数据中心内和跨数据中心的服务，支持负载均衡、跟踪、健康检查和身份验证。它也适用于分布式计算的最后一英里，将设备、移动应用程序和浏览器连接到后端服务。
+ gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
+ github 地址： https://github.com/grpc/grpc
+原来是用 C++ 写的，后来也有了go语言版本：https://github.</description>
+    </item>
+    
     <item>
       <title>go 和 protobuf</title>
       <link>https://zihuanling.github.io/posts/go-proto/</link>

@@ -10,7 +10,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 04 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/daily/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 00:05:28 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/daily/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go: 读取文件</title>
+      <link>https://zihuanling.github.io/posts/go-readfiles/</link>
+      <pubDate>Mon, 18 Apr 2022 00:05:28 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-readfiles/</guid>
+      <description>学习网站： https://gobyexample.com/reading-files
+可以直接读取文件里面的所有内容到内存里面：
+data, err := os.ReadFile(&amp;#34;/tmp/data&amp;#34;) fmt.Println(string(data)) 有时候想要自定义一些操作，比如读取文件里面的某些内容，从某个位置开始读取等，这时候，我们可以用 os.Open 打开一个文件，返回一个 os.File 对象。
+f, err := os.Open(&amp;#34;/tmp/data&amp;#34;) 我们可以定义一个缓存（5个字节的[]byte类型），然后从文件中读取内容，读取的内容大小上限为5：
+b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read from file: %s\n&amp;#34;, n1, string(b1)) 调用 f.Read来读取文件，返回两个结果，第一个为实际读取的内容长度，第二个为error。我们定义了一个长度为5的 b1 来存储文件内容，但是文件里面的内容长度可能只有3，因此，n1不一定等于5，它是实际读取的长度。
+同样，我们还能用 os.Seek，来查找文件的位置，第一个参数为 offset，意味着偏移量，第二个参数为 whence，
+ 0表示从文件的开始位置进行偏移查找 1表示从文件的当前位置开始偏移，如果之前已经设置过偏移，再次设置则从当前位置开始偏移 2表示从文件的末尾开始偏移  o2, err := f.Seek(6, 0) b2 := make([]byte, 2) n2, err := f.Read(b2) fmt.Printf(&amp;#34;%d bytes read at %d\n&amp;#34;, n2, o2) fmt.Printf(&amp;#34;Value is : %s\n&amp;#34;, string(b2[:n2])) golang 的 io包提供了一些有用的函数，帮助我们高效读取。比如 io.</description>
+    </item>
+    
     <item>
       <title>让github page支持mermaid语法</title>
       <link>https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/</link>

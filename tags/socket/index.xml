@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>socket on Coding and Life</title>
+    <link>https://zihuanling.github.io/tags/socket/</link>
+    <description>Recent content in socket on Coding and Life</description>
+    <image>
+      <url>https://zihuanling.github.io/avatar.jpeg</url>
+      <link>https://zihuanling.github.io/avatar.jpeg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 22 Apr 2022 13:53:32 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用python socket实现双向的tcp通信</title>
+      <link>https://zihuanling.github.io/posts/python-socket-bothway-connection/</link>
+      <pubDate>Fri, 22 Apr 2022 13:53:32 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/python-socket-bothway-connection/</guid>
+      <description>很久之前玩过的python socket，今天用来做个双向的通信程序。
+服务端代码： server.py
+# coding: utf-8 # tcp stream server import socket import logging import time import datetime as dt from threading import Thread, currentThread # 配置logging logging.basicConfig(  level=logging.INFO,  format=&amp;#34;%(asctime)s%(levelname)s%(process)s%(threadName)s|%(message)s&amp;#34;, )   class Server:  &amp;#34;&amp;#34;&amp;#34; socket 服务端 &amp;#34;&amp;#34;&amp;#34;  def __init__(self, host=&amp;#39;localhost&amp;#39;, port=8099):  self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  self._sock.bind((host, port))  self.msg = None   def read(self, conn: socket.socket = None):  &amp;#34;&amp;#34;&amp;#34; 从tcp连接里面读取数据 &amp;#34;&amp;#34;&amp;#34;  while True:  try:  data = conn.</description>
+    </item>
+    
+  </channel>
+</rss>

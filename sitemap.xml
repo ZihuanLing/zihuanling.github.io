@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-04-22T13:53:32+08:00</lastmod>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-04-22T13:53:32+08:00</lastmod>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/go/</loc>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/go/</loc>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/go-hdf5-practise/</loc>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/hdf5/</loc>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2022-04-22T13:53:32+08:00</lastmod>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/</loc>
+    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/python/</loc>
     <lastmod>2022-04-22T13:53:32+08:00</lastmod>
@@ -17,19 +32,10 @@
     <loc>https://zihuanling.github.io/tags/socket/</loc>
     <lastmod>2022-04-22T13:53:32+08:00</lastmod>
   </url><url>
-    <loc>https://zihuanling.github.io/tags/</loc>
-    <lastmod>2022-04-22T13:53:32+08:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/posts/python-socket-bothway-connection/</loc>
     <lastmod>2022-04-22T13:53:32+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/daily/</loc>
-    <lastmod>2022-04-18T00:05:28+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/tags/go/</loc>
-    <lastmod>2022-04-18T00:05:28+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/go/</loc>
     <lastmod>2022-04-18T00:05:28+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/go-readfiles/</loc>

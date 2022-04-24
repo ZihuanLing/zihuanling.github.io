@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>hdf5 on Coding and Life</title>
+    <link>https://zihuanling.github.io/tags/hdf5/</link>
+    <description>Recent content in hdf5 on Coding and Life</description>
+    <image>
+      <url>https://zihuanling.github.io/avatar.jpeg</url>
+      <link>https://zihuanling.github.io/avatar.jpeg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 23 Apr 2022 22:10:10 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/hdf5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go与Hdf5，数据读写实践</title>
+      <link>https://zihuanling.github.io/posts/go-hdf5-practise/</link>
+      <pubDate>Sat, 23 Apr 2022 22:10:10 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/go-hdf5-practise/</guid>
+      <description>前言 HDF5 (Hierarchical Data Format) 是由美国伊利诺伊大学厄巴纳-香槟分校，是一种跨平台传输的文件格式，存储图像和数据
+优势  通用数据模型，可以通过无限多种数据类型表示非常复杂、异构的数据对象和各种各样的元数据 高速原始数据采集 可移植和可扩展，文件大小没有限制 自描述的，不需要外部信息应用程序来解释文件的结构和内容 拥有用于管理、操作、查看和分析数据的开源工具和应用程序软件生态系统 在各种计算平台和编程语言（包括C、C++、Fortran90和Java）上运行的软件库。  参考文章链接： 大数据存储 hdf5简介
+实践 环境安装 对于go语言，hdf5已经有了支持的库： gonum/hdf5，我们可以直接安装这个包，并且使用。
+需要注意的是，这个包使用了 cgo，依赖了hdf5的C语言库，因此，需要我们自己预先安装，使用centos系统，可以很方便安装，直接使用命令：
+yum install -y hdf5 hdf5-devel 当然，如果系统没有软件源的话，hdf5也提供了源码安装，下载 hdf5-1.12.1，解压后，执行安装：
+cd hdf5-1.12.1 ./configure --prefix /usr/local make -j 2 &amp;amp;&amp;amp; make install 然后我们初始化一个项目，名为 h5，用于编写go、hdf5 的简单测试用例
+mkdir -p ~/go/src/h5 cd ~/go/src/h5 go mod init # 安装 go get -v gonum.org/v1/hdf5 使用 创建文件 func main() { 	// 创建hdf5文件 	f, err := hdf5.</description>
+    </item>
+    
+  </channel>
+</rss>

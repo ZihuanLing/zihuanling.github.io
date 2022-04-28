@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zihuanling.github.io/tags/algorithm/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
     <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/leetcode/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/leetcode/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/leetcode-179/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/python/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/</loc>
+    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/go/</loc>
     <lastmod>2022-04-23T22:10:10+08:00</lastmod>
@@ -18,12 +39,6 @@
     <lastmod>2022-04-23T22:10:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/hdf5/</loc>
-    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2022-04-23T22:10:10+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/tags/</loc>
     <lastmod>2022-04-23T22:10:10+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/categories/python/</loc>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>leetcode on Coding and Life</title>
+    <link>https://zihuanling.github.io/categories/leetcode/</link>
+    <description>Recent content in leetcode on Coding and Life</description>
+    <image>
+      <url>https://zihuanling.github.io/avatar.jpeg</url>
+      <link>https://zihuanling.github.io/avatar.jpeg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 Apr 2022 22:24:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode 179：最大数 -- 一道有点意思的题目</title>
+      <link>https://zihuanling.github.io/posts/leetcode-179/</link>
+      <pubDate>Thu, 28 Apr 2022 22:24:12 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/leetcode-179/</guid>
+      <description>今天做了一道有点意思的算法题目，在这里记录下。提交记录
+leetcode 179: 最大数 给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+示例 1：
+输入：nums = [10,2] 输出：&amp;ldquo;210&amp;rdquo; 示例 2：
+输入：nums = [3,30,34,5,9] 输出：&amp;ldquo;9534330&amp;rdquo;
+提示：
+1 &amp;lt;= nums.length &amp;lt;= 100 0 &amp;lt;= nums[i] &amp;lt;= 109
+上最终AC代码： def greater(a, b):  # 对比函数，a &amp;gt; b  # a, b expect str  return int(a + b) - int(b + a) &amp;gt; 0  # 快排 def pivot(arr, low, high):  x = arr[high]  j = low - 1  for i in range(low, high):  if greater2(arr[i], x):  j += 1  arr[i], arr[j] = arr[j], arr[i]  j += 1  arr[j], arr[high] = arr[high], arr[j]  return j  def quick_sort(arr, low, high):  if low &amp;lt; high:  pi = pivot(arr, low, high)  quick_sort(arr, low, pi - 1)  quick_sort(arr, pi + 1, high)  class Solution:  def largestNumber(self, nums: List[int]) -&amp;gt; str:  nums = [str(n) for n in nums]  quick_sort(nums, 0, len(nums) - 1)  if nums[0] == &amp;#39;0&amp;#39;:  return &amp;#39;0&amp;#39;  return &amp;#39;&amp;#39;.</description>
+    </item>
+    
+  </channel>
+</rss>

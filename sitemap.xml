@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zihuanling.github.io/tags/algorithm/</loc>
-    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/linux/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/linux/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/linux-service/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/linux-create-service/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/</loc>
+    <lastmod>2022-05-04T22:38:12+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/tags/algorithm/</loc>
     <lastmod>2022-04-28T22:24:12+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/leetcode/</loc>
@@ -20,13 +38,7 @@
     <loc>https://zihuanling.github.io/posts/leetcode-179/</loc>
     <lastmod>2022-04-28T22:24:12+08:00</lastmod>
   </url><url>
-    <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/tags/python/</loc>
-    <lastmod>2022-04-28T22:24:12+08:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/tags/</loc>
     <lastmod>2022-04-28T22:24:12+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/go/</loc>
@@ -129,12 +141,6 @@
     <lastmod>2022-02-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/bash/</loc>
-    <lastmod>2022-02-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/tags/linux/</loc>
-    <lastmod>2022-02-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/linux/</loc>
     <lastmod>2022-02-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</loc>

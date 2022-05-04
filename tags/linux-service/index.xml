@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>linux on Coding and Life</title>
-    <link>https://zihuanling.github.io/categories/linux/</link>
-    <description>Recent content in linux on Coding and Life</description>
+    <title>linux-service on Coding and Life</title>
+    <link>https://zihuanling.github.io/tags/linux-service/</link>
+    <description>Recent content in linux-service on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 May 2022 22:38:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 May 2022 22:38:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/linux-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux创建简单的systemd服务</title>
       <link>https://zihuanling.github.io/posts/linux-create-service/</link>
@@ -33,19 +33,6 @@ Unit 对于一个简单服务来说，我们在 [Unit] 这个块只要写上服�
 然后，是最重要的部分，我们需要告诉系统应该去执行什么东西： ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook， 这里，我们指定了执行 jupyter notebook 这个命令，前面加载了用户的环境变量。
 随后指定这个服务的重启策略：Restart=on-failure， 我要求的是启动失败后重启
 最后，这个服务运行的角色：User=root，以及运行时所在路径： WorkingDirectory=/tmp/notebook</description>
-    </item>
-    
-    <item>
-      <title>使用 getopts 获取命令行中的参数</title>
-      <link>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</link>
-      <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</guid>
-      <description>在某些场景中，我们写的bash脚本需要获取命令行中指定的某些参数，用以判断某些条件，或者设置某些变量等。
-getopts可以让我们通过指定 -a 1 的方式指定对应的参数名称和参数值。
-一个更详细的小教程，可以看这里： getopts_tutorial 使用 可以使用 while getopts &amp;quot;:a:p:&amp;quot; opt; do... 的方式，将参数名称读取到 opt 变量中，然后，在循环体中，使用 $OPTARG 获取到具体的参数值。
-一个小栗子，用于快捷创建新的 gihub pages 博客模板：
-#!/usr/bin/env bash  # 用于快捷创建新博客 # 命令： ./new.sh -t 标签1,标签2 -n 文章标题 -l layout -c 1  layout=&amp;#34;post&amp;#34; title=&amp;#34;new-post&amp;#34; now=$(date +%Y-%m-%d) can_comment=&amp;#34;false&amp;#34; author=&amp;#34;ZihuanLing&amp;#34;  while getopts &amp;#34;:l:t:c:n:&amp;#34; opt; do  case $opt in  l)  layout=&amp;#34;$OPTARG&amp;#34;  ;;  t)  tags=&amp;#34;[$OPTARG]&amp;#34;  ;;  c)  can_comment=&amp;#34;true&amp;#34;  ;;  n)  title=$(echo &amp;#34;$OPTARG&amp;#34; | sed &amp;#34;s/ /\-/g&amp;#34;)  ;;  \?</description>
     </item>
     
   </channel>

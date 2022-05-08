@@ -37,19 +37,25 @@ def parse_submissions(leetcode_session):
                 print("Finished requests")
                 break
             offset += limit
-            # temp debug
-            if offset > 100:
-                break
             print(f"parsing next, offset = {offset}")
             time.sleep(1)
 
     if not submissions:
         print("no submissions to dump to file.")
         return
+    # filter submissions
+    _submissions = []
+    exists = set()
+    for sub in submissions:
+        key = (sub['title'], sub['lang'])
+        if sub['status_display'] != 'Accepted' or key in exists:
+            continue
+        exists.add(key)
+        _submissions.append(sub)
     print(f"All done, total {len(submissions)} submissions fetched.")
     # output data to json
     with open('leetcode-submissions.json', 'w') as f:
-        json.dump(submissions, f)
+        json.dump(_submissions, f)
 
 
 def main():

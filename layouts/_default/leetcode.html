@@ -1,17 +1,5 @@
 {{- define "main" }}
 
-<!-- 新 Bootstrap4 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
- 
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
- 
-<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
-<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
- 
-<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 <header class="page-header">
   <h1>{{ .Title }}</h1>
   {{- if .Description }}
@@ -21,36 +9,48 @@
   {{- end }}
 </header>
 
-<div class="conteiner">
+<div class="post-content">
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Language</th>
-            <th scope="col">Status</th>
+            <th scope="col">标题</th>
+            <th scope="col">语言</th>
+            <th scope="col">状态</th>
+            <th scope="col">提交时间</th>
           </tr>
         </thead>
     </table>
 </div>
 
 <script>
+    function jump(target_url) {
+      return function() {
+        console.log("Jumping to " + target_url)
+        window.location.href = target_url
+      }
+    }
+    cols = ['title', 'lang', 'status_display', 'timestamp']
     // load leetcode-submission.json
-    var data 
-    cols = ['title', 'lang', 'status_display']
-    fetch("/leetcode-submissions.json").then(response => response.json()).then(json => {
+    fetch("http://lingzihuan.icu/leetcode-submissions.json").then(response => response.json()).then(data => {
         // render data
-        data = json
         tbody = document.createElement('tbody')
         for (let i in data) {
             row = data[i]
+            url = "https://leetcode-cn.com" + row['url']
             tr = document.createElement('tr')
+            tr.onclick = jump(url)
             th = document.createElement('th', scope='row')
             th.innerHTML = parseInt(i) + 1
             tr.appendChild(th)
             for (let j in cols) {
                 td = document.createElement('td')
-                td.innerHTML = row[cols[j]]
+                if (cols[j] == "timestamp") {
+                  d = new Date(parseInt(row[cols[j]]) * 1000)
+                  td.innerHTML = d.toLocaleString()
+                } else {
+                  td.innerHTML = row[cols[j]]
+                }
                 tr.appendChild(td)
             }
             tbody.appendChild(tr)
@@ -60,8 +60,5 @@
         table.appendChild(tbody)
     })
 </script>
-
-
-
 
 {{- end }}{{/* end main */}}

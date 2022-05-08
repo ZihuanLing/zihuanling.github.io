@@ -10,7 +10,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 May 2022 22:38:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 May 2022 09:38:45 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Functools: 几个有意思的工具函数</title>
+      <link>https://zihuanling.github.io/posts/python-functools/</link>
+      <pubDate>Thu, 05 May 2022 09:38:45 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/python-functools/</guid>
+      <description>functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。
+https://docs.python.org/zh-cn/3/library/functools.html</description>
+    </item>
+    
     <item>
       <title>Linux创建简单的systemd服务</title>
       <link>https://zihuanling.github.io/posts/linux-create-service/</link>
@@ -487,6 +497,15 @@ import fmt  func main(){  fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据�
 我们指定变量的值，会自定将变量转为对应的类型</description>
     </item>
     
+    
+    <item>
+      <title>Leetcode</title>
+      <link>https://zihuanling.github.io/leetcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/leetcode/</guid>
+      <description>Leetcode 解题记录 :)</description>
+    </item>
     
     
   </channel>

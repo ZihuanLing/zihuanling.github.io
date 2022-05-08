@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 May 2022 22:38:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 May 2022 09:38:45 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://zihuanling.github.io/categories/python/</link>
+      <pubDate>Thu, 05 May 2022 09:38:45 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>linux</title>
       <link>https://zihuanling.github.io/categories/linux/</link>
@@ -35,15 +44,6 @@
       <pubDate>Sat, 23 Apr 2022 22:10:10 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/categories/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://zihuanling.github.io/categories/python/</link>
-      <pubDate>Fri, 22 Apr 2022 13:53:32 +0800</pubDate>
-      
-      <guid>https://zihuanling.github.io/categories/python/</guid>
       <description></description>
     </item>
     

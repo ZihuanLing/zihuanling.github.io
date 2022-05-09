@@ -27,8 +27,6 @@ https://docs.python.org/zh-cn/3/library/functools.html
 
 ## cmp_to_key
 
-`functools.cmp_to_key(*func*)`
-
 将(旧式的)比较函数转换为新式的 [key function](https://docs.python.org/zh-cn/3/glossary.html#term-key-function) . 在类似于 [`sorted()`](https://docs.python.org/zh-cn/3/library/functions.html#sorted) ， [`min()`](https://docs.python.org/zh-cn/3/library/functions.html#min) ， [`max()`](https://docs.python.org/zh-cn/3/library/functions.html#max) ， [`heapq.nlargest()`](https://docs.python.org/zh-cn/3/library/heapq.html#heapq.nlargest) ， [`heapq.nsmallest()`](https://docs.python.org/zh-cn/3/library/heapq.html#heapq.nsmallest) ， [`itertools.groupby()`](https://docs.python.org/zh-cn/3/library/itertools.html#itertools.groupby) 等函数的 key 参数中使用。此函数主要用作将 Python 2 程序转换至新版的转换工具，以保持对比较函数的兼容。
 
 比较函数意为一个可调用对象，该对象接受两个参数并比较它们，结果为小于则返回一个负数，相等则返回零，大于则返回一个正数。key function则是一个接受一个参数，并返回另一个用以排序的值的可调用对象。
@@ -88,13 +86,67 @@ def mycmp(a, b):
 [2, 8, 1, 3, 7, 9]
 ```
 
-
-
 ## partial
 
+返回一个新的 [partial对象](https://docs.python.org/zh-cn/3/library/functools.html#partial-objects)，当被调用时其行为类似于 *func* 附带位置参数 *args* 和关键字参数 *keywords* 被调用。 如果为调用提供了更多的参数，它们会被附加到 *args*。 如果提供了额外的关键字参数，它们会扩展并重载 *keywords*。 大致等价于:
 
+```python
+def partial(func, /, *args, **keywords):
+    def newfunc(*fargs, **fkeywords):
+        newkeywords = {**keywords, **fkeywords}
+        return func(*args, *fargs, **newkeywords)
+    newfunc.func = func
+    newfunc.args = args
+    newfunc.keywords = keywords
+    return newfunc
+```
+
+例子：比如封装int，构造一个二进制转10进制的函数：
+
+```python
+from functools import partial
+bin2dec = partial(int, base=2)
+bin2dec.__doc__ = "Convert binary string to decimal int"
+print(bin2dec("100100"))
+```
+
+输出：36
 
 ## wrapps
 
+这是一个便捷更新 装饰器wrapper的函数，一般情况下，函数使用装饰器包装过后，调用 `func.__name__`输出的是装饰器的wrapper名称，如：
 
+```python
+def decorator(f):
+    def wrapper(*args, **kwargs):
+        return f(*args, **kwargs)
+    return wrapper
+  
+@decorator
+def func():
+    print('in func.')
+
+print(func.__name__)
+```
+
+输出： wrapper
+
+如果 decorator 加上了 wraps：
+
+```python
+from functools import wraps
+def decorator(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        return f(*args, **kwargs)
+    return wrapper
+  
+@decorator
+def func():
+    print('in func.')
+
+print(func.__name__)
+```
+
+输出：func
 

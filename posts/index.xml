@@ -10,7 +10,39 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 May 2022 22:38:12 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 20:52:39 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML a标签下载json数据</title>
+      <link>https://zihuanling.github.io/posts/html-a-data-download/</link>
+      <pubDate>Mon, 09 May 2022 20:52:39 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/html-a-data-download/</guid>
+      <description>假如我们有一个json文件：example.json，我们想要将这个文件的连接放到网站上提供下载。
+在HTML中这样写：
+&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。
+看过 Stack Overflow 上的提示，看到可以给其设定 download属性：
+&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt; 然并卵，没有用，我们要给a标签的href属性的url前面加入 data:才可解决：
+&amp;lt;a href=&amp;#34;data:http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 </description>
+    </item>
+    
+    <item>
+      <title>Python Functools: 几个有意思的工具函数</title>
+      <link>https://zihuanling.github.io/posts/python-functools/</link>
+      <pubDate>Thu, 05 May 2022 09:38:45 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/python-functools/</guid>
+      <description>functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。
+https://docs.python.org/zh-cn/3/library/functools.html
+发现functools里面有几个有意思的函数，记录一下：
+cmp_to_key 将(旧式的)比较函数转换为新式的 key function . 在类似于 sorted() ， min() ， max() ， heapq.nlargest() ， heapq.nsmallest() ， itertools.groupby() 等函数的 key 参数中使用。此函数主要用作将 Python 2 程序转换至新版的转换工具，以保持对比较函数的兼容。
+比较函数意为一个可调用对象，该对象接受两个参数并比较它们，结果为小于则返回一个负数，相等则返回零，大于则返回一个正数。key function则是一个接受一个参数，并返回另一个用以排序的值的可调用对象。
+实例：
+使用sorted + cmp_to_key，实现逆序排序
+from functools import cmp_to_key def mycmp(a, b):  return b - a arr = [1,9,3,7,8,2] arr = sorted(arr, key=cmp_to_key(mycmp)) print(arr) 输出：
+[9, 8, 7, 3, 2, 1] 一般的 key function 只接受一个参数，使用cmp_to_key，可以实现自定义的排序逻辑，如上述，也可以实现其他逻辑，比较经典的是 leetcode-179最大数，要求我们将数字按照特定的规律排序，然后返回一个长的字符串，参考答案：
+class Solution:  def largestNumber(self, nums: List[int]) -&amp;gt; str:  # 第一步：定义比较函数，把最大的放左边  # 第二步：排序  # 第三步：返回结果  def compare(x, y): return int(y+x) - int(x+y)  nums = sorted(map(str, nums), key=cmp_to_key(compare))  print(cmp_to_key)  return &amp;#34;0&amp;#34; if nums[0]==&amp;#34;0&amp;#34; else &amp;#34;&amp;#34;.</description>
+    </item>
+    
     <item>
       <title>Linux创建简单的systemd服务</title>
       <link>https://zihuanling.github.io/posts/linux-create-service/</link>

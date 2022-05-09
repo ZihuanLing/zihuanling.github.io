@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/daily/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 20:52:39 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/categories/daily/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML a标签下载json数据</title>
+      <link>https://zihuanling.github.io/posts/html-a-data-download/</link>
+      <pubDate>Mon, 09 May 2022 20:52:39 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/html-a-data-download/</guid>
+      <description>假如我们有一个json文件：example.json，我们想要将这个文件的连接放到网站上提供下载。
+在HTML中这样写：
+&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。
+看过 Stack Overflow 上的提示，看到可以给其设定 download属性：
+&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt; 然并卵，没有用，我们要给a标签的href属性的url前面加入 data:才可解决：
+&amp;lt;a href=&amp;#34;data:http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 </description>
+    </item>
+    
     <item>
       <title>Jinja2: 判断变量是否为空、存在等</title>
       <link>https://zihuanling.github.io/posts/2022-03-09-jinja-templates-variable-judgement/</link>

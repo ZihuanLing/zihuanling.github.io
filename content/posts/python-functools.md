@@ -150,3 +150,134 @@ print(func.__name__)
 
 输出：func
 
+其实这个wraps调用的是 `functools.update_wrapper`，可以写成这样：
+
+```python
+from functools import update_wrapper
+def decorator(f):
+    def wrapper(*args, **kwargs):
+        return f(*args, **kwargs)
+    return update_wrapper(wrapper=wrapper, wrapped=f)
+```
+
+实际上用的是 `partial(update_wrapper, wrapped=f)`，函数定义：
+
+```python
+def wraps(wrapped,
+          assigned = WRAPPER_ASSIGNMENTS,
+          updated = WRAPPER_UPDATES):
+    """Decorator factory to apply update_wrapper() to a wrapper function
+
+       Returns a decorator that invokes update_wrapper() with the decorated
+       function as the wrapper argument and the arguments to wraps() as the
+       remaining arguments. Default arguments are as for update_wrapper().
+       This is a convenience function to simplify applying partial() to
+       update_wrapper().
+    """
+    return partial(update_wrapper, wrapped=wrapped,
+                   assigned=assigned, updated=updated)
+```
+
+## singledispatch
+
+将一个函数转换为 [单分派](https://docs.python.org/zh-cn/3/glossary.html#term-single-dispatch) [generic function](https://docs.python.org/zh-cn/3/glossary.html#term-generic-function)。
+
+需要注意的是，它是**单分派**的，即**只能根据一个参数**进行选择。
+
+假设有这么一个需求：实现一个encoder，对不同类型的数据进行编码，我们有4种数据类型：date、list、dict，str。
+
+如果不用`singledispatch`的话，我们应该是写成这样的：
+
+```python
+import datetime as dt
+
+def encode(obj):
+    if isinstance(obj, dt.date):
+        return obj.strftime("%Y/%m/%d")
+    elif isinstance(obj, list):
+        return ",".join(obj)
+    elif isinstance(obj, dict):
+        return ",".join([f"{k}={v}" for k, v in obj.items()])
+    elif isinstance(obj, str):
+        return obj
+```
+
+调用：
+
+```python
+print(encode(dt.date(2022, 5, 9)))
+print(encode(["hello", "world"]))
+print(encode({"name": "mike", "age": 19}))
+print(encode("pure string."))
+```
+
+输出： 
+
+```
+2022/05/09
+hello,world
+name=mike,age=19
+pure string.
+```
+
+可以看到，encoder正常使用，但是，如果我们有新的类型需要加入进来的话，就需要定义更多的类型，加入更多的`elif`语句，比较繁琐，引入`singledispatch`，我们可以改编成这样：
+
+```python
+import datetime as dt
+from functools import singledispatch
+
+@singledispatch
+def encode(obj):
+    return obj
+
+@encode.register
+def _(obj:dt.date):
+    return obj.strftime("%Y/%m/%d")
+
+@encode.register
+def _(obj:list):
+    return ",".join(obj)
+
+@encode.register
+def _(obj:dict):
+    return ",".join([f"{k}={v}" for k, v in obj.items()])
+```
+
+如上，我们使用了`singledispatch`重写了encoder，并注册了3个分发函数，对应的类型为：date、list、dict，当encoder接收到这3中类型的obj参数的时候，会自动分发到对应的函数中去。否则，会使用默认的encoder函数。
+
+重新运行，输出与上述保持一致。
+
+这样，我们需要添加特定的类型解析的时候，只需要使用 `@encode.register` 为其注册一个解析器即可。可以在编写服务端的时候，为特定的ORM模型编写JSON序列化泛型函数。
+
+如果我们定义的函数，不使用类型标注，我们也同样可以向`register`显式中传递一个类型：
+
+```python
+@encode.register(list)
+def _(obj):
+    return ",".join(obj)
+```
+
+也可以传递多个：
+
+```python
+@encode.register(list)
+@encode.register(dict)
+def _(obj):
+    return ",".join(obj)
+```
+
+我们可以使用 `registry`属性，访问`singledispatcher`都有注册哪些函数：
+
+```python
+print(encode.registry.items())
+# 输出：dict_items([(<class 'object'>, <function encode at 0x7f8f53b934c0>), (<class 'datetime.date'>, <function _ at 0x7f8f53b93280>), (<class 'list'>, <function _ at 0x7f8f53b93c10>), (<class 'dict'>, <function _ at 0x7f8f53b931f0>)])
+```
+
+
+
+## 其他：
+
+- cache：简单轻量级未绑定函数缓存
+- [cached_property](https://docs.python.org/zh-cn/3/library/functools.html#functools.cached_property)
+- [lru_cache](https://docs.python.org/zh-cn/3/library/functools.html#functools.lru_cache)
+- [reduce](https://docs.python.org/zh-cn/3/library/functools.html#functools.reduce)

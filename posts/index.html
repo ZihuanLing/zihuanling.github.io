@@ -5,8 +5,7 @@
 在HTML中这样写：
 &lt;a href="http://lingzihuan.icu/leetcode-submissions.json">点击下载&lt;/a> 点击下载 当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。
 看过 Stack Overflow 上的提示，看到可以给其设定 download属性：
-&lt;a href="http://lingzihuan.icu/leetcode-submissions.json" download>点击下载&lt;/a> 然并卵，没有用，我们要给a标签的href属性的url前面加入 data:才可解决：
-&lt;a href="data:http://lingzihuan.icu/leetcode-submissions.json" download>点击下载&lt;/a> 点击下载</p></section><footer class=entry-footer><span title="2022-05-09 20:52:39 +0800 +0800">May 9, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to HTML a标签下载json数据" href=https://zihuanling.github.io/posts/html-a-data-download/></a></article><article class=post-entry><header class=entry-header><h2>Python Functools: 几个有意思的工具函数</h2></header><section class=entry-content><p>functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。
+&lt;a href="http://lingzihuan.icu/leetcode-submissions.json" download>点击下载&lt;/a> 点击下载 需要注意的是，href里面的内容需要是与当前网页同源的url才可使用。</p></section><footer class=entry-footer><span title="2022-05-09 20:52:39 +0800 +0800">May 9, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;LingZihuan</footer><a class=entry-link aria-label="post link to HTML a标签下载json数据" href=https://zihuanling.github.io/posts/html-a-data-download/></a></article><article class=post-entry><header class=entry-header><h2>Python Functools: 几个有意思的工具函数</h2></header><section class=entry-content><p>functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。
 https://docs.python.org/zh-cn/3/library/functools.html
 发现functools里面有几个有意思的函数，记录一下：
 cmp_to_key 将(旧式的)比较函数转换为新式的 key function . 在类似于 sorted() ， min() ， max() ， heapq.nlargest() ， heapq.nsmallest() ， itertools.groupby() 等函数的 key 参数中使用。此函数主要用作将 Python 2 程序转换至新版的转换工具，以保持对比较函数的兼容。

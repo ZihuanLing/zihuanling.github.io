@@ -21,8 +21,7 @@
 在HTML中这样写：
 &amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。
 看过 Stack Overflow 上的提示，看到可以给其设定 download属性：
-&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt; 然并卵，没有用，我们要给a标签的href属性的url前面加入 data:才可解决：
-&amp;lt;a href=&amp;#34;data:http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 </description>
+&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt;  点击下载 需要注意的是，href里面的内容需要是与当前网页同源的url才可使用。</description>
     </item>
     
   </channel>

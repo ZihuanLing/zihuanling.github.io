@@ -41,14 +41,8 @@ ShowPostNavLinks: true
 <a href="http://lingzihuan.icu/leetcode-submissions.json" download>点击下载</a>
 ```
 
-然并卵，没有用，我们要给a标签的`href`属性的url前面加入 `data:`才可解决：
-
-```html
-<a href="data:http://lingzihuan.icu/leetcode-submissions.json" download>点击下载</a>
-```
-
 {{< raw >}}
-
-<a href="data:http://lingzihuan.icu/leetcode-submissions.json" download>点击下载</a>
-
+<a href="http://lingzihuan.icu/leetcode-submissions.json" download>点击下载</a>
 {{< /raw >}}
+
+需要注意的是，href里面的内容需要是与当前网页同源的url才可使用。

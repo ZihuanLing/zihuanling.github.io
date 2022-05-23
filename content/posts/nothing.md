@@ -20,3 +20,5 @@ ShowPostNavLinks: true
 ---
 
 多读书，提升认知。
+
+可以走出不一样的人生

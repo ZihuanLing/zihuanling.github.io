@@ -8,7 +8,7 @@ import time
 
 
 def parse_submissions(leetcode_session):
-    url = "https://leetcode-cn.com/api/submissions/"
+    url = "https://leetcode.cn/api/submissions/"
     headers = {
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-language": "zh,en;q=0.9,zh-CN;q=0.8",
@@ -54,7 +54,7 @@ def parse_submissions(leetcode_session):
         _submissions.append(sub)
     print(f"All done, total {len(submissions)} submissions fetched.")
     # output data to json
-    with open('leetcode-submissions.json', 'w') as f:
+    with open('static/leetcode-submissions.json', 'w') as f:
         json.dump(_submissions, f)
 
 
@@ -64,7 +64,8 @@ def main():
         print("leetcode session not set.")
         return
     parse_submissions(leetcode_session)
-    
+
 
 if __name__ == '__main__':
     main()
+

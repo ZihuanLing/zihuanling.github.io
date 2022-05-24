@@ -10,22 +10,40 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 May 2022 20:52:39 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 May 2022 14:16:18 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>HTML</title>
-      <link>https://zihuanling.github.io/tags/html/</link>
-      <pubDate>Mon, 09 May 2022 20:52:39 +0800</pubDate>
+      <title>pip</title>
+      <link>https://zihuanling.github.io/tags/pip/</link>
+      <pubDate>Tue, 24 May 2022 14:16:18 +0800</pubDate>
       
-      <guid>https://zihuanling.github.io/tags/html/</guid>
+      <guid>https://zihuanling.github.io/tags/pip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyhton依赖管理</title>
+      <link>https://zihuanling.github.io/tags/pyhton%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 24 May 2022 14:16:18 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/pyhton%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
       <link>https://zihuanling.github.io/tags/python/</link>
-      <pubDate>Thu, 05 May 2022 09:38:45 +0800</pubDate>
+      <pubDate>Tue, 24 May 2022 14:16:18 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://zihuanling.github.io/tags/html/</link>
+      <pubDate>Mon, 09 May 2022 20:52:39 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/tags/html/</guid>
       <description></description>
     </item>
     

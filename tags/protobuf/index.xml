@@ -19,9 +19,10 @@
       <guid>https://zihuanling.github.io/posts/go-grpc-protobuf/</guid>
       <description>gRPC 一个高性能、开源的通用RPC框架。
 gPPC是一个现代的开源高性能的远程过程调用框架，并且可以运行在任何环境中。它可以有效地连接数据中心内和跨数据中心的服务，支持负载均衡、跟踪、健康检查和身份验证。它也适用于分布式计算的最后一英里，将设备、移动应用程序和浏览器连接到后端服务。
- gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
- github 地址： https://github.com/grpc/grpc
-原来是用 C++ 写的，后来也有了go语言版本：https://github.</description>
+gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
+github 地址： https://github.com/grpc/grpc
+原来是用 C++ 写的，后来也有了go语言版本：https://github.com/grpc/grpc-go
+gRPC 和 go gPPC支持多个语言和平台，包括GO、Python、C++、Nodejs等，我们接下来学习的是使用go来体验一下gRPC的功能。</description>
     </item>
     
     <item>
@@ -31,8 +32,9 @@ gPPC是一个现代的开源高性能的远程过程调用框架，并且可以�
       
       <guid>https://zihuanling.github.io/posts/go-proto/</guid>
       <description>Google protocol buffers 简称protobuf，它是谷歌提供的跨语言，跨平台的，可扩展的用来将结构化的数据进行序列化的一种机制。就像XML，但是更加精简、快速和简单。我们可以先预先定义我们的协议（写到一个 .proto 文件里面），里面声明了我们需要怎么去将数据结构化，然后，我们可以使用这份proto，去生成我们指定的语言源代码文件，我们就能够很方便地从各种数据流中读取结构化数据，或者是写入结构化数据。并且是跨语言的。
- Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
- 安装protoc编译器 .</description>
+Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
+安装protoc编译器 .proto文件只是我们定义的协议文件，一般来讲，编程语言是不能直接使用这份文件的（除非是自己针对proto写一个自定义的解析逻辑，但是没人会这么闲），我们想要的，应该是简单高效的开发，可以即写即用那种。
+因此，我们使用特定的编程语言编写服务时，需要将我们定义的 .</description>
     </item>
     
   </channel>

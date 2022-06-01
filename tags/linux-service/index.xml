@@ -18,9 +18,9 @@
       
       <guid>https://zihuanling.github.io/posts/linux-create-service/</guid>
       <description>参考地址：
-  https://linuxconfig.org/how-to-write-a-simple-systemd-service
-  https://www.freedesktop.org/software/systemd/man/systemd.service.html
-  前言 systemd是系统的服务和进程的管理工具，在linux系统下，我们使用 ps aux | head，我们可以看到，系统启动的第一个进程就是systemd。
+https://linuxconfig.org/how-to-write-a-simple-systemd-service
+https://www.freedesktop.org/software/systemd/man/systemd.service.html
+前言 systemd是系统的服务和进程的管理工具，在linux系统下，我们使用 ps aux | head，我们可以看到，系统启动的第一个进程就是systemd。
 有时候，我们想要让程序运行在后台，而不是一直在前台，开一个终端挂着。（使用nohup可以实现这个）
 有时候，想要在开机的时候就自动启动某个服务，比如redis、mysql、nginx这些，这时候，我们就可以将这些程序的启动编写成为一个服务，这样，在系统启动的时候，systemd会自动加载服务配置，然后启动这些服务。
 现在，我想要创建一个python jupyter notebook服务。
@@ -32,7 +32,9 @@ Unit 对于一个简单服务来说，我们在 [Unit] 这个块只要写上服�
 [Service] Type=simple ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook Restart=on-failure User=root WorkingDirectory=/tmp/notebook 在Serivce声明中，我们首先要说明这个服务的类型 Type=simple
 然后，是最重要的部分，我们需要告诉系统应该去执行什么东西： ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook， 这里，我们指定了执行 jupyter notebook 这个命令，前面加载了用户的环境变量。
 随后指定这个服务的重启策略：Restart=on-failure， 我要求的是启动失败后重启
-最后，这个服务运行的角色：User=root，以及运行时所在路径： WorkingDirectory=/tmp/notebook</description>
+最后，这个服务运行的角色：User=root，以及运行时所在路径： WorkingDirectory=/tmp/notebook
+Install [Install] 块声明了当前服务应该应该怎样启用，常用的就是 WantedBy=multi-user.target
+[Install] WantedBy=multi-user.</description>
     </item>
     
   </channel>

@@ -18,12 +18,12 @@
       
       <guid>https://zihuanling.github.io/posts/go-hdf5-practise/</guid>
       <description>前言 HDF5 (Hierarchical Data Format) 是由美国伊利诺伊大学厄巴纳-香槟分校，是一种跨平台传输的文件格式，存储图像和数据
-优势  通用数据模型，可以通过无限多种数据类型表示非常复杂、异构的数据对象和各种各样的元数据 高速原始数据采集 可移植和可扩展，文件大小没有限制 自描述的，不需要外部信息应用程序来解释文件的结构和内容 拥有用于管理、操作、查看和分析数据的开源工具和应用程序软件生态系统 在各种计算平台和编程语言（包括C、C++、Fortran90和Java）上运行的软件库。  参考文章链接： 大数据存储 hdf5简介
+优势 通用数据模型，可以通过无限多种数据类型表示非常复杂、异构的数据对象和各种各样的元数据 高速原始数据采集 可移植和可扩展，文件大小没有限制 自描述的，不需要外部信息应用程序来解释文件的结构和内容 拥有用于管理、操作、查看和分析数据的开源工具和应用程序软件生态系统 在各种计算平台和编程语言（包括C、C++、Fortran90和Java）上运行的软件库。 参考文章链接： 大数据存储 hdf5简介
 实践 环境安装 对于go语言，hdf5已经有了支持的库： gonum/hdf5，我们可以直接安装这个包，并且使用。
 需要注意的是，这个包使用了 cgo，依赖了hdf5的C语言库，因此，需要我们自己预先安装，使用centos系统，可以很方便安装，直接使用命令：
 yum install -y hdf5 hdf5-devel 当然，如果系统没有软件源的话，hdf5也提供了源码安装，下载 hdf5-1.12.1，解压后，执行安装：
 cd hdf5-1.12.1 ./configure --prefix /usr/local make -j 2 &amp;amp;&amp;amp; make install 然后我们初始化一个项目，名为 h5，用于编写go、hdf5 的简单测试用例
-mkdir -p ~/go/src/h5 cd ~/go/src/h5 go mod init # 安装 go get -v gonum.org/v1/hdf5 使用 创建文件 func main() { 	// 创建hdf5文件 	f, err := hdf5.</description>
+mkdir -p ~/go/src/h5 cd ~/go/src/h5 go mod init # 安装 go get -v gonum.org/v1/hdf5 使用 创建文件 func main() { // 创建hdf5文件 f, err := hdf5.CreateFile(&amp;#34;data.h5&amp;#34;, hdf5.F_ACC_TRUNC) if err !</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ data, err := os.ReadFile(&amp;#34;/tmp/data&amp;#34;) fmt.Println(string(data)) 
 f, err := os.Open(&amp;#34;/tmp/data&amp;#34;) 我们可以定义一个缓存（5个字节的[]byte类型），然后从文件中读取内容，读取的内容大小上限为5：
 b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read from file: %s\n&amp;#34;, n1, string(b1)) 调用 f.Read来读取文件，返回两个结果，第一个为实际读取的内容长度，第二个为error。我们定义了一个长度为5的 b1 来存储文件内容，但是文件里面的内容长度可能只有3，因此，n1不一定等于5，它是实际读取的长度。
 同样，我们还能用 os.Seek，来查找文件的位置，第一个参数为 offset，意味着偏移量，第二个参数为 whence，
- 0表示从文件的开始位置进行偏移查找 1表示从文件的当前位置开始偏移，如果之前已经设置过偏移，再次设置则从当前位置开始偏移 2表示从文件的末尾开始偏移  o2, err := f.Seek(6, 0) b2 := make([]byte, 2) n2, err := f.Read(b2) fmt.Printf(&amp;#34;%d bytes read at %d\n&amp;#34;, n2, o2) fmt.Printf(&amp;#34;Value is : %s\n&amp;#34;, string(b2[:n2])) golang 的 io包提供了一些有用的函数，帮助我们高效读取。比如 io.</description>
+0表示从文件的开始位置进行偏移查找 1表示从文件的当前位置开始偏移，如果之前已经设置过偏移，再次设置则从当前位置开始偏移 2表示从文件的末尾开始偏移 o2, err := f.Seek(6, 0) b2 := make([]byte, 2) n2, err := f.Read(b2) fmt.Printf(&amp;#34;%d bytes read at %d\n&amp;#34;, n2, o2) fmt.Printf(&amp;#34;Value is : %s\n&amp;#34;, string(b2[:n2])) golang 的 io包提供了一些有用的函数，帮助我们高效读取。比如 io.</description>
     </item>
     
     <item>
@@ -49,9 +49,10 @@ b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read fr
       <guid>https://zihuanling.github.io/posts/go-grpc-protobuf/</guid>
       <description>gRPC 一个高性能、开源的通用RPC框架。
 gPPC是一个现代的开源高性能的远程过程调用框架，并且可以运行在任何环境中。它可以有效地连接数据中心内和跨数据中心的服务，支持负载均衡、跟踪、健康检查和身份验证。它也适用于分布式计算的最后一英里，将设备、移动应用程序和浏览器连接到后端服务。
- gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
- github 地址： https://github.com/grpc/grpc
-原来是用 C++ 写的，后来也有了go语言版本：https://github.</description>
+gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
+github 地址： https://github.com/grpc/grpc
+原来是用 C++ 写的，后来也有了go语言版本：https://github.com/grpc/grpc-go
+gRPC 和 go gPPC支持多个语言和平台，包括GO、Python、C++、Nodejs等，我们接下来学习的是使用go来体验一下gRPC的功能。</description>
     </item>
     
     <item>
@@ -61,8 +62,9 @@ gPPC是一个现代的开源高性能的远程过程调用框架，并且可以�
       
       <guid>https://zihuanling.github.io/posts/go-proto/</guid>
       <description>Google protocol buffers 简称protobuf，它是谷歌提供的跨语言，跨平台的，可扩展的用来将结构化的数据进行序列化的一种机制。就像XML，但是更加精简、快速和简单。我们可以先预先定义我们的协议（写到一个 .proto 文件里面），里面声明了我们需要怎么去将数据结构化，然后，我们可以使用这份proto，去生成我们指定的语言源代码文件，我们就能够很方便地从各种数据流中读取结构化数据，或者是写入结构化数据。并且是跨语言的。
- Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
- 安装protoc编译器 .</description>
+Protocol buffers are Google&amp;rsquo;s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages.
+安装protoc编译器 .proto文件只是我们定义的协议文件，一般来讲，编程语言是不能直接使用这份文件的（除非是自己针对proto写一个自定义的解析逻辑，但是没人会这么闲），我们想要的，应该是简单高效的开发，可以即写即用那种。
+因此，我们使用特定的编程语言编写服务时，需要将我们定义的 .</description>
     </item>
     
     <item>
@@ -72,9 +74,9 @@ gPPC是一个现代的开源高性能的远程过程调用框架，并且可以�
       
       <guid>https://zihuanling.github.io/posts/go-mongo/</guid>
       <description>安装 mkdir go-mongo go mod init go-mongo go get go.mongodb.org/mongo-driver/mongo 使用 数据库里面有一条这样的数据：
-{  &amp;#34;_id&amp;#34;: {  &amp;#34;$oid&amp;#34;: &amp;#34;6252912ec4495f97bccf41aa&amp;#34;  },  &amp;#34;title&amp;#34;: &amp;#34;My Mongo Post&amp;#34;,  &amp;#34;create_time&amp;#34;: {  &amp;#34;$date&amp;#34;: &amp;#34;2022-04-10T10:33:45.149Z&amp;#34;  },  &amp;#34;viewer&amp;#34;: 201 } 连接数据库 // 关键代码 const MONGO_URI = &amp;#34;mongodb://localhost:27017/test&amp;#34; client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(MONGO_URI))  // 优雅关闭连接 defer client.Disconnect(context.TODO()) 数据查询 首先获取到对应的database以及collection
+{ &amp;#34;_id&amp;#34;: { &amp;#34;$oid&amp;#34;: &amp;#34;6252912ec4495f97bccf41aa&amp;#34; }, &amp;#34;title&amp;#34;: &amp;#34;My Mongo Post&amp;#34;, &amp;#34;create_time&amp;#34;: { &amp;#34;$date&amp;#34;: &amp;#34;2022-04-10T10:33:45.149Z&amp;#34; }, &amp;#34;viewer&amp;#34;: 201 } 连接数据库 // 关键代码 const MONGO_URI = &amp;#34;mongodb://localhost:27017/test&amp;#34; client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(MONGO_URI)) // 优雅关闭连接 defer client.Disconnect(context.TODO()) 数据查询 首先获取到对应的database以及collection
 coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34;) 然后查询：
-coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34;) var result bson.M	// 需要一个bson.M 对象，用于存储查询回来的数据 // FindOne 接受2个参数，一个context，一个filter，filter 为 bson.</description>
+coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34;) var result bson.M	// 需要一个bson.M 对象，用于存储查询回来的数据 // FindOne 接受2个参数，一个context，一个filter，filter 为 bson.D类型 err = coll.FindOne(context.TODO(), bson.D{}).Decode(&amp;amp;result) if err == mongo.</description>
     </item>
     
     <item>
@@ -86,7 +88,7 @@ coll := client.Database(&amp;#34;test&amp;#34;).Collection(&amp;#34;post&amp;#34
       <description>go 是天生支持并发的，我们只要 使用 go func() 就可以快速实现并发。在网络服务的处理中，实现并发可以大大提高服务的吞吐量，我们来研究一下。
 简单的TCP服务器 我们先来实现一个简单的tcp服务，监听8989端口，从连接中读取一段数据，这段数据表示的是当前请求的id，然后返回一段话。
 服务器 server/main.go
-package main  import ( 	&amp;#34;fmt&amp;#34; 	&amp;#34;log&amp;#34; 	&amp;#34;net&amp;#34; )  func main() { 	// 启动tcp连接，监听8989端口 	l, err := net.Listen(&amp;#34;tcp&amp;#34;, &amp;#34;:8989&amp;#34;) 	if err != nil { 	log.Fatalf(&amp;#34;Server listening error: %s\n&amp;#34;, err) 	} 	for { 	conn, err := l.Accept() 	if err != nil { 	log.Printf(&amp;#34;Accept error: %s\n&amp;#34;, err) 	continue 	} 	// 接收连接,调用handleConn处理当前连接 	handleConn(conn) 	} }  func handleConn(conn net.</description>
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; ) func main() { // 启动tcp连接，监听8989端口 l, err := net.Listen(&amp;#34;tcp&amp;#34;, &amp;#34;:8989&amp;#34;) if err != nil { log.Fatalf(&amp;#34;Server listening error: %s\n&amp;#34;, err) } for { conn, err := l.Accept() if err != nil { log.Printf(&amp;#34;Accept error: %s\n&amp;#34;, err) continue } // 接收连接,调用handleConn处理当前连接 handleConn(conn) } } func handleConn(conn net.Conn) { defer conn.Close()	// 优雅关闭连接 data := make([]byte, 4) conn.</description>
     </item>
     
     <item>
@@ -97,10 +99,10 @@ package main  import ( 	&amp;#34;fmt&amp;#34; 	&amp;#34;log&amp;#34; 	&amp;#34;n
       <guid>https://zihuanling.github.io/posts/go-rpc-server/</guid>
       <description>RPC RPC - Remote Procedure Call 称为远程过程调用，是分布式系统中，不同节点调用的方式（进程间通信），属于 C/S 模式。由客户端发起，调用服务端的方法进行通信，服务端将结果返回给客户端。
 RPC的两个核心：
- 通信协议 序列化  序列化和反序列化是一种把传输内容编码和解码的方式，常见的编解码方式有 JSON、Protobuf 等。
+通信协议 序列化 序列化和反序列化是一种把传输内容编码和解码的方式，常见的编解码方式有 JSON、Protobuf 等。
 大多数 RPC 架构中，都有 Client、Client Stub、Server、Server Stub这四个组件，Client 和 Server 通过 Socket 进行通信。
 flowchart LR subgraph 服务端进程 s(Server) ss(Server Stub) s --调用--&amp;gt; ss ss --返回--&amp;gt; s end subgraph 客户端进程 c(Client) cs(Client Stub) c --调用--&amp;gt; cs cs --返回--&amp;gt; c end 客户端进程 ==网络消息==&amp;gt; 服务端进程 服务端进程 ==&amp;gt; 客户端进程 调用流程：
- client 调用 client stub，同时把参数传给 client stub client stub将参数打包编码，然后通过系统调用发送到服务端进程 客户端本地系统发送信息到服务器 服务器系统将信息发送到 server stub server stub 将信息解码 server stub 调用真正的服务端程序 server server 处理后，通过同样的方式，将结果返回到 client  go 实现简单的RPC服务 go内置了 net/rpc 包帮助我们实现rpc服务。</description>
+client 调用 client stub，同时把参数传给 client stub client stub将参数打包编码，然后通过系统调用发送到服务端进程 客户端本地系统发送信息到服务器 服务器系统将信息发送到 server stub server stub 将信息解码 server stub 调用真正的服务端程序 server server 处理后，通过同样的方式，将结果返回到 client go 实现简单的RPC服务 go内置了 net/rpc 包帮助我们实现rpc服务。</description>
     </item>
     
     <item>
@@ -110,10 +112,10 @@ flowchart LR subgraph 服务端进程 s(Server) ss(Server Stub) s --调用--&amp
       
       <guid>https://zihuanling.github.io/posts/go-http-server/</guid>
       <description>简易 http 服务 使用 go 自带的 http 模块实现一个简单的 http 服务器，对请求者说一句 Hello, go http!
-func main(){ 	http.HandleFunc(&amp;#34;/hello&amp;#34;, sayHello) 	http.ListenAndServe(&amp;#34;:8080&amp;#34;, nil) }  func sayHello(resp http.ResponseWriter, req *http.Request) { 	log.Println(&amp;#34;In say hello&amp;#34;) 	resp.WriteHeader(http.StatusOK) 	resp.Write([]byte(&amp;#34;Hello, go http!&amp;#34;)) } 运行上述代码，在终端使用 curl 访问该地址，返回正常：
+func main(){ http.HandleFunc(&amp;#34;/hello&amp;#34;, sayHello) http.ListenAndServe(&amp;#34;:8080&amp;#34;, nil) } func sayHello(resp http.ResponseWriter, req *http.Request) { log.Println(&amp;#34;In say hello&amp;#34;) resp.WriteHeader(http.StatusOK) resp.Write([]byte(&amp;#34;Hello, go http!&amp;#34;)) } 运行上述代码，在终端使用 curl 访问该地址，返回正常：
 &amp;gt;curl http://localhost:8080/hello Hello, go http! 且程序使用 log 打印了一句： 2022/03/27 15:32:48 In say hello
 但是，我们的http方法有很多， GET/POST/PUT/PATCH/DELETE 等，我们使用任意一个方法，访问上述地址，都能得到 Hello, go http! 这句返回，如 POST:
-&amp;gt;curl -X POST http://localhost:8080/hello Hello, go http!</description>
+&amp;gt;curl -X POST http://localhost:8080/hello Hello, go http! http.Request 这个结构体中，包含了一个 Method 字段，让我们可以根据不同的方法，决定不同的处理方式，我们将 sayHello 方法改造如下：</description>
     </item>
     
     <item>
@@ -127,7 +129,7 @@ func main(){ 	http.HandleFunc(&amp;#34;/hello&amp;#34;, sayHello) 	http.ListenAn
 安装 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.32.2 查看版本 golangci-lint version 输出：
 golangci-lint has version v1.32.2 ... 运行检查： golangci-lint run quality/ 这里的 quality是一个包，里面有一个 main.go 文件，内容如下：
 quality/main.go
-package main  import &amp;#34;os&amp;#34;  func main(){ 	os.Mkdir(&amp;#34;/tmp&amp;#34;, 0666) } 运行检查后，输出如下：
+package main import &amp;#34;os&amp;#34; func main(){ os.Mkdir(&amp;#34;/tmp&amp;#34;, 0666) } 运行检查后，输出如下：
 quality\main.go:6:10: Error return value of `os.Mkdir` is not checked (errcheck) os.Mkdir(&amp;#34;/tmp&amp;#34;, 0666) 因为 os.Mkdir 返回一个 error，但是我们没有处理这个 error，因此提示了这个错误。
 golangci-lint 配置 golangci-lint是一个集成工具，里面有很多linters，我们可以用 golangci-lint linters 查看有哪些linters，以及他们的作用、启用情况，默认启用的linters如下：
 deadcode - 死代码检查 errcheck - 返回错误是否使用检查 gosimple - 检查代码是否可以简化 govet - 代码可疑检查，比如格式化字符串和类型不一致 ineffassign - 检查是否有未使用的代码 staticcheck - 静态分析检查 structcheck - 查找未使用的结构体字段 typecheck - 类型检查 unused - 未使用代码检查 varcheck - 未使用的全局变量和常量检查 我们可以通过一个 .</description>
@@ -142,10 +144,10 @@ deadcode - 死代码检查 errcheck - 返回错误是否使用检查 gosimple - 
       <description>单元测试 单元测试就是对单元进行测试（听起来是一句废话），单元可以是一个函数、一个模块等，我们最小的单元是一个函数。
 以斐波那契数列为例，实现一个测试用例
 test/main.go
-package main  // 斐波那契数列 func Fibonacci(n int) int { 	if n &amp;lt;= 0 { 	return 0 	} else if n == 1 { 	return 1 	} 	return Fibonacci(n-1) + Fibonacci(n-2) } 我们在 main.go 里面写了一个 Fibonacci函数，用于计算对应的斐波那契值。
+package main // 斐波那契数列 func Fibonacci(n int) int { if n &amp;lt;= 0 { return 0 } else if n == 1 { return 1 } return Fibonacci(n-1) + Fibonacci(n-2) } 我们在 main.go 里面写了一个 Fibonacci函数，用于计算对应的斐波那契值。
 我们接下来写一个测试用例，测试的文件名应该是以 _test.go 结尾的，前面的名称最好是需要测试的文件名称，比如要测试 main.go，则测试文件命名为 main_test.go，而在 测试文件里面，需要一个以 Test开头的函数，后面接需要测试的函数名称，如 TestFibonacci，这个函数接受一个 *Testing.T指针，且不返回任何值
 test/main_test.go
-func TestFibonacci(t *testing.T) { 	result := map[int]int{ 	1: 1, 2: 1, 3: 2, 4: 3, 5: 5, 	6: 8, 7: 13, 8: 21, 	} 	for n, expect := range result { 	got := Fibonacci(n) 	if expect !</description>
+func TestFibonacci(t *testing.T) { result := map[int]int{ 1: 1, 2: 1, 3: 2, 4: 3, 5: 5, 6: 8, 7: 13, 8: 21, } for n, expect := range result { got := Fibonacci(n) if expect !</description>
     </item>
     
     <item>
@@ -155,15 +157,16 @@ func TestFibonacci(t *testing.T) { 	result := map[int]int{ 	1: 1, 2: 1, 3: 2, 4:
       
       <guid>https://zihuanling.github.io/posts/go-15-depth-slice-header/</guid>
       <description>数组 数组由两部分组成：数组的大小和数组内部的元素类型。
-// 伪代码表示 array {  len  item type } 看以下两个数组的定义：
+// 伪代码表示 array { len item type } 看以下两个数组的定义：
 a1 := [1]string{&amp;#34;mike&amp;#34;} a2 := [2]string{&amp;#34;mike&amp;#34;} 上述定义的两个变量，a1的类型为 [1]string，a2的类型为 [2]string，所以说，数组的大小也属于数组类型的一部分。
-数组的两个限制   **一旦一个数组被声明，它的大小和内部的类型就不能改变，**我们将不能随意向其中追加任意多的元素。
-  另外，当我们使用数组存储大量数据，然后将数组作为函数的参数进行传值时，由于函数之间是值传递的，因此，数组的拷贝将会耗费巨大的内存。
-  slice 切片 我们可以将切片理解为动态的数组。
+数组的两个限制 **一旦一个数组被声明，它的大小和内部的类型就不能改变，**我们将不能随意向其中追加任意多的元素。
+另外，当我们使用数组存储大量数据，然后将数组作为函数的参数进行传值时，由于函数之间是值传递的，因此，数组的拷贝将会耗费巨大的内存。
+slice 切片 我们可以将切片理解为动态的数组。
 切片是对数组的封装，它的底层是一个数组存储了所有的元素，但是它可以动态地添加元素，容量不足时可以自动扩容。
 动态扩容 使用内置的append方法，向切片中追加元素，返回一个新的切片。
 同时，当容量不足的时候，append会自动对切片进行扩容。
-func main(){  ss := []string{&amp;#34;mike&amp;#34;} // 定义切片ss  fmt.Printf(&amp;#34;slice before append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss))  ss = append(ss, &amp;#34;lucy&amp;#34;, &amp;#34;john&amp;#34;) // append 追加元素  fmt.Printf(&amp;#34;slice after append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss)) } 输出：</description>
+func main(){ ss := []string{&amp;#34;mike&amp;#34;} // 定义切片ss fmt.Printf(&amp;#34;slice before append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss)) ss = append(ss, &amp;#34;lucy&amp;#34;, &amp;#34;john&amp;#34;) // append 追加元素 fmt.Printf(&amp;#34;slice after append: %s, length=%d, cap=%d\n&amp;#34;, ss, len(ss), cap(ss)) } 输出：
+slice before append: [mike], length=1, cap=1 slice after append: [mike lucy john], length=3, cap=3 数据结构 切片在go语言中是一个数据结构：</description>
     </item>
     
     <item>
@@ -176,7 +179,7 @@ func main(){  ss := []string{&amp;#34;mike&amp;#34;} // 定义切片ss  fmt.Prin
 变量 一个数据类型，在声明之后，会被赋值给一个变量，变量存储了程序所需的数据。
 变量的声明 单纯的声明变量，可以使用var关键字，如：
 var s string	// 声明一个[字符串]变量，初始值为零值&amp;#34;&amp;#34; var sp *string	// 声明一个[字符串指针]变量，初始值为 nil 变量的初始化 有3种方法
- 声明的时候直接初始化： var name string = &amp;quot;mike&amp;quot; 声明之后再进行赋值初始化： name = &amp;quot;mike&amp;quot;,此前 name 变量已经声明 直接使用 := 进行初始化： name := &amp;quot;mike&amp;quot;  值变量和指针变量初始化的区别 我们使用值初始化的时候，可以简单的这样写：
+声明的时候直接初始化： var name string = &amp;quot;mike&amp;quot; 声明之后再进行赋值初始化： name = &amp;quot;mike&amp;quot;,此前 name 变量已经声明 直接使用 := 进行初始化： name := &amp;quot;mike&amp;quot; 值变量和指针变量初始化的区别 我们使用值初始化的时候，可以简单的这样写：
 var name string name = &amp;#34;mike&amp;#34; 但是，当我们使用指针初始化的时候：
 var nameP *string // 声明一个字符串指针 *nameP = &amp;#34;mike&amp;#34;	// 给nameP指向的地址赋值初始化 这时候，由于 nameP 指向的是一个空地址 nil，我们对这个空地址进行赋值初始化的时候，会报以下错误：
 panic: runtime error: invalid memory address or nil pointer dereference 显而易见，我们无法对一个空地址赋值。</description>
@@ -193,8 +196,8 @@ panic: runtime error: invalid memory address or nil pointer dereference 显而�
 也可以理解为：指针就是一本书上的目录上面的页码，这个页码指向具体的内容。
 指针的声明和定义 以字符串指针为例
 // 声明一个字符串指针变量 var sp *string // 直接通过 &amp;amp; 操作符获取一个字符串的地址 s := &amp;#34;Hello world.&amp;#34; sp := &amp;amp;s // 还可以使用 new 函数，传入一个类型作为参数，用以返回该类型的指针 sp := new(string) 指针的操作 针对指针的操作，有两种：获取或者修改指针指向的值
- 获取指针指向的值  使用 *指针变量 获取指针指向的值，如 *sp 获取sp指针指向的内存地址的值。
-修改指针指向的值  修改跟获取值也是类似的，使用 *指针变量 = 值 来修改，如 *sp = &amp;quot;new value&amp;quot;，这样，就把 sp指针指向的内存地址值修改为了 new value
+获取指针指向的值 使用 *指针变量 获取指针指向的值，如 *sp 获取sp指针指向的内存地址的值。
+修改指针指向的值 修改跟获取值也是类似的，使用 *指针变量 = 值 来修改，如 *sp = &amp;quot;new value&amp;quot;，这样，就把 sp指针指向的内存地址值修改为了 new value
 注意 另外，通过 var sp *string 定义的sp指针，初始值是nil，表示它没有指向任何一块内存地址，我们不能够对它进行取值和赋值操作，否则，会提示：
 invalid memory address or nil pointer dereference
 要解决这个问题，只需要使用 new 函数给该地址分配一块内存即可：
@@ -207,9 +210,9 @@ var sp *string = new(string)</description>
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://zihuanling.github.io/posts/2022-03-04-go-9-concurrency/</guid>
-      <description>for select 模式 这是一种常见的并发模式，我们一般使用 for {}  死循环，然后里面加select配合channel，获取协程的终止信号，来控制协程的退出
-for {  select {  case &amp;lt;- done:  // received stop signal, stopping.  return  default: 	// processing ...  } } 类似的还有 for range select模式，主要就是使用 for ... range 遍历某个数据数组，将数据发送到channel里面：
-for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终止信号  return  case resultCh &amp;lt;- value:  // do nothing but put value to rsult channel  } } select timeout 模式 select timeout模式，核心在于使用 time.</description>
+      <description>for select 模式 这是一种常见的并发模式，我们一般使用 for {} 死循环，然后里面加select配合channel，获取协程的终止信号，来控制协程的退出
+for { select { case &amp;lt;- done: // received stop signal, stopping. return default: // processing ... } } 类似的还有 for range select模式，主要就是使用 for ... range 遍历某个数据数组，将数据发送到channel里面：
+for _, value := range []int{} { select { case &amp;lt;- done: // 接受到终止信号 return case resultCh &amp;lt;- value: // do nothing but put value to rsult channel } } select timeout 模式 select timeout模式，核心在于使用 time.After(t time.</description>
     </item>
     
     <item>
@@ -220,7 +223,7 @@ for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终
       <guid>https://zihuanling.github.io/posts/2022-02-27-go-8-concurrency/</guid>
       <description>协程如何退出 一般来说，我们执行协程，需要等到协程执行完毕，才能够退出。但是，当我们想要让协程提前退出，就需要一种机制，去控制协程的退出。
 以下例子使用select + channel的方式，控制协程的退出
- func main() { 	ch := make(chan bool) 	var wg sync.WaitGroup 	go func() { 	defer wg.Done()  // 开启looper协程 	looper(ch) 	}() 	wg.Add(1)  // 5秒后发送中断信号 	time.Sleep(time.Second * 5) 	fmt.Println(&amp;#34;Signal to goroutine exit...&amp;#34;) 	ch &amp;lt;- true 	fmt.Println(&amp;#34;Signal sent.&amp;#34;) 	wg.Wait() // 等待协程完全退出 	fmt.Println(&amp;#34;Exit.&amp;#34;) }  func looper(ch &amp;lt;-chan bool){ 	for { 	select { 	case &amp;lt;-ch: 	fmt.</description>
+func main() { ch := make(chan bool) var wg sync.WaitGroup go func() { defer wg.Done() // 开启looper协程 looper(ch) }() wg.Add(1) // 5秒后发送中断信号 time.Sleep(time.Second * 5) fmt.Println(&amp;#34;Signal to goroutine exit...&amp;#34;) ch &amp;lt;- true fmt.Println(&amp;#34;Signal sent.&amp;#34;) wg.Wait() // 等待协程完全退出 fmt.Println(&amp;#34;Exit.&amp;#34;) } func looper(ch &amp;lt;-chan bool){ for { select { case &amp;lt;-ch: fmt.Println(&amp;#34;go break signal&amp;#34;) return default: fmt.Println(&amp;#34;looper is running...&amp;#34;) time.Sleep(time.Second * 1) } } } 上述例子通过一个ch channel 发送信号，让协程收到信号后终止循环。</description>
     </item>
     
     <item>
@@ -233,9 +236,10 @@ for _, value := range []int{} {  select {  case &amp;lt;- done:  // 接受到终
 用sync包，可以方便的控制资源的访问，也可以方便实现阻塞等待，让协程执行完毕再退出程序，或者执行下一步。
 资源竞争 在同一个goroutine中，如果分配的内存没有被其他的goroutine访问，只在该goroutine中使用，则不存在资源竞争问题
 如果同一块内存被多个goroutine同时访问，就会产生不知道谁先访问，也无法预料最后结果的情况，这就是资源竞争：
-// 共享的资源 var sum = 0 func main(){  for i := 0; i &amp;lt; 100; i++ {  go add(10)  }  // goroutine 不会阻塞下面的代码，此处Sleep一下，防止main goroutine直接退出  // 而导致未完成的goroutine也被终止  time.Sleep(time.Second * 2)  fmt.Println(&amp;#34;Sum is:&amp;#34;, sum) }  func add(i int) {  sum += i } 上述例子中，sum变量为共享的资源，程序运行的过程中会发生资源竞争。
- 使用 go build、go run、go test 这些 Go 语言工具链提供的命令时，添加 -race 标识可以帮你检查 Go 语言代码是否存在资源竞争
- 同步原语 sync.</description>
+// 共享的资源 var sum = 0 func main(){ for i := 0; i &amp;lt; 100; i++ { go add(10) } // goroutine 不会阻塞下面的代码，此处Sleep一下，防止main goroutine直接退出 // 而导致未完成的goroutine也被终止 time.Sleep(time.Second * 2) fmt.Println(&amp;#34;Sum is:&amp;#34;, sum) } func add(i int) { sum += i } 上述例子中，sum变量为共享的资源，程序运行的过程中会发生资源竞争。
+使用 go build、go run、go test 这些 Go 语言工具链提供的命令时，添加 -race 标识可以帮你检查 Go 语言代码是否存在资源竞争
+同步原语 sync.Mutex 互斥锁，同一个时刻，只有一个goroutine能执行某段代码，其他协程需要等待该协程执行完毕后才能继续执行。
+var ( sum int mutex sync.Mutex ) func add(i int) { mutex.</description>
     </item>
     
     <item>
@@ -249,9 +253,9 @@ go语言天生自带并发属性，使得并发编程十！分！方！便！，
 进程和线程 进程 程序启动时，系统会为其创建一个进程
 线程 是进程的执行空间，一个进程可以包含多个线程，线程被操作系统调度执行 一个程序启动，对应的进程会被创建，同时也会创建一个线程（主线程），主线程结束，整个程序也就退出了。 我们可以从主线程创建其他的子线程，这就是多线程并发
 协程 Goroutine goroutine比线程更加轻盈，被Go runtime调度。 启动协程： go function()
-// 这里启动了两个goroutine， 一个是用go关键字触发的，另一个是 main goroutine（主线程） func main(){  go fmt.Println(&amp;#34;Hello goroutine.&amp;#34;)  fmt.Println(&amp;#34;Main goroutine.&amp;#34;)  time.Sleep(time.Second) } Channel 多个goroutine之间，使用 channel进行通信
+// 这里启动了两个goroutine， 一个是用go关键字触发的，另一个是 main goroutine（主线程） func main(){ go fmt.Println(&amp;#34;Hello goroutine.&amp;#34;) fmt.Println(&amp;#34;Main goroutine.&amp;#34;) time.Sleep(time.Second) } Channel 多个goroutine之间，使用 channel进行通信
 声明一个channel // 直接使用 make 创建一个channel，接受的数据类型是string ch := make(chan string) // 一个channel的操作只有两种： // - 发送，向chan中发送值： chan&amp;lt;- // - 接受，从chan中获取值： &amp;lt;-chan demo
-func main(){  ch := make(chan string)  go func(){  fmt.</description>
+func main(){ ch := make(chan string) go func(){ fmt.Println(&amp;#34;Message in goroutine&amp;#34;) ch &amp;lt;- &amp;#34;goroutine finished.</description>
     </item>
     
     <item>
@@ -262,12 +266,12 @@ func main(){  ch := make(chan string)  go func(){  fmt.</description>
       <guid>https://zihuanling.github.io/posts/2022-02-17-go-5-basic/</guid>
       <description>正确处理错误，可以让程序更加稳定。error是一个错误接口，一般来说，error是不会影响到整个程序运行的，我们可以自行处理。 而panic是会导致程序直接崩溃退出的，我们也可以用 go自带的recover()来恢复panic，在程序崩溃前进行资源的释放工作。
 错误 error接口 error接口只有一个Error方法，返回具体的错误信息（string）
-type error interface {  Error() string } 一个字符串转整数的例子：
-func main(){  // try to conver alpha &amp;#34;a&amp;#34; to integer  i, err := strconv.Atoi(&amp;#34;a&amp;#34;)  if err != nil {  fmt.Println(err)  } else {  fmt.Println(i)  } } 尝试将字符 a 转换成为 整数，显然是不成功的，因此返回了err
- 一般而言，error 接口用于当方法或者函数执行遇到错误时进行返回，而且是第二个返回值。通过这种方式，可以让调用者自己根据错误信息决定如何进行下一步处理。
- error 工厂函数 除了可以使用其他函数，自己定义的函数也可以返回错误信息给调用者
+type error interface { Error() string } 一个字符串转整数的例子：
+func main(){ // try to conver alpha &amp;#34;a&amp;#34; to integer i, err := strconv.Atoi(&amp;#34;a&amp;#34;) if err != nil { fmt.Println(err) } else { fmt.Println(i) } } 尝试将字符 a 转换成为 整数，显然是不成功的，因此返回了err
+一般而言，error 接口用于当方法或者函数执行遇到错误时进行返回，而且是第二个返回值。通过这种方式，可以让调用者自己根据错误信息决定如何进行下一步处理。
+error 工厂函数 除了可以使用其他函数，自己定义的函数也可以返回错误信息给调用者
 自定义error 自定义error就是先自定义一个新的类型，然后实现error接口
-// 自定义一个结构体，携带错误码和具体的错误信息 type commonError struct {  errorCode int	// 错误码  errorMsg string // 错误信息 }  // 实现error接口 func (ce *commonError) Error() string {  return ce.</description>
+// 自定义一个结构体，携带错误码和具体的错误信息 type commonError struct { errorCode int	// 错误码 errorMsg string // 错误信息 } // 实现error接口 func (ce *commonError) Error() string { return ce.</description>
     </item>
     
     <item>
@@ -278,7 +282,7 @@ func main(){  // try to conver alpha &amp;#34;a&amp;#34; to integer  i, err := s
       <guid>https://zihuanling.github.io/posts/2022-02-15-go-3-basic/</guid>
       <description>函数和方法，大大提高了我们的代码复用率，也提高了代码的可读性。 go语言的函数和方法的定义十分简单，直接使用 func 关键字即可。
 不同于python、C++等有类的概念，而这些类中，又有自己的方法，或者父类的方法。go语言中，我们可以定义一个数据结构，然后给这个数据结构实现自己的方法，同样可以实现【类】的效果，通过组合，同一个结构体中，也可以使用或者覆写其他结构体的方法。
-函数 函数的组成：  关键字 func 函数名 funcName 参数 params 返回值（返回值类型） 函数体  func funcName(params) result { 	// body } // 示例1：普通的函数定义 func sum(a int, b int) int { 	return a + b } // 示例2：参数表的类型合并，(a int, b int) -&amp;gt; (a, b int) func sum2(a, b int) int { 	return a + b } // 示例3：多值返回，用 （） 包裹起来 func sum3(a, b int) (int, error) { 	if a &amp;lt; 0 || b &amp;lt; 0 { 	return 0, errors.</description>
+函数 函数的组成： 关键字 func 函数名 funcName 参数 params 返回值（返回值类型） 函数体 func funcName(params) result { // body } // 示例1：普通的函数定义 func sum(a int, b int) int { return a + b } // 示例2：参数表的类型合并，(a int, b int) -&amp;gt; (a, b int) func sum2(a, b int) int { return a + b } // 示例3：多值返回，用 （） 包裹起来 func sum3(a, b int) (int, error) { if a &amp;lt; 0 || b &amp;lt; 0 { return 0, errors.</description>
     </item>
     
     <item>
@@ -290,8 +294,8 @@ func main(){  // try to conver alpha &amp;#34;a&amp;#34; to integer  i, err := s
       <description>接口是一种聚合类型，结构体是和调用方的一种约定，有点抽象类的意思。:)
 结构体 结构体定义 结构体是一种聚合类型，里面可以包含任意类型的值，这些值就是我们定义的结构体成员，也称为字段
 在go语言中，要定义一个结构体，需要使用 type+struct 关键字组合。
-// 定义一个代表【人】的结构体 type person struct {  name string	// 名称  age uint	// 年龄 } 结构体的成员字段并不是必需的，也可以一个字段都没有，这种结构体成为空结构体。
-type s struct {} 结构体声明使用 // 使用var声明一个person变量，未初始化，里面的值为各自变量的零值 var p person // 可以使用结构体字面量初始化的方式 p2 := person{&amp;#34;Mike&amp;#34;, 10} // 第一个值为 name，第二个值为age，与结构体字段定义顺序有关 // 可以指定字段名初始化，不按定义顺序 p3 := person{age: 10, name: &amp;#34;Mike&amp;#34;} 字段结构体 type address struct {  province string  city string } // 结构体的字段可以是任意类型，也可以是自定义的结构体 type person struct {  name string  age uint  addr address }  // 初始化 p := person{  name: &amp;#34;Mike&amp;#34;,  age: 10,  addr: address{  province: &amp;#34;Guandong&amp;#34;,  city: &amp;#34;Maoming&amp;#34;,  }, } fmt.</description>
+// 定义一个代表【人】的结构体 type person struct { name string	// 名称 age uint	// 年龄 } 结构体的成员字段并不是必需的，也可以一个字段都没有，这种结构体成为空结构体。
+type s struct {} 结构体声明使用 // 使用var声明一个person变量，未初始化，里面的值为各自变量的零值 var p person // 可以使用结构体字面量初始化的方式 p2 := person{&amp;#34;Mike&amp;#34;, 10} // 第一个值为 name，第二个值为age，与结构体字段定义顺序有关 // 可以指定字段名初始化，不按定义顺序 p3 := person{age: 10, name: &amp;#34;Mike&amp;#34;} 字段结构体 type address struct { province string city string } // 结构体的字段可以是任意类型，也可以是自定义的结构体 type person struct { name string age uint addr address } // 初始化 p := person{ name: &amp;#34;Mike&amp;#34;, age: 10, addr: address{ province: &amp;#34;Guandong&amp;#34;, city: &amp;#34;Maoming&amp;#34;, }, } fmt.</description>
     </item>
     
     <item>
@@ -312,7 +316,7 @@ arr := []string{&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;, &
 但是如果只有特定元素被初始化的数组，就不合适了：
 arr := [5]string{1: &amp;#34;a&amp;#34;, 3: &amp;#34;c&amp;#34;} 上述表示数组初始化索引为1的值为a，索引为3的值为c，其他未初始化的为空值（字符串的空值为&amp;quot;&amp;quot;）
 如果我们不指定 [5]string，那么go就会根据我们定义的最大索引值3 来确定数组的长度为4
-数组循环  使用传统的数组循环：  for i := 0; i &amp;lt; len(arr); i++ { 	fmt.Println(arr[i]) }  使用 for range 数组遍历，写法更加简洁  for index, value := range arr { 	fmt.Printf(&amp;#34;index = %v, value = %v\n&amp;#34;, index, value) } 切片 Slice 切片的区间是左闭右开，如arr[2:5]，选取的索引取数是[2,3,4] 切片的底层是（原）数组，将切片内容修改之后，原数组也会改变</description>
+数组循环 使用传统的数组循环： for i := 0; i &amp;lt; len(arr); i++ { fmt.Println(arr[i]) } 使用 for range 数组遍历，写法更加简洁 for index, value := range arr { fmt.Printf(&amp;#34;index = %v, value = %v\n&amp;#34;, index, value) } 切片 Slice 切片的区间是左闭右开，如arr[2:5]，选取的索引取数是[2,3,4] 切片的底层是（原）数组，将切片内容修改之后，原数组也会改变</description>
     </item>
     
     <item>
@@ -324,8 +328,9 @@ arr := [5]string{1: &amp;#34;a&amp;#34;, 3: &amp;#34;c&amp;#34;} 上述表示数
       <description>go最近很火啊，自带高并发，内置网络模块强大，作为后端工程师一枚，自然也要学起来！
 go 的基础部分跟我们之前学过的大部分语言是都是十分相似的，上手十分简单。
 第一个go程序 第一个程序大都是hello嘛，向新世界打个招呼 :)
-import fmt  func main(){  fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类型以及变量声明的方式 变量声明的方式 // var 变量名 类型 = 表达式 var num int = 1 // 也可以声明变量，但是不赋值 var num int	// 这样的默认值就是int的默认值 0 // 可以直接赋值并且声明类型 num := 1 // 可以实现多值定义 a, b, c := 1, 2, &amp;#34;hello&amp;#34; var (  a = 1  b = 2  c = &amp;#34;hello&amp;#34; ) 常量声明 常量声明，我们可以直接使用 const 关键字，不需要指定数据的类型，通常，常量我们用大写进行命名
-我们指定变量的值，会自定将变量转为对应的类型</description>
+import fmt func main(){ fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类型以及变量声明的方式 变量声明的方式 // var 变量名 类型 = 表达式 var num int = 1 // 也可以声明变量，但是不赋值 var num int	// 这样的默认值就是int的默认值 0 // 可以直接赋值并且声明类型 num := 1 // 可以实现多值定义 a, b, c := 1, 2, &amp;#34;hello&amp;#34; var ( a = 1 b = 2 c = &amp;#34;hello&amp;#34; ) 常量声明 常量声明，我们可以直接使用 const 关键字，不需要指定数据的类型，通常，常量我们用大写进行命名
+我们指定变量的值，会自定将变量转为对应的类型
+const MAX_SIZE = 10 基础类型 整型 有符号：int， int8， int16， int32， int64 无符号：uint，uint8，uint16，uint32，uint64 浮点数：float，float32， float64 布尔型：bool 字符串：string 指针 常量：使用const声明 const name = &amp;quot;Mike&amp;quot; 字符串转换 字符串转数字： strconv.</description>
     </item>
     
   </channel>

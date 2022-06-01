@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mongodb on Coding and Life</title>
+    <link>https://zihuanling.github.io/tags/mongodb/</link>
+    <description>Recent content in mongodb on Coding and Life</description>
+    <image>
+      <url>https://zihuanling.github.io/avatar.jpeg</url>
+      <link>https://zihuanling.github.io/avatar.jpeg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Jun 2022 14:02:38 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用mongodb自带的ObjectID获取记录生成时间</title>
+      <link>https://zihuanling.github.io/posts/python-mongo-generation-time/</link>
+      <pubDate>Wed, 01 Jun 2022 14:02:38 +0800</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/python-mongo-generation-time/</guid>
+      <description>有些时候，我们在写入mongo数据的时候，可能需要记录这条数据的插入时间，我们一般情况下回给记录增加一个 create_time。
+实际上，如果我们插入的数据含有 ObjectId 的话，那么其实这个id是包含了生成时间的，同时也可以作为记录的主键，一举多得。
+以python为例，我们有这样一条记录：
+document = { &amp;#34;_id&amp;#34;: ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;), &amp;#34;user&amp;#34;: &amp;#34;mike&amp;#34;, &amp;#34;age&amp;#34;: 19, } 这时候，我们可以使用ObjectId自带的generation_time属性，获取这条记录的插入时间：
+time = ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;).generation_time print(time) 输出：
+datetime.datetime(2019, 12, 20, 8, 48, 5, tzinfo=&amp;lt;bson.tz_util.FixedOffset object at 0x7f874030f9a0&amp;gt;) 需要注意到的是，里面的时区信息，显示的是一个 FixedOffset，即固定偏移，我们看 generation_time 属性的定义：
+utc = FixedOffset(0, &amp;#34;UTC&amp;#34;) &amp;#34;&amp;#34;&amp;#34;Fixed offset timezone representing UTC.&amp;#34;&amp;#34;&amp;#34; class ObjectId(object): # ... 省略其他代码 ... @property def generation_time(self): &amp;#34;&amp;#34;&amp;#34;A :class:`datetime.datetime` instance representing the time of generation for this :class:`ObjectId`. The :class:`datetime.datetime` is timezone aware, and represents the generation time in UTC.</description>
+    </item>
+    
+  </channel>
+</rss>

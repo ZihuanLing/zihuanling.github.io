@@ -19,7 +19,7 @@
       <guid>https://zihuanling.github.io/posts/python-socket-bothway-connection/</guid>
       <description>很久之前玩过的python socket，今天用来做个双向的通信程序。
 服务端代码： server.py
-# coding: utf-8 # tcp stream server import socket import logging import time import datetime as dt from threading import Thread, currentThread # 配置logging logging.basicConfig(  level=logging.INFO,  format=&amp;#34;%(asctime)s%(levelname)s%(process)s%(threadName)s|%(message)s&amp;#34;, )   class Server:  &amp;#34;&amp;#34;&amp;#34; socket 服务端 &amp;#34;&amp;#34;&amp;#34;  def __init__(self, host=&amp;#39;localhost&amp;#39;, port=8099):  self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  self._sock.bind((host, port))  self.msg = None   def read(self, conn: socket.socket = None):  &amp;#34;&amp;#34;&amp;#34; 从tcp连接里面读取数据 &amp;#34;&amp;#34;&amp;#34;  while True:  try:  data = conn.</description>
+# coding: utf-8 # tcp stream server import socket import logging import time import datetime as dt from threading import Thread, currentThread # 配置logging logging.basicConfig( level=logging.INFO, format=&amp;#34;%(asctime)s %(levelname)s %(process)s %(threadName)s |%(message)s&amp;#34;, ) class Server: &amp;#34;&amp;#34;&amp;#34; socket 服务端 &amp;#34;&amp;#34;&amp;#34; def __init__(self, host=&amp;#39;localhost&amp;#39;, port=8099): self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) self._sock.bind((host, port)) self.msg = None def read(self, conn: socket.socket = None): &amp;#34;&amp;#34;&amp;#34; 从tcp连接里面读取数据 &amp;#34;&amp;#34;&amp;#34; while True: try: data = conn.recv(1024).decode() except Exception as e: logging.</description>
     </item>
     
   </channel>

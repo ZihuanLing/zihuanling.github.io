@@ -561,6 +561,22 @@ import fmt func main(){ fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类
 const MAX_SIZE = 10 基础类型 整型 有符号：int， int8， int16， int32， int64 无符号：uint，uint8，uint16，uint32，uint64 浮点数：float，float32， float64 布尔型：bool 字符串：string 指针 常量：使用const声明 const name = &amp;quot;Mike&amp;quot; 字符串转换 字符串转数字： strconv.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://zihuanling.github.io/posts/%E7%94%A8argprse%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0click/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/posts/%E7%94%A8argprse%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0click/</guid>
+      <description>使用python argparse实现简单的click python3 argparse 文档
+python3 ArgParse教程
+需求 实现一个类似click command的类，支持将函数作为命令注册进去，调用这个类的时候，解析命令行参数，执行对应的注册函数。
+可以用装饰器的方法进行函数注册以及参数添加
+类名： Entrance
+方法：
+注册： Entrance.register 参数：Entrance.option 实现 entrance.py
+# encoding: utf-8 &amp;#34;&amp;#34;&amp;#34;the only entrance for the program&amp;#34;&amp;#34;&amp;#34; import argparse class EntranceConflict(Exception): pass class Entrance: def __init__(self): self.parser = argparse.ArgumentParser() self.sub_parser = self.parser.add_subparsers() self.entrances = {} def register(self, name=None): &amp;#34;&amp;#34;&amp;#34; 注册一个函数作为入口 可以指定name，否则默认使用函数的名字 &amp;#34;&amp;#34;&amp;#34; def decorator(f): entrance_name = name or f.__name__ if entrance_name in self.entrances: raise EntranceConflict(f&amp;#34;entrance {entrance_name} already registered.&amp;#34;) # make parser _parser = self.</description>
+    </item>
+    
     
     <item>
       <title>Leetcode</title>

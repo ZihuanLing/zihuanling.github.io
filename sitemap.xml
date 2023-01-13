@@ -2,32 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zihuanling.github.io/</loc>
-    <lastmod>2023-01-14T00:54:07+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/posts/</loc>
-    <lastmod>2023-01-14T00:54:07+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/post/this-is-a-test-document-2-z15fexm.html</loc>
-    <lastmod>2023-01-14T00:54:07+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/</loc>
-    <lastmod>2023-01-14T00:52:57+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/categories/post/</loc>
-    <lastmod>2023-01-14T00:52:57+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/post/</loc>
-    <lastmod>2023-01-14T00:52:57+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/post/this-is-a-test-document-1-z1etd97.html</loc>
-    <lastmod>2023-01-14T00:52:57+00:00</lastmod>
-  </url><url>
-    <loc>https://zihuanling.github.io/post/zk-learning-notes-2goj2y.html</loc>
-    <lastmod>2023-01-14T00:12:52+00:00</lastmod>
-  </url><url>
     <loc>https://zihuanling.github.io/posts/argparse-entrance-like-click/</loc>
     <lastmod>2022-09-19T00:30:54+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/</loc>
+    <lastmod>2022-09-19T00:30:54+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/posts/</loc>
+    <lastmod>2022-09-19T00:30:54+08:00</lastmod>
+  </url><url>
+    <loc>https://zihuanling.github.io/categories/</loc>
+    <lastmod>2022-06-01T14:02:38+08:00</lastmod>
   </url><url>
     <loc>https://zihuanling.github.io/tags/mongodb/</loc>
     <lastmod>2022-06-01T14:02:38+08:00</lastmod>

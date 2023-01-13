@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Coding and Life</title>
+    <link>https://zihuanling.github.io/post/</link>
+    <description>Recent content in Posts on Coding and Life</description>
+    <image>
+      <url>https://zihuanling.github.io/avatar.jpeg</url>
+      <link>https://zihuanling.github.io/avatar.jpeg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 13 Jan 2023 23:58:16 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>这是一个测试文档1</title>
+      <link>https://zihuanling.github.io/post/this-is-a-test-document-1-z1etd97.html</link>
+      <pubDate>Fri, 13 Jan 2023 23:58:16 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/this-is-a-test-document-1-z1etd97.html</guid>
+      <description>这是一个测试文档你是这个世界上最美丽的人importosname=osgetenv()print(format(name))什么东西是什么东西‍​​‍这是一个图片你喜欢的话也可以给你如果不喜欢的话那就算了。‍你喜欢什么样的nameagemikelucy‍给你看看我的子文档不妨搞个子文档‍你喜欢什么我喜欢什么吃牛肉火锅‍</description>
+    </item>
+    
+  </channel>
+</rss>

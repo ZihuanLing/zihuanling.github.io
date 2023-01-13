@@ -586,6 +586,15 @@ import fmt func main(){ fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类
 const MAX_SIZE = 10 基础类型 整型 有符号：int， int8， int16， int32， int64 无符号：uint，uint8，uint16，uint32，uint64 浮点数：float，float32， float64 布尔型：bool 字符串：string 指针 常量：使用const声明 const name = &amp;quot;Mike&amp;quot; 字符串转换 字符串转数字： strconv.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://zihuanling.github.io/post/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/test/</guid>
+      <description>Hello world </description>
+    </item>
+    
     
     <item>
       <title>Leetcode</title>

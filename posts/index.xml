@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Sep 2022 00:30:54 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 00:12:52 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zk学习笔记</title>
+      <link>https://zihuanling.github.io/post/zk-learning-notes-2goj2y.html</link>
+      <pubDate>Sat, 14 Jan 2023 00:12:52 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/zk-learning-notes-2goj2y.html</guid>
+      <description>zk学习笔记zk挺好的不错publicclasszkclient{publicstaticvoidmain(string[]args){systemoutprintln(}}</description>
+    </item>
+    
     <item>
       <title>Argparse Entrance Like Click</title>
       <link>https://zihuanling.github.io/posts/argparse-entrance-like-click/</link>

@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Jan 2023 00:12:52 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 00:54:07 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>这是一个测试文档2</title>
+      <link>https://zihuanling.github.io/post/this-is-a-test-document-2-z15fexm.html</link>
+      <pubDate>Sat, 14 Jan 2023 00:54:07 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/this-is-a-test-document-2-z15fexm.html</guid>
+      <description>这是一个测试文档这里的内容是测试内容‍</description>
+    </item>
+    
     <item>
       <title>zk学习笔记</title>
       <link>https://zihuanling.github.io/post/zk-learning-notes-2goj2y.html</link>

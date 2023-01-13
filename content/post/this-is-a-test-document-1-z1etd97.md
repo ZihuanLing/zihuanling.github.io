@@ -3,8 +3,9 @@ title: 这是一个测试文档1
 slug: this-is-a-test-document-1-z1etd97
 url: /post/this-is-a-test-document-1-z1etd97.html
 tags: []
-categories: []
-lastmod: '2023-01-13 23:58:16'
+categories:
+  - post
+lastmod: '2023-01-14 00:52:57'
 toc: true
 keywords: ''
 description: >-
@@ -60,5 +61,3 @@ print("hello, {}".format(name))
 ## 吃牛肉火锅
 
 ‍
-
-

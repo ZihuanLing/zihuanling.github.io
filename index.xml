@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Sep 2022 00:30:54 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 01:10:08 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>这是一个测试文档1</title>
+      <link>https://zihuanling.github.io/post/this-is-a-test-document-1-hoqgw.html</link>
+      <pubDate>Sat, 14 Jan 2023 01:10:08 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/this-is-a-test-document-1-hoqgw.html</guid>
+      <description>这是一个测试文档你是这个世界上最美丽的人importosname=osgetenv()print(format(name))什么东西是什么东西‍​​‍这是一个图片你喜欢的话也可以给你如果不喜欢的话那就算了。‍你喜欢什么样的nameagemikelucy‍给你看看我的子文档不妨搞个子文档‍你喜欢什么我喜欢什么吃牛肉火锅‍</description>
+    </item>
+    
     <item>
       <title>Argparse Entrance Like Click</title>
       <link>https://zihuanling.github.io/posts/argparse-entrance-like-click/</link>
@@ -575,15 +584,6 @@ go 的基础部分跟我们之前学过的大部分语言是都是十分相似�
 import fmt func main(){ fmt.Println(&amp;#34;hello golang!&amp;#34;) } 数据类型以及变量声明的方式 变量声明的方式 // var 变量名 类型 = 表达式 var num int = 1 // 也可以声明变量，但是不赋值 var num int	// 这样的默认值就是int的默认值 0 // 可以直接赋值并且声明类型 num := 1 // 可以实现多值定义 a, b, c := 1, 2, &amp;#34;hello&amp;#34; var ( a = 1 b = 2 c = &amp;#34;hello&amp;#34; ) 常量声明 常量声明，我们可以直接使用 const 关键字，不需要指定数据的类型，通常，常量我们用大写进行命名
 我们指定变量的值，会自定将变量转为对应的类型
 const MAX_SIZE = 10 基础类型 整型 有符号：int， int8， int16， int32， int64 无符号：uint，uint8，uint16，uint32，uint64 浮点数：float，float32， float64 布尔型：bool 字符串：string 指针 常量：使用const声明 const name = &amp;quot;Mike&amp;quot; 字符串转换 字符串转数字： strconv.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://zihuanling.github.io/post/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zihuanling.github.io/post/test/</guid>
-      <description>Hello world </description>
     </item>
     
     

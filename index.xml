@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Sep 2022 00:30:54 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2023 21:33:12 +0000</lastBuildDate><atom:link href="https://zihuanling.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vagrant &#43; centos7创建3节点集群</title>
+      <link>https://zihuanling.github.io/post/vagrant-centos7-create-3-node-cluster-z1lgxuu.html</link>
+      <pubDate>Sun, 15 Jan 2023 21:33:12 +0000</pubDate>
+      
+      <guid>https://zihuanling.github.io/post/vagrant-centos7-create-3-node-cluster-z1lgxuu.html</guid>
+      <description>vagrantcentos创建节点集群坑设置节点的网络的时候需要给一个属性name​确保节点启动的时候集群里面的节点会绑定到同一个网络平面_nodevmnetwork​为了防止节点启动的时候端口被随机分配绑定宿主机端口我们可以配置将其转发到一个固定的端口_nodevmnetwork​配置文件_#vagrantfilevagrantconfigure()do_config_#configvmnetworkauto_config_false()eachdo_i_configvmdefinedo_node_#设</description>
+    </item>
+    
     <item>
       <title>Argparse Entrance Like Click</title>
       <link>https://zihuanling.github.io/posts/argparse-entrance-like-click/</link>

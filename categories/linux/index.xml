@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>linux on Coding and Life</title>
+    <title>Linux on Coding and Life</title>
     <link>https://zihuanling.github.io/categories/linux/</link>
-    <description>Recent content in linux on Coding and Life</description>
+    <description>Recent content in Linux on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
@@ -17,24 +17,47 @@
       <pubDate>Wed, 04 May 2022 22:38:12 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/linux-create-service/</guid>
-      <description>参考地址：
-https://linuxconfig.org/how-to-write-a-simple-systemd-service
-https://www.freedesktop.org/software/systemd/man/systemd.service.html
-前言 systemd是系统的服务和进程的管理工具，在linux系统下，我们使用 ps aux | head，我们可以看到，系统启动的第一个进程就是systemd。
-有时候，我们想要让程序运行在后台，而不是一直在前台，开一个终端挂着。（使用nohup可以实现这个）
-有时候，想要在开机的时候就自动启动某个服务，比如redis、mysql、nginx这些，这时候，我们就可以将这些程序的启动编写成为一个服务，这样，在系统启动的时候，systemd会自动加载服务配置，然后启动这些服务。
-现在，我想要创建一个python jupyter notebook服务。
-创建文件 systemd services存在路径 /etc/systemd/system 下，我们在这路径下创建的 .service 文件，都可以作为系统服务运行。
-我们创建一个 notebook.service
-vi notebook.service 文件创建完毕后，我们开始编写里面的内容，一个 .service文件里面包含三个关键部分： Unit, Service, Install
-Unit 对于一个简单服务来说，我们在 [Unit] 这个块只要写上服务描述就可以了，字段为Description。
-[Unit] Description=Jupyter notebook service at port[8080] Serivce [Service] 块是服务配置的集合，这里面的配置声明了该如何去运行这个服务。
-[Service] Type=simple ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook Restart=on-failure User=root WorkingDirectory=/tmp/notebook 在Serivce声明中，我们首先要说明这个服务的类型 Type=simple
-然后，是最重要的部分，我们需要告诉系统应该去执行什么东西： ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook， 这里，我们指定了执行 jupyter notebook 这个命令，前面加载了用户的环境变量。
-随后指定这个服务的重启策略：Restart=on-failure， 我要求的是启动失败后重启
-最后，这个服务运行的角色：User=root，以及运行时所在路径： WorkingDirectory=/tmp/notebook
-Install [Install] 块声明了当前服务应该应该怎样启用，常用的就是 WantedBy=multi-user.target
-[Install] WantedBy=multi-user.</description>
+      <description>&lt;p&gt;参考地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://linuxconfig.org/how-to-write-a-simple-systemd-service&#34;&gt;https://linuxconfig.org/how-to-write-a-simple-systemd-service&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.freedesktop.org/software/systemd/man/systemd.service.html&#34;&gt;https://www.freedesktop.org/software/systemd/man/systemd.service.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;systemd&lt;/code&gt;是系统的服务和进程的管理工具，在linux系统下，我们使用 &lt;code&gt;ps aux | head&lt;/code&gt;，我们可以看到，系统启动的第一个进程就是systemd。&lt;/p&gt;
+&lt;p&gt;有时候，我们想要让程序运行在后台，而不是一直在前台，开一个终端挂着。（使用nohup可以实现这个）&lt;/p&gt;
+&lt;p&gt;有时候，想要在开机的时候就自动启动某个服务，比如redis、mysql、nginx这些，这时候，我们就可以将这些程序的启动编写成为一个服务，这样，在系统启动的时候，systemd会自动加载服务配置，然后启动这些服务。&lt;/p&gt;
+&lt;p&gt;现在，我想要创建一个&lt;strong&gt;python jupyter notebook&lt;/strong&gt;服务。&lt;/p&gt;
+&lt;h1 id=&#34;创建文件&#34;&gt;创建文件&lt;/h1&gt;
+&lt;p&gt;systemd services存在路径 &lt;code&gt;/etc/systemd/system&lt;/code&gt; 下，我们在这路径下创建的 &lt;code&gt;.service&lt;/code&gt; 文件，都可以作为系统服务运行。&lt;/p&gt;
+&lt;p&gt;我们创建一个 &lt;code&gt;notebook.service&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vi notebook.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文件创建完毕后，我们开始编写里面的内容，一个 &lt;code&gt;.service&lt;/code&gt;文件里面包含三个关键部分： &lt;code&gt;Unit, Service, Install&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;unit&#34;&gt;Unit&lt;/h2&gt;
+&lt;p&gt;对于一个简单服务来说，我们在 &lt;code&gt;[Unit]&lt;/code&gt; 这个块只要写上服务描述就可以了，字段为Description。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Jupyter notebook service at port[8080]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;serivce&#34;&gt;Serivce&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;[Service]&lt;/code&gt; 块是服务配置的集合，这里面的配置声明了该如何去运行这个服务。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;simple&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/usr/bin/env /root/miniconda3/bin/jupyter notebook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;on-failure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;root&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;WorkingDirectory&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/tmp/notebook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在Serivce声明中，我们首先要说明这个服务的类型 &lt;code&gt;Type=simple&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后，是最重要的部分，我们需要告诉系统应该去执行什么东西： &lt;code&gt;ExecStart=/usr/bin/env /root/miniconda3/bin/jupyter notebook&lt;/code&gt;， 这里，我们指定了执行 jupyter notebook 这个命令，前面加载了用户的环境变量。&lt;/p&gt;
+&lt;p&gt;随后指定这个服务的重启策略：&lt;code&gt;Restart=on-failure&lt;/code&gt;， 我要求的是启动失败后重启&lt;/p&gt;
+&lt;p&gt;最后，这个服务运行的角色：&lt;code&gt;User=root&lt;/code&gt;，以及运行时所在路径： &lt;code&gt;WorkingDirectory=/tmp/notebook&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;[Install]&lt;/code&gt; 块声明了当前服务应该应该怎样启用，常用的就是 &lt;code&gt;WantedBy=multi-user.target&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;[Install]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;multi-user.target&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;启动服务&#34;&gt;启动服务&lt;/h1&gt;
+&lt;p&gt;服务写完了，我们需要将其启动起来：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,11 +66,68 @@ Install [Install] 块声明了当前服务应该应该怎样启用，常用的�
       <pubDate>Thu, 24 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://zihuanling.github.io/posts/2022-02-24-try-linux-getopts/</guid>
-      <description>在某些场景中，我们写的bash脚本需要获取命令行中指定的某些参数，用以判断某些条件，或者设置某些变量等。
-getopts可以让我们通过指定 -a 1 的方式指定对应的参数名称和参数值。
-一个更详细的小教程，可以看这里： getopts_tutorial 使用 可以使用 while getopts &amp;quot;:a:p:&amp;quot; opt; do... 的方式，将参数名称读取到 opt 变量中，然后，在循环体中，使用 $OPTARG 获取到具体的参数值。
-一个小栗子，用于快捷创建新的 gihub pages 博客模板：
-#!/usr/bin/env bash # 用于快捷创建新博客 # 命令： ./new.sh -t 标签1,标签2 -n 文章标题 -l layout -c 1 layout=&amp;#34;post&amp;#34; title=&amp;#34;new-post&amp;#34; now=$(date +%Y-%m-%d) can_comment=&amp;#34;false&amp;#34; author=&amp;#34;ZihuanLing&amp;#34; while getopts &amp;#34;:l:t:c:n:&amp;#34; opt; do case $opt in l) layout=&amp;#34;$OPTARG&amp;#34; ;; t) tags=&amp;#34;[$OPTARG]&amp;#34; ;; c) can_comment=&amp;#34;true&amp;#34; ;; n) title=$(echo &amp;#34;$OPTARG&amp;#34; | sed &amp;#34;s/ /\-/g&amp;#34;) ;; \?) echo &amp;#34;Invalid option -$OPTARG&amp;#34; &amp;gt;&amp;amp;2 exit 1 ;; esac done if [ -z $tags ]; then tags=&amp;#34;[]&amp;#34; fi filename=&amp;#34;_posts/${now}-${title}.</description>
+      <description>&lt;p&gt;在某些场景中，我们写的bash脚本需要获取命令行中指定的某些参数，用以判断某些条件，或者设置某些变量等。&lt;/p&gt;
+&lt;p&gt;getopts可以让我们通过指定 &lt;code&gt;-a 1&lt;/code&gt; 的方式指定对应的参数名称和参数值。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;一个更详细的小教程可以看这里-getopts_tutorialhttpswikibash-hackersorghowtogetopts_tutorial&#34;&gt;一个更详细的小教程，可以看这里： &lt;a href=&#34;https://wiki.bash-hackers.org/howto/getopts_tutorial&#34;&gt;getopts_tutorial&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
+&lt;p&gt;可以使用 &lt;code&gt;while getopts &amp;quot;:a:p:&amp;quot; opt; do...&lt;/code&gt; 的方式，将参数名称读取到 &lt;code&gt;opt&lt;/code&gt; 变量中，然后，在循环体中，使用 &lt;code&gt;$OPTARG&lt;/code&gt; 获取到具体的参数值。&lt;/p&gt;
+&lt;p&gt;一个小栗子，用于快捷创建新的 gihub pages 博客模板：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 用于快捷创建新博客&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 命令： ./new.sh -t 标签1,标签2 -n 文章标题 -l layout -c 1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;layout&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;post&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;new-post&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;now&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;date +%Y-%m-%d&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;can_comment&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;author&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ZihuanLing&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; getopts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:l:t:c:n:&amp;#34;&lt;/span&gt; opt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; $opt in 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    l&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      layout&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$OPTARG&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    t&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      tags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[&lt;/span&gt;$OPTARG&lt;span style=&#34;color:#e6db74&#34;&gt;]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    c&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      can_comment&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$OPTARG&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; | sed &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s/ /\-/g&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;\?&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Invalid option -&lt;/span&gt;$OPTARG&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exit &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -z $tags &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  tags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;filename&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_posts/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;now&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;title&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.md&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;read -r -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; content &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt; EOM
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;layout: ${layout}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;title: &amp;#34;${title}&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;date: ${now}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;tags: ${tags}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;comments: ${can_comment}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;author: ${author}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;!-- more --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;EOM&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$filename&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$content&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$content&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt; $filename
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

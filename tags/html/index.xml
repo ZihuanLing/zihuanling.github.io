@@ -17,11 +17,21 @@
       <pubDate>Mon, 09 May 2022 20:52:39 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/html-a-data-download/</guid>
-      <description>假如我们有一个json文件：example.json，我们想要将这个文件的连接放到网站上提供下载。
-在HTML中这样写：
-&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&amp;gt;点击下载&amp;lt;/a&amp;gt; 点击下载 当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。
-看过 Stack Overflow 上的提示，看到可以给其设定 download属性：
-&amp;lt;a href=&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34; download&amp;gt;点击下载&amp;lt;/a&amp;gt; 点击下载 需要注意的是，href里面的内容需要是与当前网页同源的url才可使用。</description>
+      <description>&lt;p&gt;假如我们有一个json文件：&lt;code&gt;example.json&lt;/code&gt;，我们想要将这个文件的连接放到网站上提供下载。&lt;/p&gt;
+&lt;p&gt;在HTML中这样写：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&lt;/span&gt;&amp;gt;点击下载&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;a href=&#34;http://lingzihuan.icu/leetcode-submissions.json&#34;&gt;点击下载&lt;/a&gt;
+
+
+&lt;p&gt;当我们点击链接的时候，chrome浏览器会自动打开一个页面，然后将json文件的内容加载进来，但是，当我们想要将文件下载到本地的时候，还得自己右键点击，然后选择”另存为“。&lt;/p&gt;
+&lt;p&gt;看过 Stack Overflow 上的提示，看到可以给其设定 &lt;code&gt;download&lt;/code&gt;属性：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://lingzihuan.icu/leetcode-submissions.json&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;download&lt;/span&gt;&amp;gt;点击下载&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;a href=&#34;http://lingzihuan.icu/leetcode-submissions.json&#34; download&gt;点击下载&lt;/a&gt;
+
+&lt;p&gt;需要注意的是，href里面的内容需要是与当前网页同源的url才可使用。&lt;/p&gt;</description>
     </item>
     
   </channel>

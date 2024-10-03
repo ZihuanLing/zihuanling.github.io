@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>daily on Coding and Life</title>
+    <title>Daily on Coding and Life</title>
     <link>https://zihuanling.github.io/tags/daily/</link>
-    <description>Recent content in daily on Coding and Life</description>
+    <description>Recent content in Daily on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
@@ -17,13 +17,40 @@
       <pubDate>Mon, 18 Apr 2022 00:05:28 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/go-readfiles/</guid>
-      <description>学习网站： https://gobyexample.com/reading-files
-可以直接读取文件里面的所有内容到内存里面：
-data, err := os.ReadFile(&amp;#34;/tmp/data&amp;#34;) fmt.Println(string(data)) 有时候想要自定义一些操作，比如读取文件里面的某些内容，从某个位置开始读取等，这时候，我们可以用 os.Open 打开一个文件，返回一个 os.File 对象。
-f, err := os.Open(&amp;#34;/tmp/data&amp;#34;) 我们可以定义一个缓存（5个字节的[]byte类型），然后从文件中读取内容，读取的内容大小上限为5：
-b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read from file: %s\n&amp;#34;, n1, string(b1)) 调用 f.Read来读取文件，返回两个结果，第一个为实际读取的内容长度，第二个为error。我们定义了一个长度为5的 b1 来存储文件内容，但是文件里面的内容长度可能只有3，因此，n1不一定等于5，它是实际读取的长度。
-同样，我们还能用 os.Seek，来查找文件的位置，第一个参数为 offset，意味着偏移量，第二个参数为 whence，
-0表示从文件的开始位置进行偏移查找 1表示从文件的当前位置开始偏移，如果之前已经设置过偏移，再次设置则从当前位置开始偏移 2表示从文件的末尾开始偏移 o2, err := f.Seek(6, 0) b2 := make([]byte, 2) n2, err := f.Read(b2) fmt.Printf(&amp;#34;%d bytes read at %d\n&amp;#34;, n2, o2) fmt.Printf(&amp;#34;Value is : %s\n&amp;#34;, string(b2[:n2])) golang 的 io包提供了一些有用的函数，帮助我们高效读取。比如 io.</description>
+      <description>&lt;p&gt;学习网站： &lt;a href=&#34;https://gobyexample.com/reading-files&#34;&gt;https://gobyexample.com/reading-files&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以直接读取文件里面的所有内容到内存里面：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ReadFile&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/data&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(string(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;有时候想要自定义一些操作，比如读取文件里面的某些内容，从某个位置开始读取等，这时候，我们可以用 &lt;code&gt;os.Open&lt;/code&gt; 打开一个文件，返回一个 &lt;code&gt;os.File&lt;/code&gt; 对象。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Open&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/tmp/data&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们可以定义一个缓存（5个字节的[]byte类型），然后从文件中读取内容，读取的内容大小上限为5：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;b1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;n1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Read&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;b1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d bytes read from file: %s\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;n1&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;b1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;调用 &lt;code&gt;f.Read&lt;/code&gt;来读取文件，返回两个结果，第一个为实际读取的内容长度，第二个为&lt;code&gt;error&lt;/code&gt;。我们定义了一个长度为5的 b1 来存储文件内容，但是文件里面的内容长度可能只有3，因此，n1不一定等于5，它是实际读取的长度。&lt;/p&gt;
+&lt;p&gt;同样，我们还能用 &lt;code&gt;os.Seek&lt;/code&gt;，来查找文件的位置，第一个参数为 &lt;code&gt;offset&lt;/code&gt;，意味着偏移量，第二个参数为 &lt;code&gt;whence&lt;/code&gt;，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0表示从文件的开始位置进行偏移查找&lt;/li&gt;
+&lt;li&gt;1表示从文件的当前位置开始偏移，如果之前已经设置过偏移，再次设置则从当前位置开始偏移&lt;/li&gt;
+&lt;li&gt;2表示从文件的末尾开始偏移&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;o2&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Seek&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;b2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;n2&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Read&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;b2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d bytes read at %d\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;n2&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;o2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Value is : %s\n&amp;#34;&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;b2&lt;/span&gt;[:&lt;span style=&#34;color:#a6e22e&#34;&gt;n2&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;golang 的 &lt;code&gt;io&lt;/code&gt;包提供了一些有用的函数，帮助我们高效读取。比如 &lt;code&gt;io.ReadAtLeast&lt;/code&gt;，可以更健壮地实现上的读取操作：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;o3&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Seek&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;b3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;n3&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ReadAtLeast&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d bytes @ %d: %s\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;n3&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;o3&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;b3&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果想要将文件指针倒回到最初的位置，没有内置的函数，但是使用 &lt;code&gt;f.Seek(0, 0)&lt;/code&gt; 可以实现同样的效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Seek&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;golang的 &lt;code&gt;bufio&lt;/code&gt; 包提供了 &lt;strong&gt;缓冲读取器&lt;/strong&gt;，它提供和额外的读取方法，对于少量的读取很有用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;r4&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bufio&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewReader&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;b4&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;r4&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Peek&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5 bytes: %s\n&amp;#34;&lt;/span&gt;, string(&lt;span style=&#34;color:#a6e22e&#34;&gt;b4&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后，我们应该在结束的时候关闭文件：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,12 +59,34 @@ b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read fr
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://zihuanling.github.io/posts/2022-03-04-support-mermaid-on-github-page/</guid>
-      <description>目前，github page 会将 markdown里面的 mermaid 块渲染成为一个 div.language-mermaid 的 html 代码块，但是，mermaid-js仅支持渲染 div.mermaid 的html代码块，因此，我们需要做一点处理。
-我们只需要在文章模板的末尾，添加如下转化代码即可：
-文件：_layouts/post.html {%- if content contains &amp;#39;mermaid&amp;#39; -%} &amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; const config = { startOnLoad:true, theme: &amp;#39;forest&amp;#39;, flowchart: { useMaxWidth:false, htmlLabels:true } }; mermaid.initialize(config); window.mermaid.init(undefined, document.querySelectorAll(&amp;#39;.language-mermaid&amp;#39;)); &amp;lt;/script&amp;gt; {% endif %} 上述代码手动将 div.language-mermaid 添加到 mermaid引擎的渲染中。
-引用 在文章里面指定文章layout，即可引用，并且渲染mermaid！
---- layout: post --- 其他方法 当然也可以在 _config.yml 配置kramdown, 让其可以将 mermaid 块渲染成 div.mermaid 这样的html的代码块，但是实现起来有点复杂。
-参考： Issue https://github.com/gettalong/kramdown/issues/637</description>
+      <description>&lt;p&gt;目前，github page 会将 markdown里面的 &lt;code&gt;mermaid&lt;/code&gt; 块渲染成为一个 &lt;code&gt;div.language-mermaid&lt;/code&gt; 的 html 代码块，但是，mermaid-js仅支持渲染 &lt;code&gt;div.mermaid&lt;/code&gt; 的html代码块，因此，我们需要做一点处理。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;我们只需要在文章模板的末尾，添加如下转化代码即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;文件：_layouts/post.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{%- if content contains &amp;#39;mermaid&amp;#39; -%}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;startOnLoad&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;theme&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;forest&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;flowchart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;useMaxWidth&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;htmlLabels&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mermaid&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;initialize&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;window.&lt;span style=&#34;color:#a6e22e&#34;&gt;mermaid&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;undefined&lt;/span&gt;, document.&lt;span style=&#34;color:#a6e22e&#34;&gt;querySelectorAll&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.language-mermaid&amp;#39;&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{% endif %}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述代码手动将 &lt;code&gt;div.language-mermaid&lt;/code&gt; 添加到 mermaid引擎的渲染中。&lt;/p&gt;
+&lt;h4 id=&#34;引用&#34;&gt;引用&lt;/h4&gt;
+&lt;p&gt;在文章里面指定文章layout，即可引用，并且渲染mermaid！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;layout: post
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;其他方法&#34;&gt;其他方法&lt;/h4&gt;
+&lt;p&gt;当然也可以在 &lt;code&gt;_config.yml&lt;/code&gt; 配置kramdown, 让其可以将 &lt;code&gt;mermaid&lt;/code&gt; 块渲染成 &lt;code&gt;div.mermaid&lt;/code&gt; 这样的html的代码块，但是实现起来有点复杂。&lt;/p&gt;
+&lt;p&gt;参考： &lt;a href=&#34;https://github.com/gettalong/kramdown/issues/637&#34;&gt;Issue https://github.com/gettalong/kramdown/issues/637&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -46,8 +95,9 @@ b1 := make([]byte, 5) n1, err := f.Read(b1) fmt.Printf(&amp;#34;%d bytes read fr
       <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://zihuanling.github.io/posts/2022-02-23-first-github-page-blog/</guid>
-      <description>从 lemonchan.github.io fork了这个博客项目，感觉太棒了，设计很简洁，我需要的功能基本上都有。
-感谢！</description>
+      <description>&lt;p&gt;从 &lt;a href=&#34;https://github.com/lemonchann/lemonchann.github.io&#34;&gt;lemonchan.github.io&lt;/a&gt; fork了这个博客项目，感觉太棒了，设计很简洁，我需要的功能基本上都有。&lt;/p&gt;
+&lt;p&gt;感谢！&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
   </channel>

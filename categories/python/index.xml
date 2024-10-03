@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>python on Coding and Life</title>
+    <title>Python on Coding and Life</title>
     <link>https://zihuanling.github.io/categories/python/</link>
-    <description>Recent content in python on Coding and Life</description>
+    <description>Recent content in Python on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
@@ -17,13 +17,38 @@
       <pubDate>Wed, 01 Jun 2022 14:02:38 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/python-mongo-generation-time/</guid>
-      <description>有些时候，我们在写入mongo数据的时候，可能需要记录这条数据的插入时间，我们一般情况下回给记录增加一个 create_time。
-实际上，如果我们插入的数据含有 ObjectId 的话，那么其实这个id是包含了生成时间的，同时也可以作为记录的主键，一举多得。
-以python为例，我们有这样一条记录：
-document = { &amp;#34;_id&amp;#34;: ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;), &amp;#34;user&amp;#34;: &amp;#34;mike&amp;#34;, &amp;#34;age&amp;#34;: 19, } 这时候，我们可以使用ObjectId自带的generation_time属性，获取这条记录的插入时间：
-time = ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;).generation_time print(time) 输出：
-datetime.datetime(2019, 12, 20, 8, 48, 5, tzinfo=&amp;lt;bson.tz_util.FixedOffset object at 0x7f874030f9a0&amp;gt;) 需要注意到的是，里面的时区信息，显示的是一个 FixedOffset，即固定偏移，我们看 generation_time 属性的定义：
-utc = FixedOffset(0, &amp;#34;UTC&amp;#34;) &amp;#34;&amp;#34;&amp;#34;Fixed offset timezone representing UTC.&amp;#34;&amp;#34;&amp;#34; class ObjectId(object): # ... 省略其他代码 ... @property def generation_time(self): &amp;#34;&amp;#34;&amp;#34;A :class:`datetime.datetime` instance representing the time of generation for this :class:`ObjectId`. The :class:`datetime.datetime` is timezone aware, and represents the generation time in UTC.</description>
+      <description>&lt;p&gt;有些时候，我们在写入mongo数据的时候，可能需要记录这条数据的插入时间，我们一般情况下回给记录增加一个 create_time。&lt;/p&gt;
+&lt;p&gt;实际上，如果我们插入的数据含有 &lt;code&gt;ObjectId&lt;/code&gt; 的话，那么其实这个id是包含了生成时间的，同时也可以作为记录的主键，一举多得。&lt;/p&gt;
+&lt;p&gt;以python为例，我们有这样一条记录：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;document &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_id&amp;#34;&lt;/span&gt;: ObjectId(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mike&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候，我们可以使用&lt;code&gt;ObjectId&lt;/code&gt;自带的&lt;code&gt;generation_time&lt;/code&gt;属性，获取这条记录的插入时间：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ObjectId(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;generation_time
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(time)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;datetime.datetime(2019, 12, 20, 8, 48, 5, tzinfo=&amp;lt;bson.tz_util.FixedOffset object at 0x7f874030f9a0&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;需要注意到的是，里面的时区信息，显示的是一个 FixedOffset，即固定偏移，我们看 &lt;code&gt;generation_time&lt;/code&gt; 属性的定义：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;utc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; FixedOffset(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UTC&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Fixed offset timezone representing UTC.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ObjectId&lt;/span&gt;(object):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... 省略其他代码 ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@property&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generation_time&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;A :class:`datetime.datetime` instance representing the time of
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        generation for this :class:`ObjectId`.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        The :class:`datetime.datetime` is timezone aware, and
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        represents the generation time in UTC. It is precise to the
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        second.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        timestamp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; struct&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unpack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;gt;I&amp;#34;&lt;/span&gt;, self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;__id[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;])[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fromtimestamp(timestamp, utc)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到这个属性是从一个时间戳生成的，并且生成的时候指定了固定的 UTC-0 时区，而我们是处于&lt;strong&gt;东八区&lt;/strong&gt;，因此，如果直接使用 &lt;code&gt;generation_time&lt;/code&gt; 属性的话，得到的时间并非我们当前时区的时间，还需要做一个转化，只需要简单的对 &lt;code&gt;datetime.datetime&lt;/code&gt; 对象调用&lt;strong&gt;astimezone&lt;/strong&gt;方法，即可：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,18 +57,54 @@ utc = FixedOffset(0, &amp;#34;UTC&amp;#34;) &amp;#34;&amp;#34;&amp;#34;Fixed off
       <pubDate>Tue, 24 May 2022 14:16:18 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/pip-tools-generate-dependencies/</guid>
-      <description>项目地址： https://pypi.org/project/pip-tools/
-pip-tools 是一个命令行工具集合，主要有两个命令： pip-compile，pip-sync，现在主要用的是 pip-compile
-在写python项目的时候，我们通常会依赖到其他的包，比如写一个后端的服务，我们可能会依赖到flask/pymysql这些基础的包，随着开发的进行，我们还可能会引入更多的依赖。
-这些python依赖包构成了一个完整的服务，开发完成后，我们将这些服务部署到服务器上时，只需要安装好对应的依赖，便可以直接运行服务。
-但是，如果我们不将生产环境的依赖固定下来的话，整个服务可能会因为某一次服务更新，其中某个的更新带来的不兼容导致整个服务崩溃。比如pyjwt，在1.7.1版本之前生成的jwt-token是一个bytes类型，我们将其转换成为字符串需要使用到decode()方法。但是在更新到2.0之后，生成的jwt-token是一个字符串类型，如果我们对其再调用decode方法的话，就会发生错误。
-这就显现出了固定依赖的重要性了。
-通常，固定依赖，我们可以在开发环境使用 pip freeze命令，直接将开发环境的所有版本固定下来到一个 requirements.txt 文件里面，这是懒人做法，当然也很有效。但是文件里面会带有一些系统的依赖版本，比如urllib 之类的，这些我们是不需要再次安装的，所以，如果这些依赖出现在 requirements.txt 文件里面，就会显得不那么干净。
-这时，我们可以使用 pip-tools里面的 pip-compile 工具，对依赖进行编译，生成一份漂亮的依赖文件。
-直接生成最新依赖 首先，我们将项目中直接依赖的包写到requirements.in文件里面 requirements.in
-pymysql flask 使用 pip-compile 自动使用最新依赖版本生成依赖文件 命令： pip-compile, 输出requirements.txt文件：
-requirements.txt
-# # This file is autogenerated by pip-compile with python 3.8 # To update, run: # # pip-compile # --index-url https://pypi.doubanio.com/simple --trusted-host pypi.doubanio.com click==8.1.3 # via flask flask==2.1.2 # via -r requirements.in importlib-metadata==4.11.4 # via flask itsdangerous==2.</description>
+      <description>&lt;p&gt;项目地址： &lt;a href=&#34;https://pypi.org/project/pip-tools/&#34;&gt;https://pypi.org/project/pip-tools/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;pip-tools 是一个命令行工具集合，主要有两个命令： &lt;code&gt;pip-compile&lt;/code&gt;，&lt;code&gt;pip-sync&lt;/code&gt;，现在主要用的是 &lt;code&gt;pip-compile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在写python项目的时候，我们通常会依赖到其他的包，比如写一个后端的服务，我们可能会依赖到&lt;code&gt;flask/pymysql&lt;/code&gt;这些基础的包，随着开发的进行，我们还可能会引入更多的依赖。&lt;/p&gt;
+&lt;p&gt;这些python依赖包构成了一个完整的服务，开发完成后，我们将这些服务部署到服务器上时，只需要安装好对应的依赖，便可以直接运行服务。&lt;/p&gt;
+&lt;p&gt;但是，如果我们不将生产环境的依赖固定下来的话，整个服务可能会因为某一次服务更新，其中某个的更新带来的不兼容导致整个服务崩溃。比如pyjwt，在1.7.1版本之前生成的jwt-token是一个bytes类型，我们将其转换成为字符串需要使用到&lt;code&gt;decode()&lt;/code&gt;方法。但是在更新到2.0之后，生成的jwt-token是一个字符串类型，如果我们对其再调用&lt;code&gt;decode&lt;/code&gt;方法的话，就会发生错误。&lt;/p&gt;
+&lt;p&gt;这就显现出了&lt;strong&gt;固定依赖&lt;/strong&gt;的重要性了。&lt;/p&gt;
+&lt;p&gt;通常，固定依赖，我们可以在开发环境使用 &lt;code&gt;pip freeze&lt;/code&gt;命令，直接将开发环境的所有版本固定下来到一个 requirements.txt 文件里面，这是懒人做法，当然也很有效。但是文件里面会带有一些系统的依赖版本，比如urllib 之类的，这些我们是不需要再次安装的，所以，如果这些依赖出现在 requirements.txt 文件里面，就会显得&lt;strong&gt;不那么干净&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这时，我们可以使用 pip-tools里面的 &lt;code&gt;pip-compile&lt;/code&gt; 工具，对依赖进行编译，生成一份漂亮的依赖文件。&lt;/p&gt;
+&lt;h2 id=&#34;直接生成最新依赖&#34;&gt;直接生成最新依赖&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;首先，我们将项目中直接依赖的包写到&lt;code&gt;requirements.in&lt;/code&gt;文件里面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;requirements.in&lt;/em&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-in&#34; data-lang=&#34;in&#34;&gt;pymysql
+flask
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;使用 &lt;code&gt;pip-compile&lt;/code&gt; 自动使用最新依赖版本生成依赖文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;命令： &lt;code&gt;pip-compile&lt;/code&gt;, 输出requirements.txt文件：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;requirements.txt&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# This file is autogenerated by pip-compile with python 3.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# To update, run:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#    pip-compile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;#
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--index-url https://pypi.doubanio.com/simple
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--trusted-host pypi.doubanio.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;click==8.1.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via flask
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;flask==2.1.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via -r requirements.in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;importlib-metadata==4.11.4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via flask
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;itsdangerous==2.1.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via flask
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;jinja2==3.1.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via flask
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;markupsafe==2.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via jinja2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pymysql==1.0.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via -r requirements.in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;werkzeug==2.1.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via flask
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zipp==3.8.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    # via importlib-metadata
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样，我们就得到了一份漂亮的依赖文件，我们还可以清晰的看到某一个依赖包是哪个包的依赖。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -52,16 +113,33 @@ requirements.txt
       <pubDate>Thu, 05 May 2022 09:38:45 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/python-functools/</guid>
-      <description>functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。
-https://docs.python.org/zh-cn/3/library/functools.html
-发现functools里面有几个有意思的函数，记录一下：
-cmp_to_key 将(旧式的)比较函数转换为新式的 key function . 在类似于 sorted() ， min() ， max() ， heapq.nlargest() ， heapq.nsmallest() ， itertools.groupby() 等函数的 key 参数中使用。此函数主要用作将 Python 2 程序转换至新版的转换工具，以保持对比较函数的兼容。
-比较函数意为一个可调用对象，该对象接受两个参数并比较它们，结果为小于则返回一个负数，相等则返回零，大于则返回一个正数。key function则是一个接受一个参数，并返回另一个用以排序的值的可调用对象。
-实例：
-使用sorted + cmp_to_key，实现逆序排序
-from functools import cmp_to_key def mycmp(a, b): return b - a arr = [1,9,3,7,8,2] arr = sorted(arr, key=cmp_to_key(mycmp)) print(arr) 输出：
-[9, 8, 7, 3, 2, 1] 一般的 key function 只接受一个参数，使用cmp_to_key，可以实现自定义的排序逻辑，如上述，也可以实现其他逻辑，比较经典的是 leetcode-179最大数，要求我们将数字按照特定的规律排序，然后返回一个长的字符串，参考答案：
-class Solution: def largestNumber(self, nums: List[int]) -&amp;gt; str: # 第一步：定义比较函数，把最大的放左边 # 第二步：排序 # 第三步：返回结果 def compare(x, y): return int(y+x) - int(x+y) nums = sorted(map(str, nums), key=cmp_to_key(compare)) print(cmp_to_key) return &amp;#34;0&amp;#34; if nums[0]==&amp;#34;0&amp;#34; else &amp;#34;&amp;#34;.</description>
+      <description>&lt;p&gt;functools 模块应用于高阶函数，即参数或（和）返回值为其他函数的函数，如装饰器、sorted函数的key参数等。通常来说，此模块功能适用于所有可调用对象。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.python.org/zh-cn/3/library/functools.html&#34;&gt;https://docs.python.org/zh-cn/3/library/functools.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;发现functools里面有几个有意思的函数，记录一下：&lt;/p&gt;
+&lt;h2 id=&#34;cmp_to_key&#34;&gt;cmp_to_key&lt;/h2&gt;
+&lt;p&gt;将(旧式的)比较函数转换为新式的 &lt;a href=&#34;https://docs.python.org/zh-cn/3/glossary.html#term-key-function&#34;&gt;key function&lt;/a&gt; . 在类似于 &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/functions.html#sorted&#34;&gt;&lt;code&gt;sorted()&lt;/code&gt;&lt;/a&gt; ， &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/functions.html#min&#34;&gt;&lt;code&gt;min()&lt;/code&gt;&lt;/a&gt; ， &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/functions.html#max&#34;&gt;&lt;code&gt;max()&lt;/code&gt;&lt;/a&gt; ， &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/heapq.html#heapq.nlargest&#34;&gt;&lt;code&gt;heapq.nlargest()&lt;/code&gt;&lt;/a&gt; ， &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/heapq.html#heapq.nsmallest&#34;&gt;&lt;code&gt;heapq.nsmallest()&lt;/code&gt;&lt;/a&gt; ， &lt;a href=&#34;https://docs.python.org/zh-cn/3/library/itertools.html#itertools.groupby&#34;&gt;&lt;code&gt;itertools.groupby()&lt;/code&gt;&lt;/a&gt; 等函数的 key 参数中使用。此函数主要用作将 Python 2 程序转换至新版的转换工具，以保持对比较函数的兼容。&lt;/p&gt;
+&lt;p&gt;比较函数意为一个可调用对象，该对象接受两个参数并比较它们，结果为小于则返回一个负数，相等则返回零，大于则返回一个正数。key function则是一个接受一个参数，并返回另一个用以排序的值的可调用对象。&lt;/p&gt;
+&lt;p&gt;实例：&lt;/p&gt;
+&lt;p&gt;使用sorted + cmp_to_key，实现逆序排序&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; functools &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; cmp_to_key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;mycmp&lt;/span&gt;(a, b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; b &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sorted(arr, key&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cmp_to_key(mycmp))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(arr)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[9, 8, 7, 3, 2, 1]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一般的 &lt;code&gt;key function&lt;/code&gt; 只接受一个参数，使用&lt;code&gt;cmp_to_key&lt;/code&gt;，可以实现自定义的排序逻辑，如上述，也可以实现其他逻辑，比较经典的是 &lt;a href=&#34;https://leetcode-cn.com/problems/largest-number/&#34;&gt;leetcode-179最大数&lt;/a&gt;，要求我们将数字按照特定的规律排序，然后返回一个长的字符串，参考答案：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;largestNumber&lt;/span&gt;(self, nums: List[int]) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# 第一步：定义比较函数，把最大的放左边&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# 第二步：排序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# 第三步：返回结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;compare&lt;/span&gt;(x, y): &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; int(y&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;x) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; int(x&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;y)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nums &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sorted(map(str, nums), key&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cmp_to_key(compare))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(cmp_to_key)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; nums[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(nums)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上述的排序，也可以做一个自定义的排序逻辑，如：如果是偶数，排序在前面，奇数排序在后面，然后奇数和偶数各自排序：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -70,9 +148,71 @@ class Solution: def largestNumber(self, nums: List[int]) -&amp;gt; str: # 第一
       <pubDate>Fri, 22 Apr 2022 13:53:32 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/python-socket-bothway-connection/</guid>
-      <description>很久之前玩过的python socket，今天用来做个双向的通信程序。
-服务端代码： server.py
-# coding: utf-8 # tcp stream server import socket import logging import time import datetime as dt from threading import Thread, currentThread # 配置logging logging.basicConfig( level=logging.INFO, format=&amp;#34;%(asctime)s %(levelname)s %(process)s %(threadName)s |%(message)s&amp;#34;, ) class Server: &amp;#34;&amp;#34;&amp;#34; socket 服务端 &amp;#34;&amp;#34;&amp;#34; def __init__(self, host=&amp;#39;localhost&amp;#39;, port=8099): self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) self._sock.bind((host, port)) self.msg = None def read(self, conn: socket.socket = None): &amp;#34;&amp;#34;&amp;#34; 从tcp连接里面读取数据 &amp;#34;&amp;#34;&amp;#34; while True: try: data = conn.recv(1024).decode() except Exception as e: logging.</description>
+      <description>&lt;p&gt;很久之前玩过的python socket，今天用来做个双向的通信程序。&lt;/p&gt;
+&lt;h3 id=&#34;服务端代码&#34;&gt;服务端代码：&lt;/h3&gt;
+&lt;p&gt;server.py&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# coding: utf-8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# tcp stream server&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; socket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; logging
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; time
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; datetime &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; dt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread, currentThread
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 配置logging&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;basicConfig(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;INFO,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    format&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%(asctime)s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%(levelname)s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%(process)s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%(threadName)s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; |&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%(message)s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Server&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34; socket 服务端 &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; __init__(self, host&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;, port&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8099&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_sock &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;socket(socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AF_INET, socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SOCK_STREAM)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind((host, port))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;read&lt;/span&gt;(self, conn: socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34; 从tcp连接里面读取数据 &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; conn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(&lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;recv failed: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[R &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;]&amp;lt;&amp;lt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, currentThread()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getName(), data)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            time&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sleep(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;write&lt;/span&gt;(self, conn: socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34; 向tcp连接里面写入数据 &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;dt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;now()&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; - &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[W &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;]&amp;gt;&amp;gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, currentThread()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getName(), msg)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                conn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Exception&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;send failed: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            time&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sleep(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;serve&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34; 开启服务 &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listen()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Serving...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Waiting for connection...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            conn, addr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;accept()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Recived new conn: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; from &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, conn, addr)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# 开启读写线程处理当前连接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(conn, ))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;write, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(conn, ))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Server()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;serve()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以上就是服务端代码，简单的开启了一个socket服务器，接受连接，然后开启两个线程，每隔一秒，同时向连接中读写数据。&lt;/p&gt;</description>
     </item>
     
   </channel>

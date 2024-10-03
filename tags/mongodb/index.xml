@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>mongodb on Coding and Life</title>
+    <title>Mongodb on Coding and Life</title>
     <link>https://zihuanling.github.io/tags/mongodb/</link>
-    <description>Recent content in mongodb on Coding and Life</description>
+    <description>Recent content in Mongodb on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
@@ -17,13 +17,38 @@
       <pubDate>Wed, 01 Jun 2022 14:02:38 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/python-mongo-generation-time/</guid>
-      <description>有些时候，我们在写入mongo数据的时候，可能需要记录这条数据的插入时间，我们一般情况下回给记录增加一个 create_time。
-实际上，如果我们插入的数据含有 ObjectId 的话，那么其实这个id是包含了生成时间的，同时也可以作为记录的主键，一举多得。
-以python为例，我们有这样一条记录：
-document = { &amp;#34;_id&amp;#34;: ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;), &amp;#34;user&amp;#34;: &amp;#34;mike&amp;#34;, &amp;#34;age&amp;#34;: 19, } 这时候，我们可以使用ObjectId自带的generation_time属性，获取这条记录的插入时间：
-time = ObjectId(&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;).generation_time print(time) 输出：
-datetime.datetime(2019, 12, 20, 8, 48, 5, tzinfo=&amp;lt;bson.tz_util.FixedOffset object at 0x7f874030f9a0&amp;gt;) 需要注意到的是，里面的时区信息，显示的是一个 FixedOffset，即固定偏移，我们看 generation_time 属性的定义：
-utc = FixedOffset(0, &amp;#34;UTC&amp;#34;) &amp;#34;&amp;#34;&amp;#34;Fixed offset timezone representing UTC.&amp;#34;&amp;#34;&amp;#34; class ObjectId(object): # ... 省略其他代码 ... @property def generation_time(self): &amp;#34;&amp;#34;&amp;#34;A :class:`datetime.datetime` instance representing the time of generation for this :class:`ObjectId`. The :class:`datetime.datetime` is timezone aware, and represents the generation time in UTC.</description>
+      <description>&lt;p&gt;有些时候，我们在写入mongo数据的时候，可能需要记录这条数据的插入时间，我们一般情况下回给记录增加一个 create_time。&lt;/p&gt;
+&lt;p&gt;实际上，如果我们插入的数据含有 &lt;code&gt;ObjectId&lt;/code&gt; 的话，那么其实这个id是包含了生成时间的，同时也可以作为记录的主键，一举多得。&lt;/p&gt;
+&lt;p&gt;以python为例，我们有这样一条记录：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;document &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_id&amp;#34;&lt;/span&gt;: ObjectId(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mike&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;age&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候，我们可以使用&lt;code&gt;ObjectId&lt;/code&gt;自带的&lt;code&gt;generation_time&lt;/code&gt;属性，获取这条记录的插入时间：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ObjectId(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5dfc8ac5d3fa12967b8888ec&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;generation_time
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(time)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;datetime.datetime(2019, 12, 20, 8, 48, 5, tzinfo=&amp;lt;bson.tz_util.FixedOffset object at 0x7f874030f9a0&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;需要注意到的是，里面的时区信息，显示的是一个 FixedOffset，即固定偏移，我们看 &lt;code&gt;generation_time&lt;/code&gt; 属性的定义：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;utc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; FixedOffset(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UTC&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Fixed offset timezone representing UTC.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ObjectId&lt;/span&gt;(object):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... 省略其他代码 ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@property&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generation_time&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;A :class:`datetime.datetime` instance representing the time of
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        generation for this :class:`ObjectId`.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        The :class:`datetime.datetime` is timezone aware, and
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        represents the generation time in UTC. It is precise to the
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        second.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        timestamp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; struct&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unpack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;gt;I&amp;#34;&lt;/span&gt;, self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;__id[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;])[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;datetime&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fromtimestamp(timestamp, utc)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到这个属性是从一个时间戳生成的，并且生成的时候指定了固定的 UTC-0 时区，而我们是处于&lt;strong&gt;东八区&lt;/strong&gt;，因此，如果直接使用 &lt;code&gt;generation_time&lt;/code&gt; 属性的话，得到的时间并非我们当前时区的时间，还需要做一个转化，只需要简单的对 &lt;code&gt;datetime.datetime&lt;/code&gt; 对象调用&lt;strong&gt;astimezone&lt;/strong&gt;方法，即可：&lt;/p&gt;</description>
     </item>
     
   </channel>

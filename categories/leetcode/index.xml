@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>leetcode on Coding and Life</title>
+    <title>Leetcode on Coding and Life</title>
     <link>https://zihuanling.github.io/categories/leetcode/</link>
-    <description>Recent content in leetcode on Coding and Life</description>
+    <description>Recent content in Leetcode on Coding and Life</description>
     <image>
       <url>https://zihuanling.github.io/avatar.jpeg</url>
       <link>https://zihuanling.github.io/avatar.jpeg</link>
@@ -17,15 +17,51 @@
       <pubDate>Thu, 28 Apr 2022 22:24:12 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/posts/leetcode-179/</guid>
-      <description>今天做了一道有点意思的算法题目，在这里记录下。提交记录
-leetcode 179: 最大数 给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
-注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
-示例 1：
-输入：nums = [10,2] 输出：&amp;ldquo;210&amp;rdquo; 示例 2：
-输入：nums = [3,30,34,5,9] 输出：&amp;ldquo;9534330&amp;rdquo;
-提示：
-1 &amp;lt;= nums.length &amp;lt;= 100 0 &amp;lt;= nums[i] &amp;lt;= 109
-上最终AC代码： def greater(a, b): # 对比函数，a &amp;gt; b # a, b expect str return int(a + b) - int(b + a) &amp;gt; 0 # 快排 def pivot(arr, low, high): x = arr[high] j = low - 1 for i in range(low, high): if greater2(arr[i], x): j += 1 arr[i], arr[j] = arr[j], arr[i] j += 1 arr[j], arr[high] = arr[high], arr[j] return j def quick_sort(arr, low, high): if low &amp;lt; high: pi = pivot(arr, low, high) quick_sort(arr, low, pi - 1) quick_sort(arr, pi + 1, high) class Solution: def largestNumber(self, nums: List[int]) -&amp;gt; str: nums = [str(n) for n in nums] quick_sort(nums, 0, len(nums) - 1) if nums[0] == &amp;#39;0&amp;#39;: return &amp;#39;0&amp;#39; return &amp;#39;&amp;#39;.</description>
+      <description>&lt;p&gt;今天做了一道有点意思的算法题目，在这里记录下。&lt;a href=&#34;https://leetcode-cn.com/submissions/detail/306795694/&#34;&gt;提交记录&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;leetcode-179-最大数httpsleetcode-cncomproblemslargest-number&#34;&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/largest-number/&#34;&gt;leetcode 179: 最大数&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。&lt;/p&gt;
+&lt;p&gt;注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。&lt;/p&gt;
+&lt;p&gt;示例 1：&lt;/p&gt;
+&lt;p&gt;输入：nums = [10,2]
+输出：&amp;ldquo;210&amp;rdquo;
+示例 2：&lt;/p&gt;
+&lt;p&gt;输入：nums = [3,30,34,5,9]
+输出：&amp;ldquo;9534330&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;提示：&lt;/p&gt;
+&lt;p&gt;1 &amp;lt;= nums.length &amp;lt;= 100
+0 &amp;lt;= nums[i] &amp;lt;= 109&lt;/p&gt;
+&lt;h3 id=&#34;上最终ac代码&#34;&gt;上最终AC代码：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greater&lt;/span&gt;(a, b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 对比函数，a &amp;gt; b&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# a, b expect str&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; int(a &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; b) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; int(b &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; a) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 快排&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pivot&lt;/span&gt;(arr, low, high):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; arr[high]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; low &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(low, high):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; greater2(arr[i], x):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            j &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            arr[i], arr[j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; arr[j], arr[i]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    j &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arr[j], arr[high] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; arr[high], arr[j]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; j
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;quick_sort&lt;/span&gt;(arr, low, high):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; low &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; high:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        pi &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pivot(arr, low, high)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        quick_sort(arr, low, pi &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        quick_sort(arr, pi &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, high)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Solution&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;largestNumber&lt;/span&gt;(self, nums: List[int]) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nums &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [str(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; nums]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        quick_sort(nums, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, len(nums) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; nums[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(nums)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;自己写一个快排有点多此一举的意思，完全可以用到python自带的sorted函数。&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

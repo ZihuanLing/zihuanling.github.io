@@ -10,29 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 03 Oct 2024 17:46:53 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>测试文档！</title>
-      <link>https://zihuanling.github.io/post/test-documents-2nwf4j.html</link>
-      <pubDate>Thu, 03 Oct 2024 17:46:53 +0800</pubDate>
-      
-      <guid>https://zihuanling.github.io/post/test-documents-2nwf4j.html</guid>
-      <description>&lt;h1 id=&#34;测试文档&#34;&gt;测试文档！&lt;/h1&gt;
-&lt;p&gt;让我们使用测试文档来测试一下picgo图床&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
-&lt;p&gt;​&lt;img loading=&#34;lazy&#34; src=&#34;http://nb.lingzihuan.icu/picgo/20241003175037.png&#34; alt=&#34;image&#34;  /&gt;
-​&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://nb.lingzihuan.icu/picgo/20241003175037.png&#34;&gt;http://nb.lingzihuan.icu/picgo/20241003175037.png&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;​&lt;img loading=&#34;lazy&#34; src=&#34;http://nb.lingzihuan.icu/picgo/image-20241003175524-m6u66mq.png&#34; alt=&#34;image&#34;  /&gt;
-​&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
-&lt;p&gt;​&lt;img loading=&#34;lazy&#34; src=&#34;http://nb.lingzihuan.icu/picgo/image-20241003221105-yrnpv7y.png&#34; alt=&#34;image&#34;  /&gt;
-​&lt;/p&gt;
-&lt;p&gt;‍&lt;/p&gt;
-&lt;p&gt;Hello world!!&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Wed, 02 Oct 2024 23:11:05 +0800</lastBuildDate><atom:link href="https://zihuanling.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初识RAG</title>
       <link>https://zihuanling.github.io/post/01first-recognition-rag-z6wl3c.html</link>

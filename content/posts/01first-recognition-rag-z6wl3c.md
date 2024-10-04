@@ -38,7 +38,7 @@ RAG: Retrieval Augmented Generation检索增强生成
 
 ‍
 
-​![](http://discussion.coggle.club/uploads/default/original/1X/8cefa5d442abb702b3b10366bfa127675389a462.jpeg)​
+​![image](https://nb.lingzihuan.icu/picgo/image-20241004220116-cg1rbkp.png)​
 
 ‍
 
@@ -51,7 +51,7 @@ RAG: Retrieval Augmented Generation检索增强生成
 * Retriever： 负责取回符合搜索条件的内容，通过输入找到对于文档
 * ChatModel： 聊天模型，负责生成答案，如GPT
 
-​![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb3a70fc9ed5459aa55b30d1e735a157~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2583&h=1299&s=224560&e=png&b=161f34)​
+​![image](https://nb.lingzihuan.icu/picgo/image-20241004220128-7909m1h.png)​
 
 ### LangChain和RAG的优势和应用场景
 

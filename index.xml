@@ -17,13 +17,23 @@
       <pubDate>Wed, 02 Oct 2024 23:11:05 +0800</pubDate>
       
       <guid>https://zihuanling.github.io/post/01first-recognition-rag-z6wl3c.html</guid>
-      <description>&lt;h1 id=&#34;01-初识rag&#34;&gt;01-初识RAG&lt;/h1&gt;
-&lt;p&gt;让我们走进学习RAG之旅！Let&amp;rsquo;s GO!!!&lt;/p&gt;
-&lt;p&gt;😀&lt;/p&gt;
-&lt;p&gt;我们首先来了解RAG是什么东西！&lt;/p&gt;
-&lt;p&gt;开始吧！&lt;/p&gt;
-&lt;p&gt;​&lt;img loading=&#34;lazy&#34; src=&#34;assets/image-20241003171225-sjvax61.png&#34; alt=&#34;image&#34;  /&gt;
-​&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;初识rag&#34;&gt;初识RAG&lt;/h1&gt;
+&lt;p&gt;RAG: Retrieval Augmented Generation检索增强生成&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;任务说明：了解到现有大模型的缺陷和RAG的优点和流程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;任务要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解大模型现有的缺点&lt;/li&gt;
+&lt;li&gt;理解RAG的流程和实现步骤&lt;/li&gt;
+&lt;li&gt;清楚RAG的需要的技术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打卡要求：阅读LangChain与RAG的&lt;a href=&#34;https://juejin.cn/post/7310569308916334604&#34;&gt;文章 579&lt;/a&gt;和LangChain的&lt;a href=&#34;https://python.langchain.com/docs/tutorials/rag/&#34;&gt;官方文档 228&lt;/a&gt;，列举LangChain能实现的功能。&lt;/p&gt;</description>
     </item>
     
     <item>
